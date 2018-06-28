@@ -68,9 +68,13 @@
       { el: '#okta-login-container' },
       function (res) {
         if (res.status === 'SUCCESS') {
-          window.alert("Reminder for "+res.user.profile.firstName+
-                       ".\n To concentrate communications in Zendesk, avoid sharing your email ("+res.user.profile.login+
-                       ") with customers.");
+          window.alert(
+            "Reminder for " + res.user.profile.firstName + ".\n" +
+            "To concentrate communications, " +
+            "avoid sharing your email (" +
+            res.user.profile.login +
+            ") with customers."
+          );
           res.session.setCookieAndRedirect(redirectUrl);
         }
       },
