@@ -22,7 +22,7 @@
             list-style: none;
         }
 
-        nav {
+        .navbuttons {
             float: left;
             width: 300px;
         }
@@ -36,7 +36,7 @@
     <h2>Ice Cream Portal</h2>
     <h4 style="color:red">@ViewBag.ErrorSummary</h4>
     <div class="clearfix">
-        <nav>
+        <nav class="navbuttons">
             <ul>
                 @if(ViewBag.IsSuccessful)
                 {
