@@ -9,6 +9,5 @@ namespace OktaAPILab.Models.AccountViewModels
     {
         public string status { get; set; }
         public string sessionToken { get; set; }
-        public OktaEmbedded _embedded { get; set; }
     }
 }

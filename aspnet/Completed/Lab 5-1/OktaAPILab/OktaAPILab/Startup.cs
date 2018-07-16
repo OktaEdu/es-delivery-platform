@@ -37,11 +37,6 @@ namespace OktaAPILab
             services.AddTransient<IEmailSender, EmailSender>();
 
             services.AddMvc();
-
-            services.AddScoped<IOktaAuthService, OktaAuthService>();
-            services.AddScoped<IOktaUserService, OktaUserService>();
-
-            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -61,8 +56,6 @@ namespace OktaAPILab
             app.UseStaticFiles();
 
             app.UseAuthentication();
-
-            app.UseSession();
 
             app.UseMvc(routes =>
             {
