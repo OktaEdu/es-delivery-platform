@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
-    <UserSecretsId>aspnet-OktaAPILab-30644B87-0F07-4955-BCC8-F6714E23CB7B</UserSecretsId>
+    <UserSecretsId>aspnet-OktaAPILab-C3A865C0-7CD3-412C-9208-B5425CB5BAD4</UserSecretsId>
   </PropertyGroup>
 
 
@@ -10,7 +10,7 @@
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.3" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.4" PrivateAssets="All" />
-    <PackageReference Include="RestSharp" Version="106.3.1" />
+    <PackageReference Include="Okta.Sdk" Version="1.0.0-alpha7" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,0 +1,12 @@
+C:\Users\Administrator\source\repos\OktaAPILab\OktaAPILab\bin\Debug\netcoreapp2.0\OktaAPILab.deps.json
+C:\Users\Administrator\source\repos\OktaAPILab\OktaAPILab\bin\Debug\netcoreapp2.0\OktaAPILab.runtimeconfig.json
+C:\Users\Administrator\source\repos\OktaAPILab\OktaAPILab\bin\Debug\netcoreapp2.0\OktaAPILab.runtimeconfig.dev.json
+C:\Users\Administrator\source\repos\OktaAPILab\OktaAPILab\bin\Debug\netcoreapp2.0\OktaAPILab.dll
+C:\Users\Administrator\source\repos\OktaAPILab\OktaAPILab\obj\Debug\netcoreapp2.0\OktaAPILab.csprojAssemblyReference.cache
+C:\Users\Administrator\source\repos\OktaAPILab\OktaAPILab\obj\Debug\netcoreapp2.0\OktaAPILab.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\source\repos\OktaAPILab\OktaAPILab\obj\Debug\netcoreapp2.0\OktaAPILab.AssemblyInfoInputs.cache
+C:\Users\Administrator\source\repos\OktaAPILab\OktaAPILab\obj\Debug\netcoreapp2.0\OktaAPILab.AssemblyInfo.cs
+C:\Users\Administrator\source\repos\OktaAPILab\OktaAPILab\bin\Debug\netcoreapp2.0\OktaAPILab.pdb
+C:\Users\Administrator\source\repos\OktaAPILab\OktaAPILab\obj\Debug\netcoreapp2.0\OktaAPILab.dll
+C:\Users\Administrator\source\repos\OktaAPILab\OktaAPILab\obj\Debug\netcoreapp2.0\OktaAPILab.pdb
+C:\Users\Administrator\source\repos\OktaAPILab\OktaAPILab\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs

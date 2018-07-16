@@ -2,6 +2,25 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v2.0": {
+      "FlexibleConfiguration/1.2.1": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "System.ComponentModel.TypeConverter": "4.3.0",
+          "System.IO.FileSystem": "4.3.0",
+          "System.Linq": "4.3.0",
+          "System.Reflection": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Runtime.Extensions": "4.3.0",
+          "YamlDotNet": "4.2.0"
+        },
+        "compile": {
+          "lib/netstandard1.3/FlexibleConfiguration.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/FlexibleConfiguration.dll": {}
+        }
+      },
       "Libuv/1.10.0": {
         "type": "package",
         "dependencies": {
@@ -2820,34 +2839,14 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
-      "Newtonsoft.Json/10.0.1": {
+      "Newtonsoft.Json/10.0.3": {
         "type": "package",
         "dependencies": {
           "Microsoft.CSharp": "4.3.0",
-          "System.Collections": "4.3.0",
+          "NETStandard.Library": "1.6.1",
           "System.ComponentModel.TypeConverter": "4.3.0",
-          "System.Diagnostics.Debug": "4.3.0",
-          "System.Dynamic.Runtime": "4.3.0",
-          "System.Globalization": "4.3.0",
-          "System.IO": "4.3.0",
-          "System.Linq": "4.3.0",
-          "System.Linq.Expressions": "4.3.0",
-          "System.ObjectModel": "4.3.0",
-          "System.Reflection": "4.3.0",
-          "System.Reflection.Extensions": "4.3.0",
-          "System.Resources.ResourceManager": "4.3.0",
-          "System.Runtime": "4.3.0",
-          "System.Runtime.Extensions": "4.3.0",
-          "System.Runtime.Numerics": "4.3.0",
           "System.Runtime.Serialization.Formatters": "4.3.0",
           "System.Runtime.Serialization.Primitives": "4.3.0",
-          "System.Text.Encoding": "4.3.0",
-          "System.Text.Encoding.Extensions": "4.3.0",
-          "System.Text.RegularExpressions": "4.3.0",
-          "System.Threading": "4.3.0",
-          "System.Threading.Tasks": "4.3.0",
-          "System.Xml.ReaderWriter": "4.3.0",
-          "System.Xml.XDocument": "4.3.0",
           "System.Xml.XmlDocument": "4.3.0"
         },
         "compile": {
@@ -2882,6 +2881,23 @@
           "lib/netstandard1.3/NuGet.Frameworks.dll": {}
         }
       },
+      "Okta.Sdk/1.0.0-alpha7": {
+        "type": "package",
+        "dependencies": {
+          "FlexibleConfiguration": "1.2.1",
+          "Microsoft.Extensions.Logging": "1.1.2",
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "10.0.3",
+          "System.Interactive.Async": "3.1.1",
+          "System.ValueTuple": "4.4.0"
+        },
+        "compile": {
+          "lib/netstandard1.3/Okta.Sdk.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Okta.Sdk.dll": {}
+        }
+      },
       "Remotion.Linq/2.1.1": {
         "type": "package",
         "dependencies": {
@@ -2902,15 +2918,6 @@
         },
         "runtime": {
           "lib/netstandard1.0/Remotion.Linq.dll": {}
-        }
-      },
-      "RestSharp/106.3.1": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/RestSharp.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/RestSharp.dll": {}
         }
       },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
@@ -5037,10 +5044,30 @@
         "runtime": {
           "lib/netstandard1.3/Microsoft.WindowsAzure.Storage.dll": {}
         }
+      },
+      "YamlDotNet/4.2.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard1.3/YamlDotNet.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/YamlDotNet.dll": {}
+        }
       }
     }
   },
   "libraries": {
+    "FlexibleConfiguration/1.2.1": {
+      "sha512": "5jZXlxKfitZ6MTCkAo4Mjq93ucXhu1ka+3vUVZdZBCZvqKIz3RebsSiWjQ5OoD2QJ6X+p672wEp0Xc2d95uF7g==",
+      "type": "package",
+      "path": "flexibleconfiguration/1.2.1",
+      "files": [
+        "flexibleconfiguration.1.2.1.nupkg.sha512",
+        "flexibleconfiguration.nuspec",
+        "lib/net45/FlexibleConfiguration.dll",
+        "lib/netstandard1.3/FlexibleConfiguration.dll"
+      ]
+    },
     "Libuv/1.10.0": {
       "sha512": "GsCf4q+eyaI49rCPlgYxdxa1SQCysXFFdSJWdstrwxytg4+VPYLYrXD4AT2rjHVJ+UF7SSWX9CapWEYaU4ejVQ==",
       "type": "package",
@@ -8107,11 +8134,12 @@
         "netstandard.library.nuspec"
       ]
     },
-    "Newtonsoft.Json/10.0.1": {
-      "sha512": "ebWzW9j2nwxQeBo59As2TYn7nYr9BHicqqCwHOD1Vdo+50HBtLPuqdiCYJcLdTRknpYis/DSEOQz5KmZxwrIAg==",
+    "Newtonsoft.Json/10.0.3": {
+      "sha512": "hSXaFmh7hNCuEoC4XNY5DrRkLDzYHqPx/Ik23R4J86Z7PE/Y6YidhG602dFVdLBRSdG6xp9NabH3dXpcoxWvww==",
       "type": "package",
-      "path": "newtonsoft.json/10.0.1",
+      "path": "newtonsoft.json/10.0.3",
       "files": [
+        "LICENSE.md",
         "lib/net20/Newtonsoft.Json.dll",
         "lib/net20/Newtonsoft.Json.xml",
         "lib/net35/Newtonsoft.Json.dll",
@@ -8124,9 +8152,11 @@
         "lib/netstandard1.0/Newtonsoft.Json.xml",
         "lib/netstandard1.3/Newtonsoft.Json.dll",
         "lib/netstandard1.3/Newtonsoft.Json.xml",
-        "lib/portable-net45+win8+wpa81+wp8/Newtonsoft.Json.dll",
-        "lib/portable-net45+win8+wpa81+wp8/Newtonsoft.Json.xml",
-        "newtonsoft.json.10.0.1.nupkg.sha512",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "newtonsoft.json.10.0.3.nupkg.sha512",
         "newtonsoft.json.nuspec",
         "tools/install.ps1"
       ]
@@ -8159,6 +8189,17 @@
         "nuget.frameworks.nuspec"
       ]
     },
+    "Okta.Sdk/1.0.0-alpha7": {
+      "sha512": "fDwUXyAeNMPaOX06BktSDs1EjdmuVRYVDdQH6K1yxQr1PmlBxogYqU6TCsAxao2A9PzcpdeO9enyBLX8nV0KwA==",
+      "type": "package",
+      "path": "okta.sdk/1.0.0-alpha7",
+      "files": [
+        "lib/netstandard1.3/Okta.Sdk.dll",
+        "lib/netstandard1.3/Okta.Sdk.xml",
+        "okta.sdk.1.0.0-alpha7.nupkg.sha512",
+        "okta.sdk.nuspec"
+      ]
+    },
     "Remotion.Linq/2.1.1": {
       "sha512": "IJn0BqkvwEDpP+2qjvci7n4/a9f7DhKESLWb2/uG4xQh3rTkGTBUz69bI4IivCoKkTFAqjXxYDZw2K/npohjsw==",
       "type": "package",
@@ -8176,17 +8217,6 @@
         "lib/portable-net45+win+wpa81+wp80/Remotion.Linq.xml",
         "remotion.linq.2.1.1.nupkg.sha512",
         "remotion.linq.nuspec"
-      ]
-    },
-    "RestSharp/106.3.1": {
-      "sha512": "TmlN7SXjK52zzpQDTuzw7IH3XQ2Svtss/4zvQBKIgf74QIVxvlxoAqQYu1EhNQ1bMSBIQ4aK120BO7W+v8/kiQ==",
-      "type": "package",
-      "path": "restsharp/106.3.1",
-      "files": [
-        "lib/net452/RestSharp.dll",
-        "lib/netstandard2.0/RestSharp.dll",
-        "restsharp.106.3.1.nupkg.sha512",
-        "restsharp.nuspec"
       ]
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
@@ -13268,6 +13298,21 @@
         "windowsazure.storage.8.1.4.nupkg.sha512",
         "windowsazure.storage.nuspec"
       ]
+    },
+    "YamlDotNet/4.2.0": {
+      "sha512": "AedU8P+24XKUUIU4gxzd398Klayy7JgLr26NHuiMPm++zYNmKUMt84FBtZzuhgnjXKW9u1Jm7b/mpJRSZ1UPXQ==",
+      "type": "package",
+      "path": "yamldotnet/4.2.0",
+      "files": [
+        "lib/net35/YamlDotNet.dll",
+        "lib/net35/YamlDotNet.xml",
+        "lib/netstandard1.3/YamlDotNet.dll",
+        "lib/netstandard1.3/YamlDotNet.xml",
+        "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/YamlDotNet.dll",
+        "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/YamlDotNet.xml",
+        "yamldotnet.4.2.0.nupkg.sha512",
+        "yamldotnet.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
@@ -13276,7 +13321,7 @@
       "Microsoft.EntityFrameworkCore.Tools >= 2.0.3",
       "Microsoft.NETCore.App >= 2.0.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.0.4",
-      "RestSharp >= 106.3.1"
+      "Okta.Sdk >= 1.0.0-alpha7"
     ]
   },
   "packageFolders": {
@@ -13339,9 +13384,9 @@
             "target": "Package",
             "version": "[2.0.4, )"
           },
-          "RestSharp": {
+          "Okta.Sdk": {
             "target": "Package",
-            "version": "[106.3.1, )"
+            "version": "[1.0.0-alpha7, )"
           }
         },
         "imports": [
