@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <!--/*/ <th:block th:include="fragments/head :: head"/> /*/-->
+        <style>
+            .navbutton {
+                margin-bottom: 5px;
+                background: #3d85c6;
+                border-radius: 5px;
+                color: #fff;
+                display: inline-block;
+                padding: 8px 20px;
+                font: normal 700 24px/1 'Calibri', sans-serif;
+                text-align: center;
+                text-shadow: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row  justify-content-md-center">
+                <div class="col-md-9">
+                    <img src="img/ice-logo.png"/>
+
+                    <h2>Ice Cream Portal</h2>
+                    <h4 style="color:red" th:if="${error}" th:text="${error}"></h4>
+                    <ul class="nav flex-column">
+                        <li class="nav-item" th:each="app : ${apps}">
+                            <a
+                                    class="navbutton" target="_blank"
+                                    th:href="${app.linkUrl}"
+                            >
+                                <img th:src="${app.logoUrl}"/>
+                                <span th:text="${app.label}"></span>
+                            </a>
+                        </li>
+
+                    </ul>
+                    <section>
+                        <img src="/img/Ice-Cream-3Flavors.jpg" />
+                    </section>
+                </div>
+            </div>
+        </div>
+        <!--/*/ <th:block th:include="fragments/foot :: foot"/> /*/-->
+    </body>
+</html>

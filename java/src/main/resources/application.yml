@@ -1,0 +1,8 @@
+okta:
+  client:
+    orgUrl: https://oktaicephe100.oktapreview.com
+    token: 00ZtHoAQrdhV74GAvtud474ZQl9tS0SkAllHjCIhzL
+spring:
+  thymeleaf:
+    cache: false
+    mode: HTML
