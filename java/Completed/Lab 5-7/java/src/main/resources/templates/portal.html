@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <!--/*/ <th:block th:include="fragments/head :: head"/> /*/-->
+        <style>
+            .navbutton {
+                margin-bottom: 5px;
+                background: #3d85c6;
+                border-radius: 5px;
+                color: #fff;
+                display: inline-block;
+                padding: 8px 20px;
+                font: normal 700 24px/1 'Calibri', sans-serif;
+                text-align: center;
+                text-shadow: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row  justify-content-md-center">
+                <div class="col-md-9">
+                    <img src="img/ice-logo.png"/>
+
+                    <h2>Ice Cream Portal</h2>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <div class="navbutton">Marketing</div>
+                        </li>
+                        <li class="nav-item">
+                            <div class="navbutton">Orders</div>
+                        </li>
+                    </ul>
+                    <section>
+                        <img src="/img/Ice-Cream-3Flavors.jpg" />
+                    </section>
+                </div>
+            </div>
+        </div>
+        <!--/*/ <th:block th:include="fragments/foot :: foot"/> /*/-->
+    </body>
+</html>
