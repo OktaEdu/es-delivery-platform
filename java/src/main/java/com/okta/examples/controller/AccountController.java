@@ -37,16 +37,8 @@ public class AccountController {
     private OktaAuthService oktaAuthService;
     private Client client;
 
-    public AccountController(OktaAuthService oktaAuthService) {
-        this.oktaAuthService = oktaAuthService;
-    }
-
     @PostConstruct
     void setup() {
-        this.client = Clients.builder()
-                .setOrgUrl(orgUrl)
-                .setClientCredentials(new TokenClientCredentials(apiToken))
-                .build();
     }
 
     @GetMapping("/register")
@@ -62,26 +54,6 @@ public class AccountController {
 
         Map<String, String> regResponse = new HashMap<>();
 
-        try {
-            User user = UserBuilder.instance()
-                    .setEmail(oktaAuthRequest.getUsername())
-                    .setPassword(oktaAuthRequest.getPassword())
-                    .buildAndCreate(client);
-
-            regResponse.put(
-                    "status", "Status: " + user.getStatus().toString()
-            );
-            regResponse.put("userId", "User ID: " + user.getId());
-        } catch (ResourceException e) {
-            regResponse.put(
-                    "statusCode", "HTTP Status Code: " + e.getStatus()
-            );
-            regResponse.put(
-                    "errorSummary",
-                    "Error Summary: " + e.getCauses().get(0).getSummary()
-            );
-        }
-
         return new ModelAndView("register", regResponse);
     }
 
@@ -95,30 +67,6 @@ public class AccountController {
         @ModelAttribute OktaAuthRequest oktaAuthRequest, HttpServletRequest request, HttpServletResponse response
     ) throws IOException {
         Map<String, String> authResponse = new HashMap<>();
-        try {
-            AuthenticationResponse oktaAuthResponse =
-                    oktaAuthService.authenticate(oktaAuthRequest);
-            authResponse.put(
-                    "Status",
-                    "Status: " + oktaAuthResponse.getStatusString()
-            );
-            authResponse.put(
-                    "SessionToken",
-                    "Session Token: " + oktaAuthResponse.getSessionToken()
-            );
-           // return new ModelAndView("portal", authResponse);
-            HttpSession session = request.getSession(true);
-            session.setAttribute("userId", oktaAuthResponse.getUser().getId());
-            String redirectToOktaUrl = orgUrl + "/login/sessionCookieRedirect";
-            redirectToOktaUrl += "?token=" + oktaAuthResponse.getSessionToken();
-            redirectToOktaUrl += "&redirectUrl=http://localhost:8080/portal";
-            response.sendRedirect(redirectToOktaUrl);
-
-        } catch (Exception e) {
-            authResponse.put(
-                    "ErrorSummary", "Error: " + e.getMessage()
-            );
-        }
 
         return new ModelAndView("login", authResponse);
     }
