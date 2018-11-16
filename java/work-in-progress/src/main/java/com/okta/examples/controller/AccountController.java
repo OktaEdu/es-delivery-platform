@@ -1,7 +1,6 @@
 package com.okta.examples.controller;
 
 import com.okta.authn.sdk.resource.AuthenticationResponse;
-import com.okta.examples.model.OktaAuthRequest;
 import com.okta.examples.service.OktaAuthService;
 import com.okta.sdk.authc.credentials.TokenClientCredentials;
 import com.okta.sdk.client.Client;
@@ -47,11 +46,7 @@ public class AccountController {
     }
 
     @PostMapping("/register")
-    public ModelAndView doRegister(@ModelAttribute OktaAuthRequest oktaAuthRequest) {
-        Assert.notNull(oktaAuthRequest);
-        Assert.notNull(oktaAuthRequest.getUsername());
-        Assert.notNull(oktaAuthRequest.getPassword());
-
+    public ModelAndView doRegister() {
         Map<String, String> regResponse = new HashMap<>();
 
         return new ModelAndView("register", regResponse);
@@ -64,7 +59,7 @@ public class AccountController {
 
     @PostMapping("/login")
     public ModelAndView doLogin(
-        @ModelAttribute OktaAuthRequest oktaAuthRequest, HttpServletRequest request, HttpServletResponse response
+        HttpServletRequest request, HttpServletResponse response
     ) throws IOException {
         Map<String, String> authResponse = new HashMap<>();
 

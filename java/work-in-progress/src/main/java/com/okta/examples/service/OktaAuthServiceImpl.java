@@ -5,7 +5,6 @@ import com.okta.authn.sdk.AuthenticationStateHandlerAdapter;
 import com.okta.authn.sdk.client.AuthenticationClient;
 import com.okta.authn.sdk.client.AuthenticationClients;
 import com.okta.authn.sdk.resource.AuthenticationResponse;
-import com.okta.examples.model.OktaAuthRequest;
 import com.okta.sdk.lang.Assert;
 import com.okta.sdk.resource.ResourceException;
 import org.springframework.beans.factory.annotation.Value;
@@ -24,14 +23,6 @@ public class OktaAuthServiceImpl implements OktaAuthService {
     @PostConstruct
     public void setup() {
 
-    }
-
-    public AuthenticationResponse authenticate(OktaAuthRequest oktaAuthRequest) throws AuthenticationException {
-        Assert.notNull(oktaAuthRequest);
-        Assert.notNull(oktaAuthRequest.getUsername());
-        Assert.notNull(oktaAuthRequest.getPassword());
-
-        return null;
     }
 
     class EmptyAuthenticationStateHandlerAdapter extends AuthenticationStateHandlerAdapter {

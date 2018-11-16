@@ -22,10 +22,4 @@ public class OktaUserServiceImpl implements OktaUserService {
 
     @Value("#{ @environment['okta.client.token'] }")
     private String apiToken;
-
-    public List<OktaAppLink> getAppLinks(String userId) {
-        Assert.notNull(userId);
-
-        return null;
-    }
 }
