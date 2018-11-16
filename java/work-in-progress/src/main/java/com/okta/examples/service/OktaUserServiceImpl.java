@@ -1,6 +1,5 @@
 package com.okta.examples.service;
 
-import com.okta.examples.model.OktaAppLink;
 import com.okta.sdk.lang.Assert;
 import org.apache.http.client.fluent.Request;
 import org.slf4j.Logger;
