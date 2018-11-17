@@ -24,21 +24,18 @@ public class OktaAuthServiceImpl implements OktaAuthService {
     @PostConstruct
     public void setup() {
         client = AuthenticationClients.builder()
-                .setOrgUrl(orgUrl)
-                .build();
+            .setOrgUrl(orgUrl)
+            .build();
     }
 
     @Override
     public AuthenticationResponse authenticate(OktaAuthRequest oktaAuthRequest) throws AuthenticationException {
-        Assert.notNull(oktaAuthRequest);
-        Assert.notNull(oktaAuthRequest.getUsername());
-        Assert.notNull(oktaAuthRequest.getPassword());
 
         return client.authenticate(
-                oktaAuthRequest.getUsername(),
-                oktaAuthRequest.getPassword(),
-                null,
-                new EmptyAuthenticationStateHandlerAdapter()
+            oktaAuthRequest.getUsername(),
+            oktaAuthRequest.getPassword(),
+            null,
+            new EmptyAuthenticationStateHandlerAdapter()
         );
     }
 
