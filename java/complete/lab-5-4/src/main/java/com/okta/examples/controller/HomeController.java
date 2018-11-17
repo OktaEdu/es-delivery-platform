@@ -1,6 +1,5 @@
 package com.okta.examples.controller;
 
-import com.okta.examples.model.OktaAppLink;
 import com.okta.examples.service.OktaUserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,5 +25,4 @@ public class HomeController {
 
         return mav;
     }
-
 }
