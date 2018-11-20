@@ -40,9 +40,9 @@ public class AccountController {
     @PostConstruct
     void setup() {
         this.client = Clients.builder()
-                .setOrgUrl(orgUrl)
-                .setClientCredentials(new TokenClientCredentials(apiToken))
-                .build();
+            .setOrgUrl(orgUrl)
+            .setClientCredentials(new TokenClientCredentials(apiToken))
+            .build();
     }
 
     @GetMapping("/register")
@@ -52,29 +52,25 @@ public class AccountController {
 
     @PostMapping("/register")
     public ModelAndView doRegister(@ModelAttribute OktaAuthRequest oktaAuthRequest) {
-        Assert.notNull(oktaAuthRequest);
-        Assert.notNull(oktaAuthRequest.getUsername());
-        Assert.notNull(oktaAuthRequest.getPassword());
-
         Map<String, String> regResponse = new HashMap<>();
 
         try {
             User user = UserBuilder.instance()
-                    .setEmail(oktaAuthRequest.getUsername())
-                    .setPassword(oktaAuthRequest.getPassword())
-                    .buildAndCreate(client);
+                .setEmail(oktaAuthRequest.getUsername())
+                .setPassword(oktaAuthRequest.getPassword())
+                .buildAndCreate(client);
 
             regResponse.put(
-                    "status", "Status: " + user.getStatus().toString()
+                "status", "Status: " + user.getStatus().toString()
             );
             regResponse.put("userId", "User ID: " + user.getId());
         } catch (ResourceException e) {
             regResponse.put(
-                    "statusCode", "HTTP Status Code: " + e.getStatus()
+                "statusCode", "HTTP Status Code: " + e.getStatus()
             );
             regResponse.put(
-                    "errorSummary",
-                    "Error Summary: " + e.getCauses().get(0).getSummary()
+                "errorSummary",
+                "Error Summary: " + e.getCauses().get(0).getSummary()
             );
         }
 
@@ -88,7 +84,7 @@ public class AccountController {
 
     @PostMapping("/login")
     public ModelAndView doLogin(
-        @ModelAttribute OktaAuthRequest oktaAuthRequest, HttpServletRequest request, HttpServletResponse response
+        HttpServletRequest request, HttpServletResponse response
     ) throws IOException {
         Map<String, String> authResponse = new HashMap<>();
 

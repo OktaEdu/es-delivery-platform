@@ -1,6 +1,5 @@
 package com.okta.examples.service;
 
-import com.okta.examples.model.OktaAppLink;
 import com.okta.sdk.lang.Assert;
 import org.apache.http.client.fluent.Request;
 import org.slf4j.Logger;
@@ -22,10 +21,4 @@ public class OktaUserServiceImpl implements OktaUserService {
 
     @Value("#{ @environment['okta.client.token'] }")
     private String apiToken;
-
-    public List<OktaAppLink> getAppLinks(String userId) {
-        Assert.notNull(userId);
-
-        return null;
-    }
 }

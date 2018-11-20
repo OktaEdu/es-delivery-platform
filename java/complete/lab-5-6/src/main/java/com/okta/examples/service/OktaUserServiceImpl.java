@@ -25,20 +25,18 @@ public class OktaUserServiceImpl implements OktaUserService {
 
     @Override
     public List<OktaAppLink> getAppLinks(String userId) {
-        Assert.notNull(userId);
-
         try {
             InputStream is = Request.Get(
-                    orgUrl + "/api/v1/users/" + userId + "/appLinks"
+                orgUrl + "/api/v1/users/" + userId + "/appLinks"
             )
-                    .addHeader("Cache-Control", "no-cache")
-                    .addHeader("Authorization", "SSWS " + apiToken)
-                    .addHeader("Accept", "application/json")
-                    .execute().returnContent().asStream();
-            return mapper.readValue(is, OKTA_LIST_APP_LINK_TYPE);
+                .addHeader("Cache-Control", "no-cache")
+                .addHeader("Authorization", "SSWS " + apiToken)
+                .addHeader("Accept", "application/json")
+                .execute().returnContent().asStream();
+            return mapper.readValue(is, List.class);
         } catch (IOException e) {
             logger.error(
-                    "Unable to get appLinks: {}", e.getMessage(), e
+                "Unable to get appLinks: {}", e.getMessage(), e
             );
             return null;
         }
