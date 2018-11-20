@@ -224,7 +224,7 @@ namespace OktaAPILab.Controllers
             ViewData["ReturnUrl"] = returnUrl;
             OktaClientConfiguration oktaConfig = new OktaClientConfiguration
             {
-                OrgUrl = oktaUrl,
+                OktaDomain = oktaUrl,
                 Token = oktaApiToken
             };
             OktaClient oktaClient = new OktaClient(oktaConfig);

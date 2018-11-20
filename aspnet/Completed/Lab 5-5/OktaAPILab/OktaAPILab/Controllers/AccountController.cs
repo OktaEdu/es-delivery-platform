@@ -227,25 +227,40 @@ namespace OktaAPILab.Controllers
         public async Task<IActionResult> Register(RegisterViewModel model, string returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
+            OktaClientConfiguration oktaConfig = new OktaClientConfiguration
+            {
+                OktaDomain = oktaUrl,
+                Token = oktaApiToken
+            };
+            OktaClient oktaClient = new OktaClient(oktaConfig);
+
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-                var result = await _userManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
+                UserProfile oktaUserProfile = new UserProfile
                 {
-                    _logger.LogInformation("User created a new account with password.");
+                    Login = model.Email,
+                    Email = model.Email
+                };
 
-                    var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                    var callbackUrl = Url.EmailConfirmationLink(user.Id, code, Request.Scheme);
-                    await _emailSender.SendEmailConfirmationAsync(model.Email, callbackUrl);
+                var oktaUser = new CreateUserWithPasswordOptions
+                {
+                    Profile = oktaUserProfile,
+                    Password = model.Password,
+                    Activate = true
+                };
 
-                    await _signInManager.SignInAsync(user, isPersistent: false);
-                    _logger.LogInformation("User created a new account with password.");
-                    return RedirectToLocal(returnUrl);
+                try
+                {
+                    var newUser = await oktaClient.Users.CreateUserAsync(oktaUser);
+                    ViewBag.Status = "Status: " + newUser["status"];
+                    ViewBag.UserId = "User ID: " + newUser["id"];
                 }
-                AddErrors(result);
+                catch (OktaApiException e)
+                {
+                    ViewBag.StatusCode = "HTTP Status Code: " + e.StatusCode;
+                    ViewBag.ErrorSummary = "Error Summary: " + e.ErrorSummary;
+                }
             }
-
             // If we got this far, something failed, redisplay form
             return View(model);
         }
