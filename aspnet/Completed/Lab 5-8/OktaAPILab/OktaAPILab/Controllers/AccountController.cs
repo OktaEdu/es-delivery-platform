@@ -223,16 +223,15 @@ namespace OktaAPILab.Controllers
             return View();
         }
 
-        [HttpPost]
+       [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterViewModel model, string returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
-
             OktaClientConfiguration oktaConfig = new OktaClientConfiguration
             {
-                OrgUrl = oktaUrl,
+                OktaDomain = oktaUrl,
                 Token = oktaApiToken
             };
             OktaClient oktaClient = new OktaClient(oktaConfig);
@@ -257,13 +256,13 @@ namespace OktaAPILab.Controllers
                     var newUser = await oktaClient.Users.CreateUserAsync(oktaUser);
                     ViewBag.Status = "Status: " + newUser["status"];
                     ViewBag.UserId = "User ID: " + newUser["id"];
-                } catch (OktaApiException e)
+                }
+                catch (OktaApiException e)
                 {
                     ViewBag.StatusCode = "HTTP Status Code: " + e.StatusCode;
                     ViewBag.ErrorSummary = "Error Summary: " + e.ErrorSummary;
                 }
             }
-
             // If we got this far, something failed, redisplay form
             return View(model);
         }
