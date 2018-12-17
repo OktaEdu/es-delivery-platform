@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="none" />
+
+    <!-- MaterializeCSS -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+    <title>Sign in</title>
+    {{{SignInWidgetResources}}}
+</head>
+<body>
+    <div class="login-bg-image" style="background-image: {{bgImageUrl}}"></div>
+    <div id="okta-login-container"></div>
+
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large red">
+            <i class="large material-icons">help</i>
+        </a>
+        <ul>
+            <li><a class="btn-floating red" href="https://www.okta.com/services/training/" target="_blank"><i class="material-icons">chat</i></a></li>
+            <li><a class="btn-floating yellow darken-1" href="https://www.pinterest.com/oktaice/okta-ice/" target="_blank"><i class="material-icons">share</i></a></li>
+        </ul>
+    </div>
+
+    <!--
+        "OktaUtil" defines a global OktaUtil object
+        that contains methods used to complete the Okta login flow.
+     -->
+    {{{OktaUtil}}}
+
+    <script type="text/javascript">
+        // "config" object contains default widget configuration
+        // with any custom overrides defined in your admin settings.
+        var config = {{{config}}};
+
+        // Render the Okta Sign-In Widget
+        var oktaSignIn = new OktaSignIn(config);
+        oktaSignIn.renderEl({ el: '#okta-login-container' },
+            OktaUtil.completeLogin,
+            function(error) {
+                // Logs errors that occur when configuring the widget.
+                // Remove or replace this with your own custom error handler.
+                console.log(error.message, error);
+            }
+        );
+    </script>
+</body>
+</html>
