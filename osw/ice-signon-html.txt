@@ -13,6 +13,22 @@
 
     <title>Sign in</title>
     {{{SignInWidgetResources}}}
+<style>
+    body {
+      background-image: url("https://www.okta.com/sites/default/files/images/quicklinks/OktaBG6_5_600.jpg");
+      background-size: cover;
+    }
+    #okta-sign-in .okta-sign-in-header {
+      background-color: #FFFFEE;
+    }
+    #okta-sign-in .auth-content {
+      background-color: #FF5C5C;
+      color: #000000;
+    }
+    #okta-sign-in .okta-form-title{
+      color: #FFFFFF;
+    }
+  </style>
 </head>
 <body>
     <div class="login-bg-image" style="background-image: {{bgImageUrl}}"></div>
