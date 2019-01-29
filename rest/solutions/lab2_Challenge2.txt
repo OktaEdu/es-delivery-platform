@@ -1,5 +1,5 @@
 {
-  "label": "Chariot",
+  "label": "Okta Ice – Secret Recipes",
   "visibility": {
     "autoSubmitToolbar": false,
     "hide": {
@@ -17,7 +17,7 @@
   },
   "settings": {
     "signOn": {
-      "redirectUrl": "https://www.chariot.com/auth/login",
-      "loginUrl": "https://www.chariot.com/auth/login"
+      "redirectUrl": "http://login.oktaice.cloud",
+      "loginUrl": "http://login.oktaice.cloud"
     }
   }}
