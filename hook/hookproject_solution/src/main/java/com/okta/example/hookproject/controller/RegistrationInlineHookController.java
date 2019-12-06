@@ -12,6 +12,7 @@ import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -34,10 +35,10 @@ public class RegistrationInlineHookController {
         JSONObject eventBody = RequestConverter.httpToJSON(request);
         JSONObject userProfile = eventBody.getJSONObject("data").getJSONObject("userProfile");
         String username = userProfile.getString("login");
-        String ssn = userProfile.getString("ssn");
 
         //Check if the input data is valid
-        if (username != null & ssn != null) {
+        if (!userProfile.isNull("ssn")) {
+            String ssn = userProfile.getString("ssn");
             EmployeeBasicInfo newEmployeeFromOkta = new EmployeeBasicInfo(username, ssn);
 
             //Call the 3rd party DB to get employee ssn based on the username.
@@ -47,16 +48,17 @@ public class RegistrationInlineHookController {
             //Compare the employee payloads
             //if the ssn is the same, allow the registration
             if (newEmployeeFromOkta.getSsn().equals(employeeFromDB.getSsn())) {
-                Value value = new Value("ALLOW");
+                HashMap<String, String> value = new HashMap<>();
+                value.put("ssn", "");
                 command1.setValue(value);
-                command1.setType("com.okta.action.update");
+                command1.setType("com.okta.user.profile.update");
                 commandsList.add(command1);
-
                 response.setCommands(commandsList);
 
             } else {
                 //If SSN doesn't match, deny the registration with error messgae SSN is not matching
-                Value value = new Value("DENY");
+                HashMap<String, String> value = new HashMap<>();
+                value.put("registration", "DENY");
                 command1.setValue(value);
                 command1.setType("com.okta.action.update");
                 commandsList.add(command1);
@@ -74,12 +76,13 @@ public class RegistrationInlineHookController {
         } else {
 
             // Compose the response body to okta with Deny action and error message that both username and SSN are required
-            Value value = new Value("DENY");
+            HashMap<String, String> value = new HashMap<>();
+            value.put("registration", "DENY");
             command1.setValue(value);
             command1.setType("com.okta.action.update");
             commandsList.add(command1);
 
-            errorCauses.setErrorSummary("The request payload was not in the expected format. Email and SSN are required.");
+            errorCauses.setErrorSummary("The request payload was not in the expected format. SSN is required.");
             errorCauses.setReason("INVALID_PAYLOAD");
             error.setErrorSummary("Invalid request payload");
             causesList.add(errorCauses);
@@ -88,9 +91,6 @@ public class RegistrationInlineHookController {
             response.setCommands(commandsList);
             response.setError(error);
         }
-
-
-
 
         System.out.println(response.toString());
 
