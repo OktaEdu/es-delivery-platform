@@ -55,8 +55,8 @@ public class RegistrationInlineHookController {
                 commandsList.add(command1);
                 response.setCommands(commandsList);
 
+            //If SSN doesn't match, deny the registration with error messgae SSN is not matching
             } else {
-                //If SSN doesn't match, deny the registration with error messgae SSN is not matching
                 HashMap<String, String> value = new HashMap<>();
                 value.put("registration", "DENY");
                 command1.setValue(value);
@@ -73,9 +73,8 @@ public class RegistrationInlineHookController {
                 response.setError(error);
             }
 
-        } else {
-
             // Compose the response body to okta with Deny action and error message that both username and SSN are required
+        } else {
             HashMap<String, String> value = new HashMap<>();
             value.put("registration", "DENY");
             command1.setValue(value);

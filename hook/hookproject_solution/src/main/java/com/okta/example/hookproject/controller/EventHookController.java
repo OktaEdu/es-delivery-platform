@@ -46,6 +46,8 @@ public class EventHookController {
         VerificationResponse response = new VerificationResponse();
         response.setVerification(verification);
 
+        System.out.println(verification);
+
         return response;
 
     }

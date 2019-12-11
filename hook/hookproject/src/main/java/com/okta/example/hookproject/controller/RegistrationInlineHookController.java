@@ -12,6 +12,7 @@ import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -36,19 +37,14 @@ public class RegistrationInlineHookController {
 
             //Call the 3rd party DB to get employee ssn based on the username.
 
-
             //Compare the employee payloads
             //if the ssn is the same, allow the registration
 
-                //If SSN doesn't match, deny the registration with error messgae SSN is not matching
+            //If SSN doesn't match, deny the registration with error messgae SSN is not matching
 
+            //Compose the response body to okta with Deny action and error message that SSN is required
 
-
-            // Compose the response body to okta with Deny action and error message that both username and SSN are required
-
-
-
-
+        System.out.println(response.toString());
 
         return response;
 

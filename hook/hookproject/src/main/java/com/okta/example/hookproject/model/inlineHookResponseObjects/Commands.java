@@ -1,8 +1,11 @@
 package com.okta.example.hookproject.model.inlineHookResponseObjects;
 
+import java.util.HashMap;
+
 public class Commands {
     String type;
-    Value value;
+
+    public HashMap<String, String> value;
 
     public String getType() {
         return type;
@@ -12,16 +15,12 @@ public class Commands {
         this.type = type;
     }
 
-    public Value getValue() {
+    public HashMap getValue() {
         return value;
     }
 
-    public void setValue(Value value) {
+    public void setValue(HashMap value) {
         this.value = value;
     }
 
-//    public Commands(String type, Value value) {
-//        this.type = type;
-//        this.value = value;
-//    }
 }
