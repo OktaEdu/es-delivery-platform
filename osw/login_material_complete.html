@@ -9,7 +9,7 @@
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <!-- Auth JS -->
-    <script src="https://ok1static.oktacdn.com/assets/js/sdk/okta-auth-js/1.6.0/okta-auth-js.min.js" type="text/javascript"></script>
+    <script src="https://ok1static.oktacdn.com/assets/js/sdk/okta-auth-js/2.0.1/okta-auth-js.min.js" type="text/javascript"></script>
   </head>
 
   <body>
@@ -45,7 +45,7 @@
       </div>
       <div id="login" class="col s12">
         <h5>Login</h5>
-        <!-- <p>It would be awesome if this custom form could log into Okta.</p> -->
+        <p>It would be awesome if this custom form could log into Okta.</p>
         <form class="col s12">
           <div class="row">
             <div class="input-field col s12 m6">
@@ -96,21 +96,30 @@
     <script type="text/javascript">
   		function login(){
         var orgUrl = 'https://oktaiceXXX.oktapreview.com';
-        var authClient = new OktaAuth({url: orgUrl});
-        var redirectUrl = 'https://oktaiceXXX.oktapreview.com/home/zendesk/0oaaocihgcJjpJm8E0h7/120';
-        var login = document.getElementById('uid').value + "@" + document.getElementById('domain').value;
-        console.log(login);
+        var redirectUrl = 'http://promos-red.oktaice.com:8081/login';
+        var clientId = '0oXXXXXXXXXXX';
+        var authClient = new OktaAuth({
+          url: orgUrl,
+          clientId:clientId,
+          redirectUri : redirectUrl
+        });
+        var user = document.getElementById('uid').value + "@" + document.getElementById('domain').value;
+        console.log(user);
+
         authClient.signIn({
-          username: login,
+          username: user,
           password: document.getElementById('password').value
         })
-        .then(function(transaction) {
-          if (transaction.status === 'SUCCESS') {
-            authClient.session.setCookieAndRedirect(transaction.sessionToken, redirectUrl); // Sets a cookie on redirect
-          } else {
-            alert ('We cannot handle the ' + transaction.status + ' status');
+        .then(
+          res=>{
+          if (res.status==='SUCCESS'){
+            authClient.token.getWithRedirect({
+              sessionToken:res.sessionToken,
+              responseType:'id_token'
+            });
           }
-        })
+        }
+      )
         .fail(function(err) {
           console.error(err);
         });
