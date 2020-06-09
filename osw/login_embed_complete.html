@@ -63,19 +63,13 @@
         selfServiceUnlock: true
       }
     });
-    var redirectUrl = 'https://oktaice398.oktapreview.com/home/oktaice398_oktaicesecretrecipes_2/0xxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
+
+    var appSsoUrl = 'http://promos-red.oktaice.com:8081/login';
     oktaSignIn.renderEl(
       { el: '#okta-login-container' },
       function (res) {
         if (res.status === 'SUCCESS') {
-          window.alert(
-            "Reminder for " + res.user.profile.firstName + ".\n" +
-            "To concentrate communications, " +
-            "avoid sharing your email (" +
-            res.user.profile.login +
-            ") with customers."
-          );
-          res.session.setCookieAndRedirect(redirectUrl);
+          res.session.setCookieAndRedirect(appSsoUrl);
         }
       },
       function error(err) {

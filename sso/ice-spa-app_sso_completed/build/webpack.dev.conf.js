@@ -21,7 +21,8 @@ module.exports = merge(baseWebpackConfig, {
     new webpack.DefinePlugin({
       'process.env': config.dev.env,
       'nav.purple': `"${process.env.NAV_PURPLE ? process.env.NAV_PURPLE : ''}"`,
-      'okta.client.id': `"${process.env.OKTA_CLIENT_ID ? process.env.OKTA_CLIENT_ID : ''}"`
+      'okta.client.id': `"${process.env.OKTA_CLIENT_ID ? process.env.OKTA_CLIENT_ID : ''}"`,
+      'okta.subdomain': `"${process.env.OKTA_SUBDOMAIN ? process.env.OKTA_SUBDOMAIN : ''}"`
     }),
     // https://github.com/glenjamin/webpack-hot-middleware#installation--usage
     new webpack.HotModuleReplacementPlugin(),
