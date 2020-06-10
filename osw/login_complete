@@ -64,12 +64,11 @@
       }
     });
 
-    var redirectUrl = 'http://promos-red.oktaice.com:8081/login';
     oktaSignIn.renderEl(
       { el: '#okta-login-container' },
       function (res) {
         if (res.status === 'SUCCESS') {
-          res.session.setCookieAndRedirect(redirectUrl);
+          res.session.setCookieAndRedirect(orgUrl);
         }
       },
       function error(err) {
