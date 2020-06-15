@@ -42,7 +42,41 @@ public class RegistrationInlineHookController {
 
             //If SSN doesn't match, deny the registration with error messgae SSN is not matching
 
-            //Compose the response body to okta with Deny action and error message that SSN is required
+//    } else {
+//        HashMap<String, String> value = new HashMap<>();
+//        value.put("registration", "DENY");
+//        command1.setValue(value);
+//        command1.setType("com.okta.action.update");
+//        commandsList.add(command1);
+//
+//        errorCauses.setErrorSummary("SSN doesn't match. Please try again.");
+//        errorCauses.setReason("INVALID_PAYLOAD");
+//        error.setErrorSummary("Invalid request payload");
+//        causesList.add(errorCauses);
+//        error.setErrorCauses(causesList);
+//
+//        response.setCommands(commandsList);
+//        response.setError(error);
+//    }
+
+    //Compose the response body to okta with Deny action and error message that SSN is required
+
+//    } else {
+//        HashMap<String, String> value = new HashMap<>();
+//        value.put("registration", "DENY");
+//        command1.setValue(value);
+//        command1.setType("com.okta.action.update");
+//        commandsList.add(command1);
+//
+//        errorCauses.setErrorSummary("The request payload was not in the expected format. SSN is required.");
+//        errorCauses.setReason("INVALID_PAYLOAD");
+//        error.setErrorSummary("Invalid request payload");
+//        causesList.add(errorCauses);
+//        error.setErrorCauses(causesList);
+//
+//        response.setCommands(commandsList);
+//        response.setError(error);
+//    }
 
         System.out.println(response.toString());
 
@@ -53,6 +87,9 @@ public class RegistrationInlineHookController {
     private String getEmployees(String username) {
 
         String employee = "";
+
+//        RestTemplate restTemplate = new RestTemplate();
+//        String employee = restTemplate.getForObject(uri, String.class);
 
         return employee;
 
