@@ -39,7 +39,7 @@
   </div>
 
   <script type="text/javascript">
-		var orgUrl = 'https://oktaiceXXX.oktapreview.com';
+		var orgUrl = 'https://oktaicexxx.oktapreview.com';
     var oktaSignIn = new OktaSignIn({
       baseUrl: orgUrl,
       logo: '/img/ice-logo.png',
@@ -63,18 +63,12 @@
         selfServiceUnlock: true
       }
     });
-    var redirectUrl = 'https://oktaiceXXX.oktapreview.com/home/salesforce/appidXXX/24';
+
+    var redirectUrl = 'http://promos-red.oktaice.com:8081/login';
     oktaSignIn.renderEl(
       { el: '#okta-login-container' },
       function (res) {
         if (res.status === 'SUCCESS') {
-          window.alert(
-            "Reminder for " + res.user.profile.firstName + ".\n" +
-            "To concentrate communications, " +
-            "avoid sharing your email (" +
-            res.user.profile.login +
-            ") with customers."
-          );
           res.session.setCookieAndRedirect(redirectUrl);
         }
       },
