@@ -1,8 +1,8 @@
-<template>
+b<template>
   <div id="app">
     <img src="../assets/ice-logo.png">
     <!-- Menu -->
-    <nav class="navbar navbar-default" v-bind:class="{ 'nav-purple': showNavPurple }">
+  <nav class="navbar navbar-default" style="background-color: green;">
       <div class="container">
         <ul class="nav navbar-nav">
           <li><router-link to="/home">Home</router-link></li>
