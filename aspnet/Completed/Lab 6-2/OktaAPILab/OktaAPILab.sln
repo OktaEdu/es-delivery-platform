@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OktaAPILab", "OktaAPILab\OktaAPILab.csproj", "{F93192D6-B4E7-41EB-9BBD-45415543A9EE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F93192D6-B4E7-41EB-9BBD-45415543A9EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F93192D6-B4E7-41EB-9BBD-45415543A9EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F93192D6-B4E7-41EB-9BBD-45415543A9EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F93192D6-B4E7-41EB-9BBD-45415543A9EE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DDC24873-0D1F-4E27-B3E8-5553B01AB90A}
+	EndGlobalSection
+EndGlobal
