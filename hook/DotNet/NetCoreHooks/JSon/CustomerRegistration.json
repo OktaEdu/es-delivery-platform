@@ -1,0 +1,32 @@
+{
+  "eventId": "9uEslXd4QfeO50KicuOPrA",
+  "eventTime": "2020-08-31T16:16:06.000Z",
+  "eventType": "com.okta.user.pre-registration",
+  "eventTypeVersion": "1.0",
+  "contentType": "application/json",
+  "cloudEventVersion": "0.1",
+  "source": "regtoiek37OwPMmy70h7",
+  "data": {
+    "context": {
+      "request": {
+        "id": "X00iRtJKfRGfdkiotS7JrAAABd4",
+        "method": "POST",
+        "url": {
+          "value": "/api/v1/registration/regtoiek37OwPMmy70h7/register"
+        },
+        "ipAddress": "73.184.245.132"
+      }
+    },
+    "userProfile": {
+      "lastName": "Aaron",
+      "firstName": "Hank",
+      "login": "hank.aaron@oktaice.com",
+      "email": "hank.aaron@oktaice.com",
+      "ssn": "123-45-6789"
+    },
+    "action": null
+  }
+}
+
+
+
