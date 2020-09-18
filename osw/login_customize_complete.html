@@ -38,16 +38,8 @@
 
   <script type="text/javascript">
 		var orgUrl = 'https://oktaiceXXX.oktapreview.com';
-    var redirectUrl = 'http://promos-green.oktaice.com:8081/login';
-    var clientId = '0xxxxxxxxxxxxxxxx';
     var oktaSignIn = new OktaSignIn({
       baseUrl: orgUrl,
-      clientId: clientId,
-      redirectUri : redirectUrl,
-      authParams:{
-          responseType:'code',
-          scopes:['openid','email','profile']
-      },
       logo: '/img/ice-logo.png',
       i18n: {
         'en': {
@@ -74,7 +66,7 @@
       { el: '#okta-login-container' },
       function (res) {
         if (res.status === 'SUCCESS') {
-          res.session.setCookieAndRedirect(redirectUrl);
+          res.session.setCookieAndRedirect(orgUrl);
         }
       },
       function error(err) {
