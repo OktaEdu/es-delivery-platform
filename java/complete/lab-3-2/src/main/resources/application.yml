@@ -1,7 +1,7 @@
 okta:
   client:
     orgUrl: https://oktaiceXXX.oktapreview.com
-    token: 00000aaaa
+    token: 00xxxxxxxxxxxxx
 spring:
   thymeleaf:
     cache: false

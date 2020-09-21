@@ -5,7 +5,7 @@ import com.okta.examples.service.OktaAuthService;
 import com.okta.sdk.authc.credentials.TokenClientCredentials;
 import com.okta.sdk.client.Client;
 import com.okta.sdk.client.Clients;
-import com.okta.sdk.lang.Assert;
+//import com.okta.sdk.lang.Assert;
 import com.okta.sdk.resource.ResourceException;
 import com.okta.sdk.resource.user.User;
 import com.okta.sdk.resource.user.UserBuilder;
@@ -62,6 +62,23 @@ public class AccountController {
         HttpServletRequest request, HttpServletResponse response
     ) throws IOException {
         Map<String, String> authResponse = new HashMap<>();
+
+        try {
+            AuthenticationResponse oktaAuthResponse =
+                    oktaAuthService.authenticate();
+            authResponse.put(
+                    "Status",
+                    "Status: " + oktaAuthResponse.getStatusString()
+            );
+//            authResponse.put(
+//                    "SessionToken",
+//                    "Session Token: " + oktaAuthResponse.getSessionToken()
+//            );
+        } catch (Exception e) {
+            authResponse.put(
+                    "ErrorSummary", "Error: " + e.getMessage()
+            );
+        }
 
         return new ModelAndView("login", authResponse);
     }
