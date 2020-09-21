@@ -1,5 +1,6 @@
 package com.okta.examples.service;
 
+import com.okta.examples.model.OktaAppLink;
 //import com.okta.sdk.lang.Assert;
 import org.apache.http.client.fluent.Request;
 import org.slf4j.Logger;
@@ -21,4 +22,23 @@ public class OktaUserServiceImpl implements OktaUserService {
 
     @Value("#{ @environment['okta.client.token'] }")
     private String apiToken;
+
+    @Override
+    public List<OktaAppLink> getAppLinks(String userId) {
+        try {
+            InputStream is = Request.Get(
+                orgUrl + "/api/v1/users/" + userId + "/appLinks"
+            )
+                .addHeader("Cache-Control", "no-cache")
+                .addHeader("Authorization", "SSWS " + apiToken)
+                .addHeader("Accept", "application/json")
+                .execute().returnContent().asStream();
+            return mapper.readValue(is, List.class);
+        } catch (IOException e) {
+            logger.error(
+                "Unable to get appLinks: {}", e.getMessage(), e
+            );
+            return null;
+        }
+    }
 }

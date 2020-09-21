@@ -103,6 +103,13 @@ public class AccountController {
                 "SessionToken",
                 "Session Token: " + oktaAuthResponse.getSessionToken()
             );
+            //return new ModelAndView("portal", authResponse);
+            HttpSession session = request.getSession(true);
+            session.setAttribute("userId", oktaAuthResponse.getUser().getId());
+            String redirectToOktaUrl = orgUrl + "/login/sessionCookieRedirect";
+            redirectToOktaUrl += "?token=" + oktaAuthResponse.getSessionToken();
+            redirectToOktaUrl += "&redirectUrl=http://localhost:8080/portal";
+            response.sendRedirect(redirectToOktaUrl);
         } catch (Exception e) {
             authResponse.put(
                 "ErrorSummary", "Error: " + e.getMessage()

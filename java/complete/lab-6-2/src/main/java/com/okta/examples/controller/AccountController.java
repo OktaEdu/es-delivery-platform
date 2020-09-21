@@ -6,7 +6,7 @@ import com.okta.examples.service.OktaAuthService;
 import com.okta.sdk.authc.credentials.TokenClientCredentials;
 import com.okta.sdk.client.Client;
 import com.okta.sdk.client.Clients;
-import com.okta.sdk.lang.Assert;
+//import com.okta.sdk.lang.Assert;
 import com.okta.sdk.resource.ResourceException;
 import com.okta.sdk.resource.user.User;
 import com.okta.sdk.resource.user.UserBuilder;
@@ -36,6 +36,10 @@ public class AccountController {
 
     private OktaAuthService oktaAuthService;
     private Client client;
+
+    public AccountController(OktaAuthService oktaAuthService) {
+        this.oktaAuthService = oktaAuthService;
+    }
 
     @PostConstruct
     void setup() {
@@ -84,9 +88,27 @@ public class AccountController {
 
     @PostMapping("/login")
     public ModelAndView doLogin(
-        HttpServletRequest request, HttpServletResponse response
+        @ModelAttribute OktaAuthRequest oktaAuthRequest, HttpServletRequest request, HttpServletResponse response
     ) throws IOException {
         Map<String, String> authResponse = new HashMap<>();
+
+        try {
+            AuthenticationResponse oktaAuthResponse =
+                oktaAuthService.authenticate(oktaAuthRequest);
+            authResponse.put(
+                "Status",
+                "Status: " + oktaAuthResponse.getStatusString()
+            );
+            authResponse.put(
+                "SessionToken",
+                "Session Token: " + oktaAuthResponse.getSessionToken()
+            );
+            return new ModelAndView("portal", authResponse);
+        } catch (Exception e) {
+            authResponse.put(
+                "ErrorSummary", "Error: " + e.getMessage()
+            );
+        }
 
         return new ModelAndView("login", authResponse);
     }

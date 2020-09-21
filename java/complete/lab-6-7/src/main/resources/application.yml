@@ -1,8 +1,0 @@
-okta:
-  client:
-    orgUrl: https://oktaiceXXX.oktapreview.com
-    token: 00000aaaa
-spring:
-  thymeleaf:
-    cache: false
-    mode: HTML
