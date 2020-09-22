@@ -96,7 +96,7 @@ export function validateAccessLocal(to, from, next) {
     // LOCAL SESSION = FALSE
     if (!idToken) {
       OKTA_AUTH_JS.tokenManager.clear();
-      router.push('/loginform');
+      router.push('/login');
     // LOCAL SESSION = TRUE
     } else {
       next();
