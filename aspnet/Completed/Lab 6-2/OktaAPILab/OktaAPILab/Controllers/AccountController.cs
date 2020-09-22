@@ -13,8 +13,10 @@ using Microsoft.Extensions.Options;
 using OktaAPILab.Models;
 using OktaAPILab.Models.AccountViewModels;
 using OktaAPILab.Services;
+using Microsoft.AspNetCore.Http;
 using Okta.Sdk;
 using Okta.Sdk.Configuration;
+using Okta.Auth.Sdk;
 
 namespace OktaAPILab.Controllers
 {
@@ -26,8 +28,9 @@ namespace OktaAPILab.Controllers
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IEmailSender _emailSender;
         private readonly ILogger _logger;
-        private readonly string oktaUrl = "https://oktaice###.oktapreview.com";
-        private readonly string oktaApiToken = "abc123";
+        private readonly string _oktaUrl = "https://oktaiceXXX.oktapreview.com";
+        private readonly string _oktaApiToken = "abc123";
+
 
         public AccountController(
             UserManager<ApplicationUser> userManager,
@@ -63,28 +66,47 @@ namespace OktaAPILab.Controllers
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {
-                // This doesn't count login failures towards account lockout
-                // To enable password failures to trigger account lockout, set lockoutOnFailure: true
-                var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, lockoutOnFailure: false);
-                if (result.Succeeded)
+                // Declare the variable to hold the Okta Configuration Parameters
+                var oktaClientConfig = new Okta.Sdk.Abstractions.Configuration.OktaClientConfiguration
+                  {
+                      OktaDomain = _oktaUrl,
+                      Token = _oktaApiToken
+                  };
+
+                // Declare the Authentication Client for Okta
+                var authnClient = new AuthenticationClient(oktaClientConfig);
+
+                // Declare the Authentication Options
+                var authnOptions = new AuthenticateOptions()
                 {
-                    _logger.LogInformation("User logged in.");
-                    return RedirectToLocal(returnUrl);
-                }
-                if (result.RequiresTwoFactor)
+                    Username = model.Email,
+                    Password = model.Password
+                };
+            
+                try
                 {
-                    return RedirectToAction(nameof(LoginWith2fa), new { returnUrl, model.RememberMe });
+                    //Callout to Okta
+                    var authnResponse = await authnClient.AuthenticateAsync(authnOptions);
+
+                    if (authnResponse.AuthenticationStatus == "SUCCESS")
+                    {
+                        ViewBag.Status = authnResponse.AuthenticationStatus;
+                        ViewBag.SessionToken = authnResponse.SessionToken;
+
+                        return RedirectToAction("PortalHome", "Home");
+                  
+                    }
+                    else
+                    {
+                        ViewBag.ErrorSummary = "Unexpected Status: " + authnResponse.AuthenticationStatus;
+                    }
+
                 }
-                if (result.IsLockedOut)
+                catch (Okta.Sdk.Abstractions.OktaApiException oktaError)
                 {
-                    _logger.LogWarning("User account locked out.");
-                    return RedirectToAction(nameof(Lockout));
+                    ViewBag.ErrorSummary = oktaError.ErrorSummary;
                 }
-                else
-                {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
-                    return View(model);
-                }
+
             }
 
             // If we got this far, something failed, redisplay form
@@ -222,10 +244,11 @@ namespace OktaAPILab.Controllers
         public async Task<IActionResult> Register(RegisterViewModel model, string returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
+
             OktaClientConfiguration oktaConfig = new OktaClientConfiguration
             {
-                OktaDomain = oktaUrl,
-                Token = oktaApiToken
+                OktaDomain = _oktaUrl,
+                Token = _oktaApiToken
             };
             OktaClient oktaClient = new OktaClient(oktaConfig);
 
@@ -236,7 +259,6 @@ namespace OktaAPILab.Controllers
                     Login = model.Email,
                     Email = model.Email
                 };
-
                 var oktaUser = new CreateUserWithPasswordOptions
                 {
                     Profile = oktaUserProfile,
@@ -246,16 +268,19 @@ namespace OktaAPILab.Controllers
 
                 try
                 {
-                    var newUser = await oktaClient.Users.CreateUserAsync(oktaUser);
+                    var newUser = await
+                            oktaClient.Users.CreateUserAsync(oktaUser);
                     ViewBag.Status = "Status: " + newUser["status"];
                     ViewBag.UserId = "User ID: " + newUser["id"];
                 }
-                catch (OktaApiException e)
+                catch (OktaApiException oktaError)
                 {
-                    ViewBag.StatusCode = "HTTP Status Code: " + e.StatusCode;
-                    ViewBag.ErrorSummary = "Error Summary: " + e.ErrorSummary;
+                    ViewBag.StatusCode = "HTTP Status Code: " + oktaError.StatusCode;
+                    ViewBag.ErrorSummary = "Error Summary: " + oktaError.ErrorSummary;
                 }
+      
             }
+
             // If we got this far, something failed, redisplay form
             return View(model);
         }

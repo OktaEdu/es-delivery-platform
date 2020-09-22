@@ -13,10 +13,10 @@ using Microsoft.Extensions.Options;
 using OktaAPILab.Models;
 using OktaAPILab.Models.AccountViewModels;
 using OktaAPILab.Services;
+using Microsoft.AspNetCore.Http;
 using Okta.Sdk;
 using Okta.Sdk.Configuration;
-using RestSharp;
-using Newtonsoft.Json;
+using Okta.Auth.Sdk;
 
 namespace OktaAPILab.Controllers
 {
@@ -28,22 +28,19 @@ namespace OktaAPILab.Controllers
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IEmailSender _emailSender;
         private readonly ILogger _logger;
-        private readonly string oktaUrl = "https://oktaice###.oktapreview.com";
-        private readonly string oktaApiToken = "abc123";
-        private readonly IOktaAuthService _oktaAuthService;
+        private readonly string _oktaUrl = "https://oktaiceXXX.oktapreview.com";
+        private readonly string _oktaApiToken = "abc123";
 
         public AccountController(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             IEmailSender emailSender,
-            ILogger<AccountController> logger,
-            IOktaAuthService oktaAuthService)
+            ILogger<AccountController> logger)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _emailSender = emailSender;
             _logger = logger;
-            _oktaAuthService = oktaAuthService;
         }
 
         [TempData]
@@ -68,23 +65,57 @@ namespace OktaAPILab.Controllers
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {
-                OktaAuthRequest oktaAuthRequest = new OktaAuthRequest();
-                oktaAuthRequest.username = model.Email;
-                oktaAuthRequest.password = model.Password;
+                // Declare the variable to hold the Okta Configuration Parameters
+                var oktaClientConfig = new Okta.Sdk.Abstractions.Configuration.OktaClientConfiguration
+                  {
+                      OktaDomain = _oktaUrl,
+                      Token = _oktaApiToken
+                  };
 
-                IRestResponse oktaHttpResponse = await _oktaAuthService.AuthenticateAsync(oktaAuthRequest, oktaUrl, oktaApiToken);
+                // Declare the Authentication Client for Okta
+                var authnClient = new AuthenticationClient(oktaClientConfig);
 
-                if (oktaHttpResponse.IsSuccessful)
+                // Declare the Authentication Options
+                var authnOptions = new AuthenticateOptions()
                 {
-                    OktaAuthResponse oktaAuthResponse = JsonConvert.DeserializeObject<OktaAuthResponse>(oktaHttpResponse.Content);
-                    ViewBag.Status = "Status: " + oktaAuthResponse.status;
-                    ViewBag.SessionToken = "Session Token: " + oktaAuthResponse.sessionToken;
-                }
-                else
+                    Username = model.Email,
+                    Password = model.Password
+                };
+            
+                try
                 {
-                    OktaError error = JsonConvert.DeserializeObject<OktaError>(oktaHttpResponse.Content);
-                    ViewBag.ErrorSummary = "Error Summary: " + error.errorSummary;
+                    //Callout to Okta
+                    var authnResponse = await authnClient.AuthenticateAsync(authnOptions);
+
+                    if (authnResponse.AuthenticationStatus == "SUCCESS")
+                    {
+                        ViewBag.Status = authnResponse.AuthenticationStatus;
+                        ViewBag.SessionToken = authnResponse.SessionToken;
+
+                        //return RedirectToAction("PortalHome", "Home");
+                        HttpContext.Session.SetString("userId", 
+                            authnResponse.Embedded.GetProperty<Okta.Auth.Sdk.Resource>("user").GetProperty<String>("id"));
+
+                        string redirectToOktaUrl = _oktaUrl + "/login/sessionCookieRedirect";
+
+                        redirectToOktaUrl += "?token=" + authnResponse.SessionToken;
+                        redirectToOktaUrl += "&redirectUrl=https://"
+                                             + HttpContext.Request.Host.ToString()
+                                             + "/Home/PortalHome";
+                        return Redirect(redirectToOktaUrl);
+
+                    }
+                    else
+                    {
+                        ViewBag.ErrorSummary = "Unexpected Status: " + authnResponse.AuthenticationStatus;
+                    }
+
                 }
+                catch (Okta.Sdk.Abstractions.OktaApiException oktaError)
+                {
+                    ViewBag.ErrorSummary = oktaError.ErrorSummary;
+                }
+
             }
 
             // If we got this far, something failed, redisplay form
@@ -222,10 +253,11 @@ namespace OktaAPILab.Controllers
         public async Task<IActionResult> Register(RegisterViewModel model, string returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
+
             OktaClientConfiguration oktaConfig = new OktaClientConfiguration
             {
-                OktaDomain = oktaUrl,
-                Token = oktaApiToken
+                OktaDomain = _oktaUrl,
+                Token = _oktaApiToken
             };
             OktaClient oktaClient = new OktaClient(oktaConfig);
 
@@ -236,7 +268,6 @@ namespace OktaAPILab.Controllers
                     Login = model.Email,
                     Email = model.Email
                 };
-
                 var oktaUser = new CreateUserWithPasswordOptions
                 {
                     Profile = oktaUserProfile,
@@ -246,16 +277,19 @@ namespace OktaAPILab.Controllers
 
                 try
                 {
-                    var newUser = await oktaClient.Users.CreateUserAsync(oktaUser);
+                    var newUser = await
+                            oktaClient.Users.CreateUserAsync(oktaUser);
                     ViewBag.Status = "Status: " + newUser["status"];
                     ViewBag.UserId = "User ID: " + newUser["id"];
                 }
-                catch (OktaApiException e)
+                catch (OktaApiException oktaError)
                 {
-                    ViewBag.StatusCode = "HTTP Status Code: " + e.StatusCode;
-                    ViewBag.ErrorSummary = "Error Summary: " + e.ErrorSummary;
+                    ViewBag.StatusCode = "HTTP Status Code: " + oktaError.StatusCode;
+                    ViewBag.ErrorSummary = "Error Summary: " + oktaError.ErrorSummary;
                 }
+      
             }
+
             // If we got this far, something failed, redisplay form
             return View(model);
         }

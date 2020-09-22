@@ -34,9 +34,21 @@
 </head>
 <body>
     <h2>Ice Cream Portal</h2>
+    <h4 style="color:red">@ViewBag.ErrorSummary</h4>
     <div class="clearfix">
         <nav class="navbuttons">
             <ul>
+                @if (ViewBag.IsSuccessful)
+                {
+                    @foreach (var app in ViewBag.Apps)
+                    {
+                        <li>
+                            <a class="navbutton" href="@app.LinkUrl" target="_blank">
+                                <img src="@app.LogoUrl" /> @app.Label
+                            </a>
+                        </li>
+                    }
+                }
                 <li>
                     <div class="navbutton">Marketing</div>
                 </li>

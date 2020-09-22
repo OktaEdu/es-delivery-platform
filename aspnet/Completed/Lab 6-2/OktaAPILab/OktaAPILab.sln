@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27703.2035
+VisualStudioVersion = 15.0.28307.705
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OktaAPILab", "OktaAPILab\OktaAPILab.csproj", "{F93192D6-B4E7-41EB-9BBD-45415543A9EE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OktaAPILab", "OktaAPILab\OktaAPILab.csproj", "{904237BC-CD42-46EE-8535-CC7C619073AE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F93192D6-B4E7-41EB-9BBD-45415543A9EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F93192D6-B4E7-41EB-9BBD-45415543A9EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F93192D6-B4E7-41EB-9BBD-45415543A9EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F93192D6-B4E7-41EB-9BBD-45415543A9EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{904237BC-CD42-46EE-8535-CC7C619073AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{904237BC-CD42-46EE-8535-CC7C619073AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{904237BC-CD42-46EE-8535-CC7C619073AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{904237BC-CD42-46EE-8535-CC7C619073AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {DDC24873-0D1F-4E27-B3E8-5553B01AB90A}
+		SolutionGuid = {84DA5270-E95B-4781-BB03-853E61D911CE}
 	EndGlobalSection
 EndGlobal

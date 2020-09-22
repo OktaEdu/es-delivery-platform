@@ -38,7 +38,6 @@ namespace OktaAPILab
 
             services.AddMvc();
 
-            services.AddScoped<IOktaAuthService, OktaAuthService>();
             services.AddSession();
         }
 

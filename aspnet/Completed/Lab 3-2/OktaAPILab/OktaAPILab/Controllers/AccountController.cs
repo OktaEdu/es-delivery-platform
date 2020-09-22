@@ -26,8 +26,9 @@ namespace OktaAPILab.Controllers
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IEmailSender _emailSender;
         private readonly ILogger _logger;
-        private readonly string oktaUrl = "https://oktaice###.oktapreview.com";
-        private readonly string oktaApiToken = "abc123";
+        private readonly string _oktaUrl = "https://oktaice###.oktapreview.com";
+        private readonly string _oktaApiToken = "abc123";
+
 
         public AccountController(
             UserManager<ApplicationUser> userManager,
@@ -222,10 +223,11 @@ namespace OktaAPILab.Controllers
         public async Task<IActionResult> Register(RegisterViewModel model, string returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
+
             OktaClientConfiguration oktaConfig = new OktaClientConfiguration
             {
-                OktaDomain = oktaUrl,
-                Token = oktaApiToken
+                OktaDomain = _oktaUrl,
+                Token = _oktaApiToken
             };
             OktaClient oktaClient = new OktaClient(oktaConfig);
 
@@ -236,7 +238,6 @@ namespace OktaAPILab.Controllers
                     Login = model.Email,
                     Email = model.Email
                 };
-
                 var oktaUser = new CreateUserWithPasswordOptions
                 {
                     Profile = oktaUserProfile,
@@ -246,16 +247,19 @@ namespace OktaAPILab.Controllers
 
                 try
                 {
-                    var newUser = await oktaClient.Users.CreateUserAsync(oktaUser);
+                    var newUser = await
+                            oktaClient.Users.CreateUserAsync(oktaUser);
                     ViewBag.Status = "Status: " + newUser["status"];
                     ViewBag.UserId = "User ID: " + newUser["id"];
                 }
-                catch (OktaApiException e)
+                catch (OktaApiException oktaError)
                 {
-                    ViewBag.StatusCode = "HTTP Status Code: " + e.StatusCode;
-                    ViewBag.ErrorSummary = "Error Summary: " + e.ErrorSummary;
+                    ViewBag.StatusCode = "HTTP Status Code: " + oktaError.StatusCode;
+                    ViewBag.ErrorSummary = "Error Summary: " + oktaError.ErrorSummary;
                 }
+      
             }
+
             // If we got this far, something failed, redisplay form
             return View(model);
         }
