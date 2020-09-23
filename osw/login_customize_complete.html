@@ -38,7 +38,6 @@
 
   <script type="text/javascript">
 		var orgUrl = 'https://oktaiceXXX.oktapreview.com';
-    var redirectUrl = '<embeded_link>';
     var oktaSignIn = new OktaSignIn({
       baseUrl: orgUrl,
       logo: '/img/ice-logo.png',
@@ -67,7 +66,7 @@
       { el: '#okta-login-container' },
       function (res) {
         if (res.status === 'SUCCESS') {
-          res.session.setCookieAndRedirect(redirectUrl);
+          res.session.setCookieAndRedirect(orgUrl);
         }
       },
       function error(err) {
