@@ -38,16 +38,9 @@
 
   <script type="text/javascript">
 		var orgUrl = 'https://oktaiceXXX.oktapreview.com';
-    var redirectUrl = '<paste embed link here>';
-    var clientId = '0xxxxxxxxxxxxxxxx';
+    var redirectUrl = '<embeded_link>';
     var oktaSignIn = new OktaSignIn({
       baseUrl: orgUrl,
-      clientId: clientId,
-      redirectUri : redirectUrl,
-      authParams:{
-          responseType:'code',
-          scopes:['openid','email','profile']
-      },
       logo: '/img/ice-logo.png',
       i18n: {
         'en': {
