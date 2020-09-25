@@ -1,0 +1,36 @@
+2020-09-22 08:16:17.7214|10403|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.1.14-servicing-32113 initialized 'RegistrantContext' using provider 'Microsoft.EntityFrameworkCore.InMemory' with options: StoreName=InMemoryDatabase  
+2020-09-22 08:16:17.8271|30100|INFO|Microsoft.EntityFrameworkCore.Update|Saved 7 entities to in-memory store. 
+2020-09-22 08:16:17.9705||INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\ericj\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest. 
+2020-09-22 08:16:18.4496|1|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:44370/values   
+2020-09-22 08:16:18.4496|1|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DEBUG http://localhost:50157/  0 
+2020-09-22 08:16:18.4763|2|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 25.2111ms 200  
+2020-09-22 08:16:18.6096|3|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "Get", controller = "Values"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[System.String]] Get() on controller NetCoreHooks17.Controllers.ValuesController (NetCoreHooks17). 
+2020-09-22 08:16:18.6096|1|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method NetCoreHooks17.Controllers.ValuesController.Get (NetCoreHooks17) - Validation state: Valid 
+2020-09-22 08:16:18.6209|2|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method NetCoreHooks17.Controllers.ValuesController.Get (NetCoreHooks17), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 0.3107ms. 
+2020-09-22 08:16:18.6209|1|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'System.String[]'. 
+2020-09-22 08:16:18.7214|2|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action NetCoreHooks17.Controllers.ValuesController.Get (NetCoreHooks17) in 108.8371ms 
+2020-09-22 08:16:18.7214|2|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 276.9127ms 200 application/json; charset=utf-8 
+2020-09-22 08:16:21.2159|1|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:44370/event/user-account   
+2020-09-22 08:16:21.2159|3|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "Get", controller = "Event"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Get() on controller NetCoreHooks.Controllers.EventController (NetCoreHooks17). 
+2020-09-22 08:16:21.2159|1|DEBUG|NetCoreHooks.Controllers.EventController|NLog injected into Event Controller 
+2020-09-22 08:16:21.2277|1|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method NetCoreHooks.Controllers.EventController.Get (NetCoreHooks17) - Validation state: Valid 
+2020-09-22 08:16:21.2277||INFO|NetCoreHooks.Controllers.EventController|Event EndpointVerify entered. 
+2020-09-22 08:16:21.2277||DEBUG|NetCoreHooks.Controllers.EventController|Event EndpointVerify suceeded: abc123 
+2020-09-22 08:16:21.2277|2|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method NetCoreHooks.Controllers.EventController.Get (NetCoreHooks17), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 4.8246ms. 
+2020-09-22 08:16:21.2277|1|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'NetCoreHooks.model.VerificationResponse'. 
+2020-09-22 08:16:21.2854|2|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action NetCoreHooks.Controllers.EventController.Get (NetCoreHooks17) in 64.9932ms 
+2020-09-22 08:16:21.2854|2|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 70.1687ms 200 application/json; charset=utf-8 
+2020-09-22 09:06:01.2757|10403|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.1.14-servicing-32113 initialized 'RegistrantContext' using provider 'Microsoft.EntityFrameworkCore.InMemory' with options: StoreName=InMemoryDatabase  
+2020-09-22 09:06:01.3725|30100|INFO|Microsoft.EntityFrameworkCore.Update|Saved 7 entities to in-memory store. 
+2020-09-22 09:06:01.5135||INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\ericj\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest. 
+2020-09-22 09:06:01.9976|1|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DEBUG http://localhost:50157/  0 
+2020-09-22 09:06:01.9976|1|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:44370/home   
+2020-09-22 09:06:02.0253|2|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 25.945ms 200  
+2020-09-22 09:06:02.1659|3|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Route matched with {action = "Get", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get() on controller NetCoreHooks.Controllers.HomeController (NetCoreHooks17). 
+2020-09-22 09:06:02.1659|1|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method NetCoreHooks.Controllers.HomeController.Get (NetCoreHooks17) - Validation state: Valid 
+2020-09-22 09:06:04.7749||INFO|NetCoreHooks.Services.LoggerService|NetCoreHooks Home Get Action entered. 
+2020-09-22 09:06:13.0810|10403|INFO|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 2.1.14-servicing-32113 initialized 'RegistrantContext' using provider 'Microsoft.EntityFrameworkCore.InMemory' with options: StoreName=InMemoryDatabase  
+2020-09-22 09:06:13.1461|2|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action method NetCoreHooks.Controllers.HomeController.Get (NetCoreHooks17), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 10963.7264ms. 
+2020-09-22 09:06:13.1526|1|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing ObjectResult, writing value of type 'System.String'. 
+2020-09-22 09:06:13.1526|2|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action NetCoreHooks.Controllers.HomeController.Get (NetCoreHooks17) in 10988.6061ms 
+2020-09-22 09:06:13.1526|2|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 11165.8806ms 200 text/plain; charset=utf-8 

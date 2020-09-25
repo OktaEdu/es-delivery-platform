@@ -1,0 +1,3 @@
+2020-09-22 08:16:21.2159|1|DEBUG|NetCoreHooks.Controllers.EventController|NLog injected into Event Controller |url: https://localhost/event/user-account|action: Get
+2020-09-22 08:16:21.2277||INFO|NetCoreHooks.Controllers.EventController|Event EndpointVerify entered. |url: https://localhost/event/user-account|action: Get
+2020-09-22 08:16:21.2277||DEBUG|NetCoreHooks.Controllers.EventController|Event EndpointVerify suceeded: abc123 |url: https://localhost/event/user-account|action: Get

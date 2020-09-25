@@ -1,0 +1,147 @@
+2020-09-24 08:55:12.2569 INFO Entity Framework Core 2.1.14-servicing-32113 initialized 'RegistrantContext' using provider 'Microsoft.EntityFrameworkCore.InMemory' with options: StoreName=InMemoryDatabase 
+2020-09-24 08:55:12.3879 INFO Saved 7 entities to in-memory store.
+2020-09-24 08:55:12.6176 INFO User profile is available. Using 'C:\Users\ericj\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2020-09-24 08:55:13.4060 INFO Request starting HTTP/1.1 DEBUG http://localhost:50157/  0
+2020-09-24 08:55:13.4060 INFO Request starting HTTP/1.1 GET http://localhost:44370/home  
+2020-09-24 08:55:13.4634 INFO Request finished in 55.1006ms 200 
+2020-09-24 08:55:13.8464 INFO Route matched with {action = "Get", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get() on controller NetCoreHooks.Controllers.HomeController (NetCoreHooks17).
+2020-09-24 08:55:13.8534 INFO Executing action method NetCoreHooks.Controllers.HomeController.Get (NetCoreHooks17) - Validation state: Valid
+2020-09-24 08:55:13.8534 DEBUG NetCoreHooks Home Get Action entered.
+2020-09-24 08:55:13.8694 INFO Entity Framework Core 2.1.14-servicing-32113 initialized 'RegistrantContext' using provider 'Microsoft.EntityFrameworkCore.InMemory' with options: StoreName=InMemoryDatabase 
+2020-09-24 08:55:13.9459 INFO Executed action method NetCoreHooks.Controllers.HomeController.Get (NetCoreHooks17), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 80.7038ms.
+2020-09-24 08:55:13.9630 INFO Executing ObjectResult, writing value of type 'System.String'.
+2020-09-24 08:55:13.9630 INFO Executed action NetCoreHooks.Controllers.HomeController.Get (NetCoreHooks17) in 120.2947ms
+2020-09-24 08:55:13.9630 INFO Request finished in 569.9917ms 200 text/plain; charset=utf-8
+2020-09-24 08:58:52.9096 INFO Entity Framework Core 2.1.14-servicing-32113 initialized 'RegistrantContext' using provider 'Microsoft.EntityFrameworkCore.InMemory' with options: StoreName=InMemoryDatabase 
+2020-09-24 08:58:53.0285 INFO Saved 7 entities to in-memory store.
+2020-09-24 08:58:53.2115 INFO User profile is available. Using 'C:\Users\ericj\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2020-09-24 08:58:53.6306 INFO Request starting HTTP/1.1 DEBUG http://localhost:50157/  0
+2020-09-24 08:58:53.6306 INFO Request starting HTTP/1.1 GET http://localhost:44370/home  
+2020-09-24 08:58:53.6648 INFO Request finished in 33.3011ms 200 
+2020-09-24 08:58:53.8228 INFO Route matched with {action = "Get", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get() on controller NetCoreHooks.Controllers.HomeController (NetCoreHooks17).
+2020-09-24 08:58:53.8362 INFO Executing action method NetCoreHooks.Controllers.HomeController.Get (NetCoreHooks17) - Validation state: Valid
+2020-09-24 08:58:53.8362 DEBUG NetCoreHooks Home Get Action entered.
+2020-09-24 08:58:53.8362 INFO Entity Framework Core 2.1.14-servicing-32113 initialized 'RegistrantContext' using provider 'Microsoft.EntityFrameworkCore.InMemory' with options: StoreName=InMemoryDatabase 
+2020-09-24 08:58:53.9290 INFO Executed action method NetCoreHooks.Controllers.HomeController.Get (NetCoreHooks17), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 89.2386ms.
+2020-09-24 08:58:53.9457 INFO Executing ObjectResult, writing value of type 'System.String'.
+2020-09-24 08:58:53.9457 INFO Executed action NetCoreHooks.Controllers.HomeController.Get (NetCoreHooks17) in 129.3128ms
+2020-09-24 08:58:53.9605 INFO Request finished in 330.906ms 200 text/plain; charset=utf-8
+2020-09-24 09:40:37.5349 INFO Entity Framework Core 2.1.14-servicing-32113 initialized 'RegistrantContext' using provider 'Microsoft.EntityFrameworkCore.InMemory' with options: StoreName=InMemoryDatabase 
+2020-09-24 09:40:37.7551 INFO Saved 7 entities to in-memory store.
+2020-09-24 09:40:38.1958 INFO User profile is available. Using 'C:\Users\ericj\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2020-09-24 09:40:38.9724 INFO Request starting HTTP/1.1 DEBUG http://localhost:50157/  0
+2020-09-24 09:40:38.9724 INFO Request starting HTTP/1.1 GET http://localhost:44370/home  
+2020-09-24 09:40:39.0240 INFO Request finished in 43.7165ms 200 
+2020-09-24 09:40:39.4995 INFO Route matched with {action = "Get", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get() on controller NetCoreHooks.Controllers.HomeController (NetCoreHooks17).
+2020-09-24 09:40:39.5105 INFO Executing action method NetCoreHooks.Controllers.HomeController.Get (NetCoreHooks17) - Validation state: Valid
+2020-09-24 09:40:39.5251 DEBUG NetCoreHooks Home Get Action entered.
+2020-09-24 09:40:39.5251 INFO Entity Framework Core 2.1.14-servicing-32113 initialized 'RegistrantContext' using provider 'Microsoft.EntityFrameworkCore.InMemory' with options: StoreName=InMemoryDatabase 
+2020-09-24 09:40:39.6488 INFO Executed action method NetCoreHooks.Controllers.HomeController.Get (NetCoreHooks17), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 124.8929ms.
+2020-09-24 09:40:39.6673 INFO Executing ObjectResult, writing value of type 'System.String'.
+2020-09-24 09:40:39.6673 INFO Executed action NetCoreHooks.Controllers.HomeController.Get (NetCoreHooks17) in 173.9822ms
+2020-09-24 09:40:39.6866 INFO Request finished in 715.4891ms 200 text/plain; charset=utf-8
+2020-09-24 09:40:40.2703 INFO Request starting HTTP/1.1 GET http://localhost:44370/favicon.ico  
+2020-09-24 09:40:40.2703 INFO Request finished in 2.2791ms 404 
+2020-09-24 09:43:27.1916 INFO Request starting HTTP/1.1 GET http://localhost:44370/event/user-account  
+2020-09-24 09:43:27.1968 INFO Route matched with {action = "Get", controller = "Event"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Get() on controller NetCoreHooks.Controllers.EventController (NetCoreHooks17).
+2020-09-24 09:43:27.1968 DEBUG NLog injected into Event Controller
+2020-09-24 09:43:27.1968 INFO Executing action method NetCoreHooks.Controllers.EventController.Get (NetCoreHooks17) - Validation state: Valid
+2020-09-24 09:43:27.1968 DEBUG Event EndpointVerify entered.
+2020-09-24 09:43:27.1968 DEBUG Event EndpointVerify suceeded: j5N3rm7OKOjjJj_qcOuFXOvyXjeiS77x_UGu62oa
+2020-09-24 09:43:27.1968 INFO Executed action method NetCoreHooks.Controllers.EventController.Get (NetCoreHooks17), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 3.8935ms.
+2020-09-24 09:43:27.1968 INFO Executing ObjectResult, writing value of type 'NetCoreHooks.model.VerificationResponse'.
+2020-09-24 09:43:27.3288 INFO Executed action NetCoreHooks.Controllers.EventController.Get (NetCoreHooks17) in 131.3339ms
+2020-09-24 09:43:27.3288 INFO Request finished in 138.1093ms 200 application/json; charset=utf-8
+2020-09-24 09:44:04.8480 INFO Request starting HTTP/1.1 POST http://localhost:44370/event/user-account application/json 1956
+2020-09-24 09:44:04.8744 INFO Route matched with {action = "Post", controller = "Event"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post() on controller NetCoreHooks.Controllers.EventController (NetCoreHooks17).
+2020-09-24 09:44:04.8744 DEBUG NLog injected into Event Controller
+2020-09-24 09:44:04.8744 INFO Executing action method NetCoreHooks.Controllers.EventController.Post (NetCoreHooks17) - Validation state: Valid
+2020-09-24 09:44:04.8744 INFO Event PostEvent action entered
+2020-09-24 09:44:04.9095 DEBUG Post Event Succeeded
+ EventType: user.account.update_profileEventTime: 9/24/2020 1:44:05 PMDisplayMessage: Update user profile for Okta
+2020-09-24 09:44:04.9095 INFO Executed action method NetCoreHooks.Controllers.EventController.Post (NetCoreHooks17), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 34.087ms.
+2020-09-24 09:44:04.9095 INFO Executing ObjectResult, writing value of type 'NetCoreHooks.model.OktaEvents'.
+2020-09-24 09:44:04.9161 INFO Executed action NetCoreHooks.Controllers.EventController.Post (NetCoreHooks17) in 41.2293ms
+2020-09-24 09:44:04.9161 INFO Request finished in 68.8299ms 200 application/json; charset=utf-8
+2020-09-24 10:05:24.9654 INFO Request starting HTTP/1.1 POST http://localhost:44370/registration/dblookup application/json 561
+2020-09-24 10:05:24.9654 INFO Route matched with {action = "VerifyRegistrantSSNByUserName", controller = "Registration"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] VerifyRegistrantSSNByUserName() on controller NetCoreHooks.Controllers.RegistrationController (NetCoreHooks17).
+2020-09-24 10:05:24.9654 INFO Executing action method NetCoreHooks.Controllers.RegistrationController.VerifyRegistrantSSNByUserName (NetCoreHooks17) - Validation state: Valid
+2020-09-24 10:17:09.2453 INFO Entity Framework Core 2.1.14-servicing-32113 initialized 'RegistrantContext' using provider 'Microsoft.EntityFrameworkCore.InMemory' with options: StoreName=InMemoryDatabase 
+2020-09-24 10:17:09.3418 INFO Saved 7 entities to in-memory store.
+2020-09-24 10:17:09.4846 INFO User profile is available. Using 'C:\Users\ericj\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2020-09-24 10:17:09.8942 INFO Request starting HTTP/1.1 GET http://localhost:44370/home  
+2020-09-24 10:17:09.8942 INFO Request starting HTTP/1.1 DEBUG http://localhost:50157/  0
+2020-09-24 10:17:09.9251 INFO Request finished in 28.2893ms 200 
+2020-09-24 10:17:10.0579 INFO Route matched with {action = "Get", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get() on controller NetCoreHooks.Controllers.HomeController (NetCoreHooks17).
+2020-09-24 10:17:10.0579 INFO Executing action method NetCoreHooks.Controllers.HomeController.Get (NetCoreHooks17) - Validation state: Valid
+2020-09-24 10:17:10.0579 DEBUG NetCoreHooks Home Get Action entered.
+2020-09-24 10:17:10.0790 INFO Entity Framework Core 2.1.14-servicing-32113 initialized 'RegistrantContext' using provider 'Microsoft.EntityFrameworkCore.InMemory' with options: StoreName=InMemoryDatabase 
+2020-09-24 10:17:10.1345 INFO Executed action method NetCoreHooks.Controllers.HomeController.Get (NetCoreHooks17), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 64.0071ms.
+2020-09-24 10:17:10.1345 INFO Executing ObjectResult, writing value of type 'System.String'.
+2020-09-24 10:17:10.1522 INFO Executed action NetCoreHooks.Controllers.HomeController.Get (NetCoreHooks17) in 91.2315ms
+2020-09-24 10:17:10.1522 INFO Request finished in 262.9914ms 200 text/plain; charset=utf-8
+2020-09-24 10:17:14.9557 INFO Request starting HTTP/1.1 POST http://localhost:44370/registration/dblookup application/json 561
+2020-09-24 10:17:14.9557 INFO Route matched with {action = "VerifyRegistrantSSNByUserName", controller = "Registration"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] VerifyRegistrantSSNByUserName() on controller NetCoreHooks.Controllers.RegistrationController (NetCoreHooks17).
+2020-09-24 10:17:14.9557 INFO Executing action method NetCoreHooks.Controllers.RegistrationController.VerifyRegistrantSSNByUserName (NetCoreHooks17) - Validation state: Valid
+2020-09-24 10:17:26.0366 INFO Request starting HTTP/1.1 POST http://localhost:44370/registration/dblookup application/json 561
+2020-09-24 10:17:26.0366 INFO Route matched with {action = "VerifyRegistrantSSNByUserName", controller = "Registration"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] VerifyRegistrantSSNByUserName() on controller NetCoreHooks.Controllers.RegistrationController (NetCoreHooks17).
+2020-09-24 10:17:26.0366 INFO Executing action method NetCoreHooks.Controllers.RegistrationController.VerifyRegistrantSSNByUserName (NetCoreHooks17) - Validation state: Valid
+2020-09-24 10:17:33.7814 INFO Executed action method NetCoreHooks.Controllers.RegistrationController.VerifyRegistrantSSNByUserName (NetCoreHooks17), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 18819.1708ms.
+2020-09-24 10:17:33.7814 INFO Executed action method NetCoreHooks.Controllers.RegistrationController.VerifyRegistrantSSNByUserName (NetCoreHooks17), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 7742.7809ms.
+2020-09-24 10:17:33.7814 INFO Executing ObjectResult, writing value of type 'NetCoreHooks.model.OktaHookResponse'.
+2020-09-24 10:17:33.7814 INFO Executing ObjectResult, writing value of type 'NetCoreHooks.model.OktaHookResponse'.
+2020-09-24 10:17:33.7985 INFO Executed action NetCoreHooks.Controllers.RegistrationController.VerifyRegistrantSSNByUserName (NetCoreHooks17) in 7759.9693ms
+2020-09-24 10:17:33.7985 INFO Executed action NetCoreHooks.Controllers.RegistrationController.VerifyRegistrantSSNByUserName (NetCoreHooks17) in 18838.1922ms
+2020-09-24 10:17:33.7985 INFO Request finished in 7763.1842ms 200 application/json; charset=utf-8
+2020-09-24 10:17:33.7985 INFO Request finished in 18844.7766ms 200 application/json; charset=utf-8
+2020-09-24 10:18:16.8789 INFO Request starting HTTP/1.1 POST http://localhost:44370/registration/dblookup application/json 581
+2020-09-24 10:18:16.8789 INFO Route matched with {action = "VerifyRegistrantSSNByUserName", controller = "Registration"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] VerifyRegistrantSSNByUserName() on controller NetCoreHooks.Controllers.RegistrationController (NetCoreHooks17).
+2020-09-24 10:18:16.8789 INFO Executing action method NetCoreHooks.Controllers.RegistrationController.VerifyRegistrantSSNByUserName (NetCoreHooks17) - Validation state: Valid
+2020-09-24 10:18:20.8508 INFO Request starting HTTP/1.1 POST http://localhost:44370/registration/dblookup application/json 581
+2020-09-24 10:18:20.8534 INFO Route matched with {action = "VerifyRegistrantSSNByUserName", controller = "Registration"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] VerifyRegistrantSSNByUserName() on controller NetCoreHooks.Controllers.RegistrationController (NetCoreHooks17).
+2020-09-24 10:18:20.8534 INFO Executing action method NetCoreHooks.Controllers.RegistrationController.VerifyRegistrantSSNByUserName (NetCoreHooks17) - Validation state: Valid
+2020-09-24 10:18:20.8534 INFO Entity Framework Core 2.1.14-servicing-32113 initialized 'RegistrantContext' using provider 'Microsoft.EntityFrameworkCore.InMemory' with options: StoreName=InMemoryDatabase 
+2020-09-24 10:18:22.2763 INFO Entity Framework Core 2.1.14-servicing-32113 initialized 'RegistrantContext' using provider 'Microsoft.EntityFrameworkCore.InMemory' with options: StoreName=InMemoryDatabase 
+2020-09-24 10:18:22.3004 INFO Executed action method NetCoreHooks.Controllers.RegistrationController.VerifyRegistrantSSNByUserName (NetCoreHooks17), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 5415.4541ms.
+2020-09-24 10:18:22.3004 INFO Executed action method NetCoreHooks.Controllers.RegistrationController.VerifyRegistrantSSNByUserName (NetCoreHooks17), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 1443.5505ms.
+2020-09-24 10:18:22.3004 INFO Executing ObjectResult, writing value of type 'NetCoreHooks.model.OktaHookResponse'.
+2020-09-24 10:18:22.3004 INFO Executing ObjectResult, writing value of type 'NetCoreHooks.model.OktaHookResponse'.
+2020-09-24 10:18:22.3004 INFO Executed action NetCoreHooks.Controllers.RegistrationController.VerifyRegistrantSSNByUserName (NetCoreHooks17) in 5418.8681ms
+2020-09-24 10:18:22.3004 INFO Executed action NetCoreHooks.Controllers.RegistrationController.VerifyRegistrantSSNByUserName (NetCoreHooks17) in 1449.4227ms
+2020-09-24 10:18:22.3065 INFO Request finished in 5427.7062ms 200 application/json; charset=utf-8
+2020-09-24 10:18:22.3065 INFO Request finished in 1456.5971ms 200 application/json; charset=utf-8
+2020-09-24 10:19:00.1431 INFO Request starting HTTP/1.1 POST http://localhost:44370/registration/dblookup application/json 579
+2020-09-24 10:19:00.1431 INFO Route matched with {action = "VerifyRegistrantSSNByUserName", controller = "Registration"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] VerifyRegistrantSSNByUserName() on controller NetCoreHooks.Controllers.RegistrationController (NetCoreHooks17).
+2020-09-24 10:19:00.1496 INFO Executing action method NetCoreHooks.Controllers.RegistrationController.VerifyRegistrantSSNByUserName (NetCoreHooks17) - Validation state: Valid
+2020-09-24 10:19:00.1496 INFO Entity Framework Core 2.1.14-servicing-32113 initialized 'RegistrantContext' using provider 'Microsoft.EntityFrameworkCore.InMemory' with options: StoreName=InMemoryDatabase 
+2020-09-24 10:19:00.1496 INFO Executed action method NetCoreHooks.Controllers.RegistrationController.VerifyRegistrantSSNByUserName (NetCoreHooks17), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 5.5379ms.
+2020-09-24 10:19:00.1496 INFO Executing ObjectResult, writing value of type 'NetCoreHooks.model.OktaHookResponse'.
+2020-09-24 10:19:00.1496 INFO Executed action NetCoreHooks.Controllers.RegistrationController.VerifyRegistrantSSNByUserName (NetCoreHooks17) in 11.1207ms
+2020-09-24 10:19:00.1496 INFO Request finished in 16.9308ms 200 application/json; charset=utf-8
+2020-09-24 10:19:12.3130 INFO Request starting HTTP/1.1 POST http://localhost:44370/registration/dblookup application/json 579
+2020-09-24 10:19:12.3130 INFO Route matched with {action = "VerifyRegistrantSSNByUserName", controller = "Registration"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] VerifyRegistrantSSNByUserName() on controller NetCoreHooks.Controllers.RegistrationController (NetCoreHooks17).
+2020-09-24 10:19:12.3130 INFO Executing action method NetCoreHooks.Controllers.RegistrationController.VerifyRegistrantSSNByUserName (NetCoreHooks17) - Validation state: Valid
+2020-09-24 10:19:12.3130 INFO Entity Framework Core 2.1.14-servicing-32113 initialized 'RegistrantContext' using provider 'Microsoft.EntityFrameworkCore.InMemory' with options: StoreName=InMemoryDatabase 
+2020-09-24 10:19:12.3250 INFO Executed action method NetCoreHooks.Controllers.RegistrationController.VerifyRegistrantSSNByUserName (NetCoreHooks17), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 9.0546ms.
+2020-09-24 10:19:12.3250 INFO Executing ObjectResult, writing value of type 'NetCoreHooks.model.OktaHookResponse'.
+2020-09-24 10:19:12.3250 INFO Executed action NetCoreHooks.Controllers.RegistrationController.VerifyRegistrantSSNByUserName (NetCoreHooks17) in 11.209ms
+2020-09-24 10:19:12.3250 INFO Request finished in 13.9231ms 200 application/json; charset=utf-8
+2020-09-24 10:19:55.5102 INFO Request starting HTTP/1.1 POST http://localhost:44370/registration/dblookup application/json 584
+2020-09-24 10:19:55.5102 INFO Route matched with {action = "VerifyRegistrantSSNByUserName", controller = "Registration"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] VerifyRegistrantSSNByUserName() on controller NetCoreHooks.Controllers.RegistrationController (NetCoreHooks17).
+2020-09-24 10:19:55.5102 INFO Executing action method NetCoreHooks.Controllers.RegistrationController.VerifyRegistrantSSNByUserName (NetCoreHooks17) - Validation state: Valid
+2020-09-24 10:19:55.5260 INFO Entity Framework Core 2.1.14-servicing-32113 initialized 'RegistrantContext' using provider 'Microsoft.EntityFrameworkCore.InMemory' with options: StoreName=InMemoryDatabase 
+2020-09-24 10:19:55.5260 INFO Executed action method NetCoreHooks.Controllers.RegistrationController.VerifyRegistrantSSNByUserName (NetCoreHooks17), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 13.3072ms.
+2020-09-24 10:19:55.5260 INFO Executing ObjectResult, writing value of type 'NetCoreHooks.model.OktaHookResponse'.
+2020-09-24 10:19:55.5260 INFO Executed action NetCoreHooks.Controllers.RegistrationController.VerifyRegistrantSSNByUserName (NetCoreHooks17) in 18.5272ms
+2020-09-24 10:19:55.5260 INFO Request finished in 24.1442ms 200 application/json; charset=utf-8
+2020-09-24 10:20:00.8188 INFO Request starting HTTP/1.1 POST http://localhost:44370/event/user-account application/json 1160
+2020-09-24 10:20:00.8221 INFO Route matched with {action = "Post", controller = "Event"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post() on controller NetCoreHooks.Controllers.EventController (NetCoreHooks17).
+2020-09-24 10:20:00.8221 DEBUG NLog injected into Event Controller
+2020-09-24 10:20:00.8221 INFO Executing action method NetCoreHooks.Controllers.EventController.Post (NetCoreHooks17) - Validation state: Valid
+2020-09-24 10:20:00.8221 INFO Event PostEvent action entered
+2020-09-24 10:20:00.8221 DEBUG Post Event Succeeded
+ EventType: user.account.update_passwordEventTime: 9/24/2020 2:20:01 PMDisplayMessage: User update password for Okta
+2020-09-24 10:20:00.8377 INFO Executed action method NetCoreHooks.Controllers.EventController.Post (NetCoreHooks17), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 11.7061ms.
+2020-09-24 10:20:00.8377 INFO Executing ObjectResult, writing value of type 'NetCoreHooks.model.OktaEvents'.
+2020-09-24 10:20:00.8377 INFO Executed action NetCoreHooks.Controllers.EventController.Post (NetCoreHooks17) in 17.1773ms
+2020-09-24 10:20:00.8377 INFO Request finished in 21.706ms 200 application/json; charset=utf-8
