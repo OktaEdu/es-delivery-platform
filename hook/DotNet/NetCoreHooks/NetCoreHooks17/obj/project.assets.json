@@ -12790,11 +12790,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Scratch\\2017\\NetCoreHooks17\\NetCoreHooks17\\NetCoreHooks17.csproj",
+      "projectUniqueName": "C:\\Projects\\OktaEdu\\es-delivery-platform\\hook\\DotNet\\NetCoreHooks\\NetCoreHooks17\\NetCoreHooks17.csproj",
       "projectName": "NetCoreHooks17",
-      "projectPath": "C:\\Scratch\\2017\\NetCoreHooks17\\NetCoreHooks17\\NetCoreHooks17.csproj",
+      "projectPath": "C:\\Projects\\OktaEdu\\es-delivery-platform\\hook\\DotNet\\NetCoreHooks\\NetCoreHooks17\\NetCoreHooks17.csproj",
       "packagesPath": "C:\\Users\\ericj\\.nuget\\packages\\",
-      "outputPath": "C:\\Scratch\\2017\\NetCoreHooks17\\NetCoreHooks17\\obj\\",
+      "outputPath": "C:\\Projects\\OktaEdu\\es-delivery-platform\\hook\\DotNet\\NetCoreHooks\\NetCoreHooks17\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -12846,7 +12846,6 @@
             "version": "[2.1.1, )"
           },
           "Microsoft.NETCore.App": {
-            "suppressParent": "All",
             "target": "Package",
             "version": "[2.1.0, )",
             "autoReferenced": true
@@ -12869,16 +12868,10 @@
           }
         },
         "imports": [
-          "net461",
-          "net462",
-          "net47",
-          "net471",
-          "net472",
-          "net48"
+          "net461"
         ],
         "assetTargetFallback": true,
-        "warn": true,
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        "warn": true
       }
     }
   }
