@@ -40,7 +40,7 @@ public class RegistrationInlineHookController {
             //Compare the employee payloads
             //if the ssn is the same, allow the registration
 
-            //If SSN doesn't match, deny the registration with error messgae SSN is not matching
+            //If SSN doesn't match, deny the registration with error message SSN is not matching
 
 //    } else {
 //        HashMap<String, String> value = new HashMap<>();
@@ -59,7 +59,8 @@ public class RegistrationInlineHookController {
 //        response.setError(error);
 //    }
 
-    //Compose the response body to okta with Deny action and error message that SSN is required
+        // Compose the response body to Okta with a Deny Action and an Error Message that SSN is required
+
 
 //    } else {
 //        HashMap<String, String> value = new HashMap<>();
@@ -85,11 +86,12 @@ public class RegistrationInlineHookController {
     }
 
     private String getEmployees(String username) {
+        /* TODO: Declare and initialize the String uri */
 
         String employee = "";
-
+        /* TODO: Uncomment the lines below when specified by lab guide */
 //        RestTemplate restTemplate = new RestTemplate();
-//        String employee = restTemplate.getForObject(uri, String.class);
+//        employee = restTemplate.getForObject(uri, String.class);
 
         return employee;
 
