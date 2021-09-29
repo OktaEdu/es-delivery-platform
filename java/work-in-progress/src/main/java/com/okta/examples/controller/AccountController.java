@@ -23,7 +23,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-
+/* TODO: import your OktaAuthRequest class */
 @Controller
 public class AccountController {
 
@@ -38,6 +38,7 @@ public class AccountController {
 
     @PostConstruct
     void setup() {
+        /* TODO: Add code to construct a client instance by passing it your Okta domain name and API token  */
     }
 
     @GetMapping("/register")
