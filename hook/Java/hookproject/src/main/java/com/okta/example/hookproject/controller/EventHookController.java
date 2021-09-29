@@ -17,18 +17,18 @@ import java.io.IOException;
 @RestController
 public class EventHookController {
 
-   //Display events that begin with "user.account"
+    //Display events that begin with "user.account"
     @PostMapping("/event/user-account")
     public OktaEvents accountEvents(HttpServletRequest request) {
+        /* TODO: Parse the events from the HTTP Request */
 
+        /* TODO: Update the Strings with values extracted from the HTTP request */
         String eventType = "";
-        String displayMessage="";
-        String eventTime ="";
+        String displayMessage = "";
+        String eventTime = "";
 
-        OktaEvents oktaEvents = new OktaEvents(eventType,displayMessage,eventTime);
-
+        OktaEvents oktaEvents = new OktaEvents(eventType, displayMessage, eventTime);
         System.out.println(oktaEvents.toString());
-
         return oktaEvents;
 
     }
@@ -36,7 +36,9 @@ public class EventHookController {
     //Verify endpoint ownership
     @GetMapping("/event/*")
     public VerificationResponse endpointVerify(HttpServletRequest request) {
+        /* TODO: Declare and assign headerName String */
 
+        /* TODO: Update the verification String value */
         String verification = "";
         VerificationResponse response = new VerificationResponse();
         response.setVerification(verification);
@@ -44,7 +46,5 @@ public class EventHookController {
         System.out.println(verification);
 
         return response;
-
     }
-
 }

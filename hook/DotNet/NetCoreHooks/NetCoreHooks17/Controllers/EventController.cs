@@ -38,7 +38,7 @@ namespace NetCoreHooks.Controllers
         public IActionResult Get()
         {
             _logger.LogDebug("Event EndpointVerify entered.");
-            /*Instantiate VerificationResponse object*/
+            /*  TODO: Instantiate VerificationResponse object */
             VerificationResponse response = null;
 
             string verification = Request.Headers[VERIFICATION_HEADER];
@@ -48,10 +48,10 @@ namespace NetCoreHooks.Controllers
                 _logger.LogWarning($"Event EndpointVerify BadRequest will be returned. {verification}");
                 return BadRequest(verification);
             }
-
             response.Verification = verification;
             Debug.WriteLine("Verification: \n" + verification);
             _logger.LogDebug($"Event EndpointVerify suceeded: {response.Verification}");
+            /* TODO: Pass in the VerificationObject */
             return Ok();
         }
 
@@ -76,6 +76,7 @@ namespace NetCoreHooks.Controllers
                 if (desiredEvent != null)
                 {
                     oktaEvents = new OktaEvents();
+                    /* TODO: Get Parsed JSON stored in desiredEvent and assign to oktaEvents properties */
 
 
                     
