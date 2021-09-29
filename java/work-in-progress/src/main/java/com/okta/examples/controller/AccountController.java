@@ -47,8 +47,11 @@ public class AccountController {
     }
 
     @PostMapping("/register")
+    /* TODO: Add ModelAttribute annotation and OktaAuthRequest parameter */
+
     public ModelAndView doRegister() {
         Map<String, String> regResponse = new HashMap<>();
+        /* TODO: Try to create a new user. Catch any exception that occurs */
 
         return new ModelAndView("register", regResponse);
     }
