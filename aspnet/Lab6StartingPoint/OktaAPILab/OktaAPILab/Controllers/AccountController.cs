@@ -27,8 +27,8 @@ namespace OktaAPILab.Controllers
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IEmailSender _emailSender;
         private readonly ILogger _logger;
-        private readonly string _oktaUrl = "https://oktaice###.oktapreview.com";
-        private readonly string _oktaApiToken = "abc123";
+        private readonly string _oktaUrl = "https://oktaice###.oktapreview.com"; // replace with your okta org
+        private readonly string _oktaApiToken = "abc123"; // replace with your API token
 
 
         public AccountController(
