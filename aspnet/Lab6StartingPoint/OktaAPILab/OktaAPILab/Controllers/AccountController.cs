@@ -16,6 +16,7 @@ using OktaAPILab.Services;
 using Microsoft.AspNetCore.Http;
 using Okta.Sdk;
 using Okta.Sdk.Configuration;
+// add the add the Okta.Auth.Sdk namespace
 
 namespace OktaAPILab.Controllers
 {
@@ -48,6 +49,7 @@ namespace OktaAPILab.Controllers
 
         [HttpGet]
         [AllowAnonymous]
+        /* Login method for our GET request */
         public async Task<IActionResult> Login(string returnUrl = null)
         {
             // Clear the existing external cookie to ensure a clean login process
@@ -60,37 +62,91 @@ namespace OktaAPILab.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
+        /* Login method for our POST request */
         public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {
-                // Declare the variable to hold the Okta Configuration Parameters
+                /* 
+                 * 👇 Lab 6-1: 
+                 * Modify the value of oktaClientConfig with your Okta Client Configuration details 
+                 */
                 var oktaClientConfig = "";
 
-                // Declare the Authentication Client for Okta
+                /* 
+                 * 👇 Lab 6-1:
+                 * Modify the value of authnClient so it instantiates a new AuthenticationClient object with our client configs 
+                 */
                 var authnClient = "";
 
-                // Declare the Authentication Options
+                /* 
+                 * 👇 Lab 6-1: 
+                 * Modify the value of authnOptions with mappings for Username and Password 
+                 */
+
                 var authnOptions = "";
 
+                /* 
+                 * In this try block, we will perform a callout to Okta via our Authentication Client
+                 * If we get a SUCCESS response, we'll set the status and the authentication token
+                 * so we can display it.
+                 * Otherwise, we will set the error status for display.
+                 */
                 try
                 {
-                    //Callout to Okta
-                    var authnResponse = "";
+                    /* 👇 Lab 6-1:
+                     * Update the variable below with a callout to Okta via our Authentication Client
+                     * using the `AuthenticateAsync()` method that passes in the authentication details
+                     */
+                    var authnResponse = ""; // Callout to Okta
+
                     
-                    if (authnResponse == "SUCCESS")
+                    if (authnResponse == "SUCCESS") // Check for success response from the Authentication Client
                     {
+                        /* 
+                         * 👇 Lab 6-1: 
+                         * Update the code below so that when you get a SUCCESS
+                         * response, you save the AuthenticationStatus and SessionToken
+                         */
                         ViewBag.Status = authnResponse;
-                  
+
+                        /* 
+                         * 👇 Lab 6-2: 
+                         * add a return statement below to redirect the user to the landing page
+                         */
+
+                        /* 
+                         * ☝️ Lab 6-3: 
+                         * Comment out this return statement for Lab 6-3
+                         */
+
+                        /* 
+                         * 👇 Lab 6-3: 
+                         * Store the userid that we get from the response from 
+                         * the Authentication Client to our Session
+                         */
+
+
+                        /* 
+                         * 👇 Lab 6-3: 
+                         * Build the redirect URL string composed of your Okta Org URL and the 
+                         * login/sessionCookieRedirect endpoint with the token and redirectUrl query strings. 
+                         */
+
                     }
                     else
                     {
-                        ViewBag.ErrorSummary = "Unexpected Status: " +
-                                        authnResponse;
+                        ViewBag.ErrorSummary = "Unexpected Status: " + authnResponse;
                     }
 
                 }
+                /* 
+                 * 👇 Lab 6-1:
+                 * If an exception is caught, store the error.
+                 * Make sure you update oktaError's type
+                 * and access oktaError's ErrorSummary property
+                */
                 catch (Exception oktaError)
                 {
                     ViewBag.ErrorSummary = oktaError;
