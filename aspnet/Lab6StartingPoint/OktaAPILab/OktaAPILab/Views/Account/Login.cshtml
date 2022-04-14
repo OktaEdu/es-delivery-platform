@@ -16,7 +16,9 @@
             <form asp-route-returnurl="@ViewData["ReturnUrl"]" method="post">
                 <h4>Use an Okta Account to log in.</h4>
                 <h4 style="color:green">@ViewBag.Status</h4>
-                <!-- Add an additional h4 tag below to display the Session Token -->
+                <!--
+                    👇 Lab 6-1: Add an additional h4 tag below to display the Session Token
+                -->
 
                 <h4 style="color:red">@ViewBag.ErrorSummary</h4>
 

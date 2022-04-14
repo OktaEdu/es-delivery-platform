@@ -16,7 +16,8 @@ using OktaAPILab.Services;
 using Microsoft.AspNetCore.Http;
 using Okta.Sdk;
 using Okta.Sdk.Configuration;
-// add the add the Okta.Auth.Sdk namespace
+// 👇 Lab 6.1: add the add the Okta.Auth.Sdk namespace
+
 
 namespace OktaAPILab.Controllers
 {
@@ -28,8 +29,8 @@ namespace OktaAPILab.Controllers
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IEmailSender _emailSender;
         private readonly ILogger _logger;
-        private readonly string _oktaUrl = "https://oktaice###.oktapreview.com"; // replace with your okta org
-        private readonly string _oktaApiToken = "abc123"; // replace with your API token
+        private readonly string _oktaUrl = "https://oktaice###.oktapreview.com"; // 👈 Lab 6.1: replace with your okta org
+        private readonly string _oktaApiToken = "abc123"; // 👈 Lab 6.1: replace with your API token
 
 
         public AccountController(
