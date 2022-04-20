@@ -48,41 +48,45 @@ namespace NetCoreHooks.Controllers
             string ssnFromDatabase = String.Empty;
             OktaHookResponse response = null;
 
-            //grab http reques body
+            //grab http request body
             var reader = new StreamReader(Request.Body);
             var payLoad = await reader.ReadToEndAsync();
             Debug.WriteLine($"payLoad received: \n{payLoad}");
 
-            //make sure you have a good payload
-            if (payLoad != null)
+            
+            if (payLoad != null) //make sure you have a valid payload
             {
-                //convert incoming http request to JSon JObject
-                var parsedJson = JObject.Parse(payLoad);
+                
+                var parsedJson = JObject.Parse(payLoad); //convert incoming http request to JSON JObject
 
-                //get SSN from payload via Linq-to-JSon
+                /* 👇 Lab 7-2: 
+                 * TODO: Modify the userProfile variable so that
+                 * it gets the user profile data from the parsed JSON
+                 */
                 JObject userProfile = null;
 
-                /*did you remember to include SSN in Okta User Profile? 
-                 * if you didn't, the ssn key will be absent.
-                */                
-                if (userProfile.ContainsKey("ssn"))
+                /* 👇 Lab 7-2: 
+                 * TODO: Now extract the username from the userProfile
+                 * and save it to the String variable named userName
+                 */
+
+            
+                if (userProfile.ContainsKey("ssn")) // this verifies that the SSN key exists before we extract the value
                 {
-                    //get SSN Okta sent us
+                    /* 👇 Lab 7-2: 
+                     * TODO: Modify the ssnFromOkta variable so that it
+                     * stores the extracted SSN value from userProfile
+                     */
                     ssnFromOkta = "";
                     Debug.WriteLine($"ssnFromOkta: {ssnFromOkta}");
                 }
-                else
+                else // ssn key does not exist. Create and return an error response
                 {
-                    //couldn't detect SSN from payload. Create new Error object with Error Causes
                     response = new OktaHookResponse();
                     Dictionary<String, String> dict = new Dictionary<string, string>
                     {
                         { "registration", "DENY" }
                     };
-
-                    Command command = new Command();
-                    
-
 
                     Error error = new Error();
                     error.ErrorSummary = "Unable to add registrant";
@@ -96,18 +100,18 @@ namespace NetCoreHooks.Controllers
                     return Ok(response);
                 }
 
-                //get ssn from database for this user
+                
+                // get information we have stored for this user from our database so we can compare to the info we got from Okta
                 var Registrant = await _simulatedRemoteDBComponent.FindByUserName(userName);
                 var RegistrantDTO = _mapper.Map<RegistrantDTO>(Registrant);
-
                 if (RegistrantDTO != null)
                 {
-                    ssnFromDatabase = RegistrantDTO.SSN;
+                    ssnFromDatabase = RegistrantDTO.SSN; // this is the ssn we got from our database
                 }
-                else
+                else // we didn't have any info for that user stored in our database (got null)
                 {
-                    //couldn't get data from the simulated remote system (which is really a local in-memory database)
-                    //Deny registration. Create new Error object with Error Causes
+                    // So, we can't verify the SSN!
+                    // Deny registration. Create new Error and return it in a response.
                     response = new OktaHookResponse();
                     Dictionary<String, String> dict = new Dictionary<string, string>
                     {
@@ -134,20 +138,22 @@ namespace NetCoreHooks.Controllers
 
                 Debug.WriteLine(ssnFromDatabase);
 
-                //do the SSNs match? 
-                if (ssnFromOkta == ssnFromDatabase)
+                
+                if (ssnFromOkta == ssnFromDatabase) // Does the SSN the user supplied from Okta match the one from our DB? 
                 {
-                    //you have a match, now construct your response back to Okta
-                    response = new OktaHookResponse();
-                    Dictionary<String, String> dict = new Dictionary<string, string>
-                    {
-                        { "ssn", String.Empty }
-                    };
-
+                    
+                    response = new OktaHookResponse(); // It matched, so now construct a response back to Okta
                     Command command = new Command();
-                    command.type = "com.okta.user.profile.update";
-                    command.value = dict;
-                    response.commands.Add(command);
+                    /* 👇 Lab 7-2: 
+                    * TODO: Construct a command to add to our Command object
+                    * The type will be "com.okta.user.profile.update" since we will be updating this Okta user's 
+                    * profile.  
+                    * The value will set the user's SSN to the empty string so that we no longer store this 
+                    * information on Okta now that it has been verified.
+                    * Finally, we will add our Command object to the response
+                    */
+
+
 
                     Debug.WriteLine("SSN match detected. Returing 200 OK\n");
                     Debug.WriteLine("Response to send back to Okta:\n " + response);
@@ -157,26 +163,31 @@ namespace NetCoreHooks.Controllers
                     //object with an "ssn" value of String.Empty
                     return Ok(response);
                 }
-                else
+                else // SSNs did not match! Disallow registration. Create new Error object with Error Causes
                 {
-                    //no match. Disallow registration. Create new Error object with Error Causes
+                    
                     response = new OktaHookResponse();
-                    Dictionary<String, String> dict = new Dictionary<string, string>
-                    {
-                        { "registration", "DENY" }
-                    };
+                    
 
                     Command command = new Command();
-                    command.type = "com.okta.action.update";
-                    command.value = dict;
-                    response.commands.Add(command);
-                    Error error = new Error();
-                    error.ErrorSummary = "Unable to add registrant";
-                    error.ErrorCauses = new List<ErrorCause>
-                    {
-                        
+                    /* 👇 Lab 7-2: 
+                    * TODO: Construct a command to add to our Command object
+                    * The type will be "com.okta.action.update" which is an action 
+                    * we use when specifying whether to create a new Okta user when importing
+                    * users or matching them against existing Okta users.
+                    * The value DENY registration since the SSNs did not match.
+                    * 
+                    * Finally, we will add our Command object to the response
+                    */
 
-                    };
+
+                    Error error = new Error();
+                    /* 👇 Lab 7-2: 
+                    * TODO: Specify in the ErrorSummary that we could not add the registrant
+                    * Leave the ErrorCauses empty
+                    */
+
+
                     response.Error = error;
                     return Ok(response);
                 }

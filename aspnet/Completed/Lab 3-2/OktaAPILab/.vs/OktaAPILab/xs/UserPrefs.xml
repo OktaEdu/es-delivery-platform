@@ -1,0 +1,29 @@
+﻿<Properties StartupConfiguration="{904237BC-CD42-46EE-8535-CC7C619073AE}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="OktaAPILab/Controllers/AccountController.cs">
+    <Files>
+      <File FileName="OktaAPILab/Controllers/AccountController.cs" Line="223" Column="51" />
+      <File FileName="OktaAPILab/Controllers/HomeController.cs" Line="1" Column="1" />
+      <File FileName="OktaAPILab/Controllers/ManageController.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="OktaAPILab" expanded="True">
+            <Node name="OktaAPILab" expanded="True">
+              <Node name="Controllers" expanded="True">
+                <Node name="AccountController.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.OktaAPILab PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
