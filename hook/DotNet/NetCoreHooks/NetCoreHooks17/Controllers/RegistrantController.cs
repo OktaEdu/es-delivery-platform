@@ -80,7 +80,7 @@ namespace NetCoreHooks.Controllers
                     ssnFromOkta = "";
                     Debug.WriteLine($"ssnFromOkta: {ssnFromOkta}");
                 }
-                else // ssn key does not exist. Create and return an error response
+                else // ssn key does not exist in the payload. DENY registration and return an Error in response
                 {
                     response = new OktaHookResponse();
                     Dictionary<String, String> dict = new Dictionary<string, string>
