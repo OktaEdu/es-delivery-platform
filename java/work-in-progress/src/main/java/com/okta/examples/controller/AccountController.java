@@ -23,7 +23,9 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-/* TODO: import your OktaAuthRequest class */
+/* 👇 Lab 3-2:
+ * TODO: import your OktaAuthRequest class
+ */
 @Controller
 public class AccountController {
 
@@ -43,7 +45,10 @@ public class AccountController {
 
     @PostConstruct
     void setup() {
-        /* TODO: Add code to construct a client instance by passing it your Okta domain name and API token  */
+        /* 👇 Lab 3-2:
+         * TODO: Initialize the client private instance variable
+         *  with your orgUrl and apiToken
+         */
     }
 
     @GetMapping("/register")
@@ -52,11 +57,28 @@ public class AccountController {
     }
 
     @PostMapping("/register")
-    /* TODO: Add ModelAttribute annotation and OktaAuthRequest parameter */
-
+    /* 👇 Lab 3-2:
+     * TODO: Add the @ModuleAttribute annotation to this method
+     *   and modify the parameters list to include an OktaAuthRequest reference
+     */
     public ModelAndView doRegister() {
         Map<String, String> regResponse = new HashMap<>();
-        /* TODO: Try to create a new user. Catch any exception that occurs */
+        try {
+            /* 👇 Lab 3-2:
+             * TODO:  Build a user with details from the OktaAuthRequest to
+             *  register with the Okta client.
+             *  if there's no error, put the status and userId in the registration response
+             */
+
+        }
+        catch(ResourceException e) {
+            /* 👇 Lab 3-2:
+             * TODO:  If we catch an error, put the status code and error summary
+             *  in the registration response
+             */
+
+        }
+
 
         return new ModelAndView("register", regResponse);
     }
