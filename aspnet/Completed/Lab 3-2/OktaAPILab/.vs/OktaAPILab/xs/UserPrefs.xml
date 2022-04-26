@@ -2,8 +2,8 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="OktaAPILab/Controllers/AccountController.cs">
     <Files>
       <File FileName="OktaAPILab/Controllers/AccountController.cs" Line="223" Column="51" />
-      <File FileName="OktaAPILab/Controllers/HomeController.cs" Line="1" Column="1" />
-      <File FileName="OktaAPILab/Controllers/ManageController.cs" Line="1" Column="1" />
+      <File FileName="OktaAPILab/Controllers/HomeController.cs" />
+      <File FileName="OktaAPILab/Controllers/ManageController.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -12,6 +12,10 @@
             <Node name="OktaAPILab" expanded="True">
               <Node name="Controllers" expanded="True">
                 <Node name="AccountController.cs" selected="True" />
+              </Node>
+              <Node name="Views" expanded="True">
+                <Node name="Account" expanded="True" />
+                <Node name="Home" expanded="True" />
               </Node>
             </Node>
           </Node>

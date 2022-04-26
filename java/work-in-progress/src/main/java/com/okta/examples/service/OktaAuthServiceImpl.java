@@ -9,8 +9,10 @@ import com.okta.authn.sdk.resource.AuthenticationResponse;
 import com.okta.sdk.resource.ResourceException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-
 import javax.annotation.PostConstruct;
+/* 👇 Lab 6-1:
+ * TODO: import the OktaAuthRequest model
+ */
 
 @Service
 public class OktaAuthServiceImpl implements OktaAuthService {
@@ -22,18 +24,23 @@ public class OktaAuthServiceImpl implements OktaAuthService {
 
     @PostConstruct
     public void setup() {
-      //  client = AuthenticationClients.builder().setOrgUrl(orgUrl).build();
+        /* 👇 Lab 6-1:
+         * Define the authentication client using your orgUrl
+         */
     }
 
-    @Override
-    public AuthenticationResponse authenticate() throws AuthenticationException {
+    /* 👇 Lab 6-1:
+     * TODO: Implement the authenticate() method declared in the OktaAuthService interface
+     * @param oktaAuthRequest: an OktaAuthRequest object
+     * @return: an AuthenticationResponse object
+     * @throws: an AuthenticationException object
+     *
+     * This method will get the username and password captured in the OktaAuthRequest object
+     * and pass it to our client.
+     * If no error is encountered, the client returns an AuthenticationResponse.
+     */
 
-        return client.authenticate(
 
-                null,
-                new EmptyAuthenticationStateHandlerAdapter()
-        );
-    }
 
     class EmptyAuthenticationStateHandlerAdapter extends AuthenticationStateHandlerAdapter {
 

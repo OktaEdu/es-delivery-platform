@@ -36,6 +36,11 @@ public class AccountController {
     private OktaAuthService oktaAuthService;
     private Client client;
 
+    /* 👇 Lab 6-1:
+     * TODO: Add a one argument constructor that sets the value of the
+     *  oktaAuthService property
+     */
+
     @PostConstruct
     void setup() {
         /* TODO: Add code to construct a client instance by passing it your Okta domain name and API token  */
@@ -62,26 +67,49 @@ public class AccountController {
     }
 
     @PostMapping("/login")
+    /* 👇 Lab 6-1:
+     * TODO: Add an additional OktaAuthRequest parameter to the doLogin method signature
+     *  It should be the first param and be annotated with @ModelAttribute
+     */
     public ModelAndView doLogin(
-        HttpServletRequest request, HttpServletResponse response
-    ) throws IOException {
+        HttpServletRequest request,
+        HttpServletResponse response) throws IOException {
         Map<String, String> authResponse = new HashMap<>();
 
         try {
-            AuthenticationResponse oktaAuthResponse =
-                    oktaAuthService.authenticate();
-            authResponse.put(
-                    "Status",
-                    "Status: " + oktaAuthResponse.getStatusString()
-            );
-//            authResponse.put(
-//                    "SessionToken",
-//                    "Session Token: " + oktaAuthResponse.getSessionToken()
-//            );
-        } catch (Exception e) {
-            authResponse.put(
-                    "ErrorSummary", "Error: " + e.getMessage()
-            );
+            /* 👇 Lab 6-2:
+             * TODO: Pass the oktaAuthRequest to the OktaAuthService and extract
+             *  the Status and SessionToken from the response. Put this data in authResponse.
+             */
+
+
+            /* 👇 Lab 6-2:
+             * TODO: Pass the oktaAuthRequest to the OktaAuthService and extract
+             *  the Status and SessionToken from the response. Put this data in authResponse.
+             *
+             * Later in 👇 Lab 6-3:
+             * TODO: Comment out the return statement in the try block
+             *  Instead, we will initiate a session and associate the userId
+             */
+
+
+            /* 👇 Lab 6-3:
+             * TODO: Build the URL string for directing the user to our Okta subdomain
+             * This will consist of our orgUrl, the /login/sessionCookieRedirect endpoint,
+             * a query string parameter (token), that gets the session token from the Okta Auth Response,
+             * and another query string parameter (redirectUrl), which gets our portal URL.
+             * Finally, we will send this redirect URL as part of our response.
+             */
+
+
+
+
+        }
+        catch (Exception e) {
+            /* 👇 Lab 6-1:
+             * TODO: Store the error message in authResponse if we encounter an exception
+             */
+
         }
 
         return new ModelAndView("login", authResponse);
