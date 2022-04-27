@@ -30,7 +30,7 @@ namespace OktaAPILab.Controllers
         private readonly IEmailSender _emailSender;
         private readonly ILogger _logger;
 
-        // TODO: 👇 Lab 6.1: replace value with your okta org 👇
+        // TODO: 👇 Lab 6.1: replace value with your Okta org URL 👇
         private readonly string _oktaUrl = "https://oktaice###.oktapreview.com"; 
         // TODO: 👇 Lab 6.1: replace value with your API token 👇
         private readonly string _oktaApiToken = "abc123"; 
