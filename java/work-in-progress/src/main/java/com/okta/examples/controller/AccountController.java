@@ -61,7 +61,8 @@ public class AccountController {
      * TODO: Add the @ModuleAttribute annotation to this method
      *   and modify the parameters list to include an OktaAuthRequest reference
      */
-    public ModelAndView doRegister() {
+    public ModelAndView doRegister()
+    {
         Map<String, String> regResponse = new HashMap<>();
         try {
             /* 👇 Lab 3-2:
