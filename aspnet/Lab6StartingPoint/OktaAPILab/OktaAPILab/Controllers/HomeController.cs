@@ -16,7 +16,7 @@ namespace OktaAPILab.Controllers
         private readonly string _oktaUrl = "https://oktaice###.oktapreview.com"; 
         // TODO: 👇 Lab 6.4: replace value with your API token 👇
         private readonly string _oktaApiToken = "abc123"; 
-        
+
         public IActionResult Index()
         {
             return View();
@@ -58,7 +58,7 @@ namespace OktaAPILab.Controllers
              * and instantiate a new instance of the OktaClient with
              * these configurations
              */
-            // OktaClientConfiguration oktaConfig = "";
+            OktaClientConfiguration oktaConfig;
 
 
             try
@@ -67,9 +67,7 @@ namespace OktaAPILab.Controllers
                 * Try to get the list of the app data associated 
                 * with the user in the current session
                 */
-                var appLinks = "";
-
-                ViewBag.IsSuccessful = true;
+                
             }
             /* 👇 Lab 6-4:
              * If the above results in an error,
