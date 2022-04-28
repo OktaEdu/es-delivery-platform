@@ -103,10 +103,14 @@ namespace OktaAPILab.Controllers
                      * Update the variable below with a callout to Okta via our Authentication Client
                      * using the `AuthenticateAsync()` method that passes in the authentication details
                      */
-                    var authnResponse = ""; // Callout to Okta
+                    var authnResponse = ""; 
 
-                    
-                    if (authnResponse == "SUCCESS") // Check for success response from the Authentication Client
+                    /* 👇 Lab 6-1:
+                     * Since we changed authnResponse from a String to an
+                     * IAuthenticationResponse object, we need to change the line below 
+                     * so it compares the AuthenticationStatus property of authnResponse to "SUCCESS"
+                     */
+                    if (authnResponse == "SUCCESS")
                     {
                         /* 
                          * 👇 Lab 6-1: 
@@ -141,6 +145,11 @@ namespace OktaAPILab.Controllers
                     }
                     else
                     {
+                        /* 
+                        * 👇 Lab 6-1: 
+                        * Update the code below so that when you DON'T get a SUCCESS
+                        * response, you store the unexpected status to the ErrorSummary
+                        */
                         ViewBag.ErrorSummary = "Unexpected Status: " + authnResponse;
                     }
 
