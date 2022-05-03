@@ -81,6 +81,9 @@ public class RegistrationInlineHookController {
             String employeeInfo = getEmployees(username);
             EmployeeBasicInfo employeeFromDB = EmployeeConverter.parseEmployeeInfo(employeeInfo);
             String ssnFromDB = employeeFromDB.getSsn();
+            /*
+             * ☝️ End of review segment
+             */
 
             if(ssnFromOkta.equals(ssnFromDB)){
                 Commands command1 = new Commands();

@@ -43,23 +43,5 @@ public class OktaUserServiceImpl implements OktaUserService {
         // TODO #4👇: Catch any error that results from our request
         //  Log the error and return null
 
-    public List getAppLinks(String userId) {
-        try {
-            InputStream is = Request.Get(
-                    orgUrl
-                        //    + "/api/v1/users/" + userId + "/appLinks"
-            )
-                    .addHeader("Cache-Control", "no-cache")
-                    .addHeader("Authorization", "SSWS " + apiToken)
-                    .addHeader("Accept", "application/json")
-                    .execute().returnContent().asStream();
-            return Collections.emptyList();
-            //return mapper.readValue(is, List.class);
-        } catch (IOException e) {
-            logger.error(
-                    "Unable to get appLinks: {}", e.getMessage(), e
-            );
-            return null;
-        }
-    }
+
 }
