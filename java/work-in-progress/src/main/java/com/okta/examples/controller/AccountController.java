@@ -100,20 +100,11 @@ public class AccountController {
         Map<String, String> authResponse = new HashMap<>();
 
         try {
-            /* 👇 Lab 6-2:
+            /* 👇 Lab 6-1:
              * TODO: Pass the oktaAuthRequest to the OktaAuthService and extract
              *  the Status and SessionToken from the response. Put this data in authResponse.
              */
 
-
-            /* 👇 Lab 6-2:
-             * TODO: Pass the oktaAuthRequest to the OktaAuthService and extract
-             *  the Status and SessionToken from the response. Put this data in authResponse.
-             *
-             * Later in 👇 Lab 6-3:
-             * TODO: Comment out the return statement in the try block
-             *  Instead, we will initiate a session and associate the userId
-             */
 
 
             /* 👇 Lab 6-3:
@@ -124,9 +115,14 @@ public class AccountController {
              * Finally, we will send this redirect URL as part of our response.
              */
 
-
-
-
+            /* 👇 Lab 6-2:
+             * TODO: Add a return statement that will redirect the user to the portal home upon
+             *  successful authentication
+             *
+             * LATER in 👇 Lab 6-3:
+             * TODO: Comment out the return statement in the try block
+             *  Instead, we will initiate a session and associate the userId
+             */
         }
         catch (Exception e) {
             /* 👇 Lab 6-1:
