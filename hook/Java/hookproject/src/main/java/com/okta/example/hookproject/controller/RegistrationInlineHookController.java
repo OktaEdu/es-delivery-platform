@@ -86,25 +86,29 @@ public class RegistrationInlineHookController {
              */
 
             if(ssnFromOkta.equals(ssnFromDB)){
+                // construct command
                 Commands command1 = new Commands();
                 List<Commands> commandsList = new ArrayList<>();
-            /* 👇 Lab 7-2:
-             * TODO: Construct a command to add to our Commands object registration is allowed
-             * The type will be "com.okta.user.profile.update" since we will be updating this Okta user's
-             * profile.
-             * The value will set the user's SSN to the empty string so that we no longer store this
-             * information on Okta now that it has been verified.
-             * Finally, we will add our Command object to the response
-             */
+
+                /* 👇 Lab 7-2:
+                 * TODO: Specify a command to add to our Commands object registration is allowed
+                 * The type will be "com.okta.user.profile.update" since we will be updating this Okta user's
+                 * profile.
+                 * The value will set the user's SSN to the empty string so that we no longer store this
+                 * information on Okta now that it has been verified.
+                 * Finally, we will add our Command object to the response
+                 */
 
 
             }
 
             else {
+                // construct command
                 Commands command1 = new Commands();
                 List<Commands> commandsList = new ArrayList<>();
+
                 /* 👇 Lab 7-2:
-                 * TODO: Construct a command to add to our Command object when registration is denied
+                 * TODO: Specify a command to add to our Commands object when registration is denied
                  * The type will be "com.okta.action.update" which is an action
                  * we use when specifying whether to create a new Okta user when importing
                  * users or matching them against existing Okta users.
@@ -115,6 +119,8 @@ public class RegistrationInlineHookController {
 
 
 
+
+                // construct Error
                 Error error = new Error();
                 ErrorCauses errorCauses = new ErrorCauses();
                 List<ErrorCauses> causesList = new ArrayList<>();
