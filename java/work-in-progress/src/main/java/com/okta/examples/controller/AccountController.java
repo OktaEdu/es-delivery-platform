@@ -106,15 +106,6 @@ public class AccountController {
              */
 
 
-
-            /* 👇 Lab 6-3:
-             * TODO: Build the URL string for directing the user to our Okta subdomain
-             * This will consist of our orgUrl, the /login/sessionCookieRedirect endpoint,
-             * a query string parameter (token), that gets the session token from the Okta Auth Response,
-             * and another query string parameter (redirectUrl), which gets our portal URL.
-             * Finally, we will send this redirect URL as part of our response.
-             */
-
             /* 👇 Lab 6-2:
              * TODO: Add a return statement that will redirect the user to the portal home upon
              *  successful authentication
@@ -122,6 +113,14 @@ public class AccountController {
              * LATER in 👇 Lab 6-3:
              * TODO: Comment out the return statement in the try block
              *  Instead, we will initiate a session and associate the userId
+             */
+
+            /* 👇 Lab 6-3:
+             * TODO: Build the URL string for directing the user to our Okta subdomain
+             * This will consist of our orgUrl, the /login/sessionCookieRedirect endpoint,
+             * a query string parameter (token), that gets the session token from the Okta Auth Response,
+             * and another query string parameter (redirectUrl), which gets our portal URL.
+             * Finally, we will send this redirect URL as part of our response.
              */
         }
         catch (Exception e) {
