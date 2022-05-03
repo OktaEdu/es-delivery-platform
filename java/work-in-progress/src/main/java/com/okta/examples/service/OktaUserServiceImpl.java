@@ -27,7 +27,7 @@ public class OktaUserServiceImpl implements OktaUserService {
     private String apiToken;
 
     /* 👇 Lab 6-4:
-     * TODO: Implement the getAppLinks method inherited from OktaUserService
+     * TODO: Implement the abstract method getAppLinks() inherited from OktaUserService
      * @param String userId
      * @return List<OktaAppLink>
      * This method should get and return a list of app links

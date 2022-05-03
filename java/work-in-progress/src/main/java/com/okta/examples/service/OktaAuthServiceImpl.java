@@ -30,7 +30,7 @@ public class OktaAuthServiceImpl implements OktaAuthService {
     }
 
     /* 👇 Lab 6-1:
-     * TODO: Implement the authenticate() method declared in the OktaAuthService interface
+     * TODO: Implement the abstract method authenticate() inherited from the OktaAuthService interface
      * @param oktaAuthRequest: an OktaAuthRequest object
      * @return: an AuthenticationResponse object
      * @throws: an AuthenticationException object

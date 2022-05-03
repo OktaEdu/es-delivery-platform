@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface OktaUserService extends OktaBaseService {
     /* 👇 Lab 6-4:
-     * TODO: Specify an interface method called getAppLinks
+     * TODO: Specify an abstract method called getAppLinks
      * @param String userId
      * @return List<OktaAppLink>
      */
