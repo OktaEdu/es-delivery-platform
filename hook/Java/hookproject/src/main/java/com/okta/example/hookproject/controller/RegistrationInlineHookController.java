@@ -87,7 +87,7 @@ public class RegistrationInlineHookController {
 
             if(ssnFromOkta.equals(ssnFromDB)){
                 // construct command
-                Commands command1 = new Commands();
+                Commands allowAndResetSSN = new Commands();
                 List<Commands> commandsList = new ArrayList<>();
 
                 /* 👇 Lab 7-2:
@@ -104,7 +104,7 @@ public class RegistrationInlineHookController {
 
             else {
                 // construct command
-                Commands command1 = new Commands();
+                Commands denyRegNoMatch = new Commands();
                 List<Commands> commandsList = new ArrayList<>();
 
                 /* 👇 Lab 7-2:
@@ -136,13 +136,13 @@ public class RegistrationInlineHookController {
         }
         else { // ssn does not exist in the payload.
             // construct Command that denies registration
-            Commands command1 = new Commands();
+            Commands denyRegNoSSN = new Commands();
             List<Commands> commandsList = new ArrayList<>();
             HashMap<String, String> value = new HashMap<>();
             value.put("registration", "DENY");
-            command1.setValue(value);
-            command1.setType("com.okta.action.update");
-            commandsList.add(command1);
+            denyRegNoSSN.setValue(value);
+            denyRegNoSSN.setType("com.okta.action.update");
+            commandsList.add(denyRegNoSSN);
 
             // construct Error
             Error error = new Error();
