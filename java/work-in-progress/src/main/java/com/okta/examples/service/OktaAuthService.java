@@ -2,9 +2,19 @@ package com.okta.examples.service;
 
 import com.okta.authn.sdk.AuthenticationException;
 import com.okta.authn.sdk.resource.AuthenticationResponse;
-//import com.okta.examples.model.OktaAuthRequest;
+/* 👇 Lab 6-1:
+ * TODO: import the OktaAuthRequest model
+ */
+
 
 public interface OktaAuthService {
 
-    AuthenticationResponse authenticate() throws AuthenticationException;
+    /* 👇 Lab 6-1:
+     * TODO: Declare an abstract method called authentication()
+     * @param oktaAuthRequest: an OktaAuthRequest object
+     * @return: an AuthenticationResponse object
+     * @throws: an AuthenticationException object
+     */
+
+
 }

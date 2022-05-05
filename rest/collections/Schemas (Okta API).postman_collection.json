@@ -1,0 +1,240 @@
+{
+	"info": {
+		"_postman_id": "4a496651-27b3-4d6b-88e5-8cb7ac518aaf",
+		"name": "Schemas (Okta API)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get User Schema",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/meta/schemas/user/default",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"meta",
+								"schemas",
+								"user",
+								"default"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Property to User Profile Schema",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"definitions\": {\n    \"custom\": {\n      \"id\": \"#custom\",\n      \"type\": \"object\",\n      \"properties\": {\n        \"twitterUserName\": {\n          \"title\": \"Twitter username\",\n          \"description\": \"User's username for twitter.com\",\n          \"type\": \"string\",\n          \"required\": false,\n          \"minLength\": 1,\n          \"maxLength\": 20,\n          \"permissions\": [\n            {\n              \"principal\": \"SELF\",\n              \"action\": \"READ_WRITE\"\n            }\n          ]\n        }\n      },\n      \"required\": []\n    }\n  }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/meta/schemas/user/default",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"meta",
+								"schemas",
+								"user",
+								"default"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User Profile Schema Property",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"definitions\": {\n    \"custom\": {\n      \"id\": \"#custom\",\n      \"type\": \"object\",\n      \"properties\": {\n        \"twitterUserName\": {\n          \"title\": \"Twitter username\",\n          \"description\": \"User's username for twitter.com\",\n          \"type\": \"string\",\n          \"required\": false,\n          \"minLength\": 1,\n          \"maxLength\": 10,\n          \"permissions\": [\n            {\n              \"principal\": \"SELF\",\n              \"action\": \"READ_ONLY\"\n            }\n          ]\n        }\n      },\n      \"required\": []\n    }\n  }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/meta/schemas/user/default",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"meta",
+								"schemas",
+								"user",
+								"default"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Property from User Profile Schema",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"definitions\": {\n        \"custom\": {\n            \"id\": \"#custom\",\n            \"type\": \"object\",\n            \"properties\": {\n                \"twitterUserName\": null\n            }\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/meta/schemas/user/default",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"meta",
+								"schemas",
+								"user",
+								"default"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Log Stream Schema",
+			"item": [
+				{
+					"name": "Get Log Stream schema for a Log Stream type",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/meta/schemas/logStream/{{type}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"meta",
+								"schemas",
+								"logStream",
+								"{{type}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Log Stream schemas",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/meta/schemas/logStream",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"meta",
+								"schemas",
+								"logStream"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
