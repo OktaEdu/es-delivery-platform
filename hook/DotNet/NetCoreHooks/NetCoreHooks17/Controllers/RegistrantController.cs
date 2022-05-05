@@ -70,6 +70,8 @@ namespace NetCoreHooks.Controllers
                  * and save it to the String variable named userName
                  */
 
+                 
+
             
                 if (userProfile.ContainsKey("ssn")) // this verifies that the SSN key exists before we extract the value
                 {
