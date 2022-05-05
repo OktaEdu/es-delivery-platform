@@ -76,16 +76,14 @@ public class RegistrationInlineHookController {
              * 2. Then we parse through this information using our utility function.
              * This will create a new EmployeeBasicInfo object that stores the username and the SSN
              * from the database.
-             * Last, we store the SSN from the database to a String variable named ssnFromDB
              */
             String employeeInfo = getEmployees(username);
             EmployeeBasicInfo employeeFromDB = EmployeeConverter.parseEmployeeInfo(employeeInfo);
-            String ssnFromDB = employeeFromDB.getSsn();
             /*
              * ☝️ End of review segment
              */
 
-            if(ssnFromOkta.equals(ssnFromDB)){
+            if(employeeFromDB != null &&  ssnFromOkta.equals(employeeFromDB.getSsn())){
                 // construct command
                 Commands allowAndResetSSN = new Commands();
                 List<Commands> commandsList = new ArrayList<>();
