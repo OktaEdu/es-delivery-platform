@@ -29,8 +29,11 @@ namespace OktaAPILab.Controllers
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IEmailSender _emailSender;
         private readonly ILogger _logger;
-        private readonly string _oktaUrl = "https://oktaice###.oktapreview.com"; // 👈 Lab 6.1: replace with your okta org
-        private readonly string _oktaApiToken = "abc123"; // 👈 Lab 6.1: replace with your API token
+
+        // TODO: 👇 Lab 6.1: replace value with your Okta org URL 👇
+        private readonly string _oktaUrl = "https://oktaice###.oktapreview.com"; 
+        // TODO: 👇 Lab 6.1: replace value with your API token 👇
+        private readonly string _oktaApiToken = "abc123"; 
 
 
         public AccountController(
@@ -100,10 +103,14 @@ namespace OktaAPILab.Controllers
                      * Update the variable below with a callout to Okta via our Authentication Client
                      * using the `AuthenticateAsync()` method that passes in the authentication details
                      */
-                    var authnResponse = ""; // Callout to Okta
+                    var authnResponse = ""; 
 
-                    
-                    if (authnResponse == "SUCCESS") // Check for success response from the Authentication Client
+                    /* 👇 Lab 6-1:
+                     * Since we changed authnResponse from a String to an
+                     * IAuthenticationResponse object, we need to change the line below 
+                     * so it compares the AuthenticationStatus property of authnResponse to "SUCCESS"
+                     */
+                    if (authnResponse == "SUCCESS")
                     {
                         /* 
                          * 👇 Lab 6-1: 
@@ -138,6 +145,11 @@ namespace OktaAPILab.Controllers
                     }
                     else
                     {
+                        /* 
+                        * 👇 Lab 6-1: 
+                        * Update the code below so that when you DON'T get a SUCCESS
+                        * response, you store the unexpected status to the ErrorSummary
+                        */
                         ViewBag.ErrorSummary = "Unexpected Status: " + authnResponse;
                     }
 

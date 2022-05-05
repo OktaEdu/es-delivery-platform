@@ -1,0 +1,30 @@
+﻿<Properties StartupConfiguration="{1FB1E2D8-DBD2-4592-815E-52E5544373E2}|Default">
+  <MonoDevelop.Ide.ItemProperties.NetCoreHooks17 PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="NetCoreHooks17/Controllers/RegistrantController.cs">
+    <Files>
+      <File FileName="NetCoreHooks17/Controllers/EventController.cs" Line="115" Column="21" />
+      <File FileName="NetCoreHooks17/JSon/CustomerRegistration.json" />
+      <File FileName="NetCoreHooks17/Controllers/RegistrantController.cs" Line="83" Column="64" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="NetCoreHooks17" expanded="True">
+            <Node name="NetCoreHooks17" expanded="True">
+              <Node name="Controllers" expanded="True">
+                <Node name="RegistrantController.cs" selected="True" />
+              </Node>
+              <Node name="JSon" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

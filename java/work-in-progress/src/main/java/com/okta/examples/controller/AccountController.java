@@ -23,7 +23,9 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-/* TODO: import your OktaAuthRequest class */
+/* 👇 Lab 3-2:
+ * TODO: import your OktaAuthRequest class
+ */
 @Controller
 public class AccountController {
 
@@ -36,9 +38,17 @@ public class AccountController {
     private OktaAuthService oktaAuthService;
     private Client client;
 
+    /* 👇 Lab 6-1:
+     * TODO: Add a one argument constructor that sets the value of the
+     *  oktaAuthService property
+     */
+
     @PostConstruct
     void setup() {
-        /* TODO: Add code to construct a client instance by passing it your Okta domain name and API token  */
+        /* 👇 Lab 3-2:
+         * TODO: Initialize the client private instance variable
+         *  with your orgUrl and apiToken
+         */
     }
 
     @GetMapping("/register")
@@ -47,11 +57,29 @@ public class AccountController {
     }
 
     @PostMapping("/register")
-    /* TODO: Add ModelAttribute annotation and OktaAuthRequest parameter */
-
-    public ModelAndView doRegister() {
+    /* 👇 Lab 3-2:
+     * TODO: Add the @ModuleAttribute annotation to this method
+     *   and modify the parameters list to include an OktaAuthRequest reference
+     */
+    public ModelAndView doRegister()
+    {
         Map<String, String> regResponse = new HashMap<>();
-        /* TODO: Try to create a new user. Catch any exception that occurs */
+        try {
+            /* 👇 Lab 3-2:
+             * TODO:  Build a user with details from the OktaAuthRequest to
+             *  register with the Okta client.
+             *  if there's no error, put the status and userId in the registration response
+             */
+
+        }
+        catch(ResourceException e) {
+            /* 👇 Lab 3-2:
+             * TODO:  If we catch an error, put the status code and error summary
+             *  in the registration response
+             */
+
+        }
+
 
         return new ModelAndView("register", regResponse);
     }
@@ -62,26 +90,44 @@ public class AccountController {
     }
 
     @PostMapping("/login")
+    /* 👇 Lab 6-1:
+     * TODO: Add an additional OktaAuthRequest parameter to the doLogin method signature
+     *  It should be the first param and be annotated with @ModelAttribute
+     */
     public ModelAndView doLogin(
-        HttpServletRequest request, HttpServletResponse response
-    ) throws IOException {
+        HttpServletRequest request,
+        HttpServletResponse response) throws IOException {
         Map<String, String> authResponse = new HashMap<>();
 
         try {
-            AuthenticationResponse oktaAuthResponse =
-                    oktaAuthService.authenticate();
-            authResponse.put(
-                    "Status",
-                    "Status: " + oktaAuthResponse.getStatusString()
-            );
-//            authResponse.put(
-//                    "SessionToken",
-//                    "Session Token: " + oktaAuthResponse.getSessionToken()
-//            );
-        } catch (Exception e) {
-            authResponse.put(
-                    "ErrorSummary", "Error: " + e.getMessage()
-            );
+            /* 👇 Lab 6-1:
+             * TODO: Pass the oktaAuthRequest to the OktaAuthService and extract
+             *  the Status and SessionToken from the response. Put this data in authResponse.
+             */
+
+
+            /* 👇 Lab 6-2:
+             * TODO: Add a return statement that will redirect the user to the portal home upon
+             *  successful authentication
+             *
+             * LATER in 👇 Lab 6-3:
+             * TODO: Comment out the return statement in the try block
+             *  Instead, we will initiate a session and associate the userId
+             */
+
+            /* 👇 Lab 6-3:
+             * TODO: Build the URL string for directing the user to our Okta subdomain
+             * This will consist of our orgUrl, the /login/sessionCookieRedirect endpoint,
+             * a query string parameter (token), that gets the session token from the Okta Auth Response,
+             * and another query string parameter (redirectUrl), which gets our portal URL.
+             * Finally, we will send this redirect URL as part of our response.
+             */
+        }
+        catch (Exception e) {
+            /* 👇 Lab 6-1:
+             * TODO: Store the error message in authResponse if we encounter an exception
+             */
+
         }
 
         return new ModelAndView("login", authResponse);

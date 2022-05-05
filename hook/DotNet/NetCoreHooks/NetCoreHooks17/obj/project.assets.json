@@ -12783,37 +12783,29 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ericj\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "/Users/kazemi/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projects\\OktaEdu\\es-delivery-platform\\hook\\DotNet\\NetCoreHooks\\NetCoreHooks17\\NetCoreHooks17.csproj",
+      "projectUniqueName": "/Users/kazemi/Documents/es-delivery-platform/hook/DotNet/NetCoreHooks/NetCoreHooks17/NetCoreHooks17.csproj",
       "projectName": "NetCoreHooks17",
-      "projectPath": "C:\\Projects\\OktaEdu\\es-delivery-platform\\hook\\DotNet\\NetCoreHooks\\NetCoreHooks17\\NetCoreHooks17.csproj",
-      "packagesPath": "C:\\Users\\ericj\\.nuget\\packages\\",
-      "outputPath": "C:\\Projects\\OktaEdu\\es-delivery-platform\\hook\\DotNet\\NetCoreHooks\\NetCoreHooks17\\obj\\",
+      "projectPath": "/Users/kazemi/Documents/es-delivery-platform/hook/DotNet/NetCoreHooks/NetCoreHooks17/NetCoreHooks17.csproj",
+      "packagesPath": "/Users/kazemi/.nuget/packages/",
+      "outputPath": "/Users/kazemi/Documents/es-delivery-platform/hook/DotNet/NetCoreHooks/NetCoreHooks17/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\ericj\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "/Users/kazemi/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.1"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp2.1": {
+          "targetAlias": "netcoreapp2.1",
           "projectReferences": {}
         }
       },
@@ -12825,6 +12817,7 @@
     },
     "frameworks": {
       "netcoreapp2.1": {
+        "targetAlias": "netcoreapp2.1",
         "dependencies": {
           "AutoMapper": {
             "target": "Package",
@@ -12846,6 +12839,7 @@
             "version": "[2.1.1, )"
           },
           "Microsoft.NETCore.App": {
+            "suppressParent": "All",
             "target": "Package",
             "version": "[2.1.0, )",
             "autoReferenced": true
@@ -12868,10 +12862,16 @@
           }
         },
         "imports": [
-          "net461"
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
         ],
         "assetTargetFallback": true,
-        "warn": true
+        "warn": true,
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.401/RuntimeIdentifierGraph.json"
       }
     }
   }

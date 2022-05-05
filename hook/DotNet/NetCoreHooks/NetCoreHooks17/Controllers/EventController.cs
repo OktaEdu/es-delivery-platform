@@ -21,8 +21,11 @@ namespace NetCoreHooks.Controllers
     {
         //private ILoggerService _logger;
         private readonly ILogger<EventController> _logger;
-        
-        //Set the value of the constant to "x-Okta-Verification-Challenge"
+
+        /*
+         * 👇 Lab 7-1: 
+         * Set the value of VERIFICATION_HEADER to "x-Okta-Verification-Challenge"
+         */
         private const string VERIFICATION_HEADER = "";
 
         public EventController(ILogger<EventController> loggerService)
@@ -38,21 +41,41 @@ namespace NetCoreHooks.Controllers
         public IActionResult Get()
         {
             _logger.LogDebug("Event EndpointVerify entered.");
-            /*  TODO: Instantiate VerificationResponse object */
+            /*
+             * 👇 Lab 7-1: 
+             *  TODO: Modify the response variable below so it refers to 
+             *  a new VerificationResponse object
+             */
             VerificationResponse response = null;
 
+            /*
+             *  Note what is happening in the following lines 
+             *  (you do NOT need to modify this code):
+             *  
+             *  First we retrieve the value of the verification request header 
+             *  and store it in a variable named verification.
+             *  
+             *  If it DOES NOT exist (null), we replace the null value with a message 
+             *  that it was not found, log a warning, and return BadRequest
+             *  
+             *  If it DOES exist, we wrap the value in our VerificationObject variable (named response)
+             *  and log a success.
+             */
             string verification = Request.Headers[VERIFICATION_HEADER];
             if (verification == null)
             {
                 verification = "header " + VERIFICATION_HEADER + " was not found in the Request Headers collection";
                 _logger.LogWarning($"Event EndpointVerify BadRequest will be returned. {verification}");
-                return BadRequest(verification);
+                return BadRequest(verification); // return BadRequest if verification was null
             }
             response.Verification = verification;
             Debug.WriteLine("Verification: \n" + verification);
             _logger.LogDebug($"Event EndpointVerify suceeded: {response.Verification}");
-            /* TODO: Pass in the VerificationObject */
-            return Ok();
+
+            /* 👇 Lab 7-1: 
+             * TODO: Pass in the VerificationResponse object (response) to the Ok() method
+             */
+            return Ok(); // return OK if verification request header returned a value
         }
 
         [HttpPost]
@@ -76,14 +99,18 @@ namespace NetCoreHooks.Controllers
                 if (desiredEvent != null)
                 {
                     oktaEvents = new OktaEvents();
-                    /* TODO: Get Parsed JSON stored in desiredEvent and assign to oktaEvents properties */
+                    /* 👇 Lab 7-1: 
+                     * TODO: Get Parsed JSON stored in desiredEvent and assign
+                     * these values to oktaEvents properties
+                     */
+                   
 
 
-                    
+
                     _logger.LogDebug($"Post Event Succeeded\n {oktaEvents.ToString()}");
 
-                    //return Ok IActionResult with your oktaEvents object
-                    return Ok(oktaEvents);
+                    
+                    return Ok(oktaEvents); //return Ok IActionResult with your oktaEvents object
                 }
                 else
                 {
