@@ -47,7 +47,7 @@ public class RegistrationInlineHookController {
 
             //Compare the employee payloads
             //if the ssn is the same, allow the registration
-            if (newEmployeeFromOkta.getSsn().equals(employeeFromDB.getSsn())) {
+            if (employeeFromDB  != null && newEmployeeFromOkta.getSsn().equals(employeeFromDB.getSsn())) {
                 HashMap<String, String> value = new HashMap<>();
                 value.put("ssn", "");
                 command1.setValue(value);
