@@ -318,7 +318,7 @@ session.setAttribute("userId", oktaAuthResponse.getUser().getId());
 
 📝 **Note** Later, you will use the `userId` to fetch the apps available for the user.
 
-4.  To generate the URL string that redirects the browser to the Okta subdomain, passing the session token and the encoded redirect URL back to the app, add the following code on the next line:
+3.  To generate the URL string that redirects the browser to the Okta subdomain, passing the session token and the encoded redirect URL back to the app, add the following code on the next line:
 
 ```java
 /* 👇 Lab 6-3:
@@ -334,7 +334,7 @@ redirectToOktaUrl +=  "&redirectUrl=http://localhost:8080/portal";
 response.sendRedirect(redirectToOktaUrl);
 ```
 
-5.  **Close** the `AccountController.java` file.
+4.  **Close** the `AccountController.java` file.
 
 ### Setup the Spring Boot host as a Trusted Origin
 
