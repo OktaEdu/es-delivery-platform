@@ -325,10 +325,8 @@ try {
         .buildAndCreate(client);
 
       regResponse.put(
-        "status", "Status: " + user.getStatus().toString()
-      );
-      regResponse.put("userId", "User ID: " + user.getId()
-      );
+        "status", "Status: " + user.getStatus().toString());
+      regResponse.put("userId", "User ID: " + user.getId());
 } 
 ```
 
