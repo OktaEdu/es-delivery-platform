@@ -318,7 +318,7 @@ session.setAttribute("userId", oktaAuthResponse.getUser().getId());
 
 📝 **Note** Later, you will use the `userId` to fetch the apps available for the user.
 
-4.  To generate the URL string that redirects the browser to the Okta subdomain, passing the session token and the encoded redirect URL back to the app, add the following code on the next line:
+3.  To generate the URL string that redirects the browser to the Okta subdomain, passing the session token and the encoded redirect URL back to the app, add the following code on the next line:
 
 ```java
 /* 👇 Lab 6-3:
@@ -334,7 +334,7 @@ redirectToOktaUrl +=  "&redirectUrl=http://localhost:8080/portal";
 response.sendRedirect(redirectToOktaUrl);
 ```
 
-5.  **Close** the `AccountController.java` file.
+4.  **Close** the `AccountController.java` file.
 
 ### Setup the Spring Boot host as a Trusted Origin
 
@@ -391,7 +391,7 @@ Your instance of your Spring Boot server needs to be granted access in Okta.
 ### Add the OktaAppLink Model
 
 1.  Next we will be creating a new class called `OktaAppLink`. Objects of this class will represent the application links a user sees when they are authenticated with Okta and land on our portal. There are three properties that will be encapsulated within members of this class: the URL to the app, the URL to the app's logo, and the app's label. We will create this class under our `model` directory:
-    a. In IntelliJ, Right-click `work-in-progress` > `src` > `main` > `java` > `com.okta.examples` > `model`.
+    a. In IntelliJ, right-click `work-in-progress` > `src` > `main` > `java` > `com.okta.examples` > `model`.
     
     b.  Choose `New` > `Java Class`.
     
@@ -406,7 +406,7 @@ import com.okta.examples.model.OktaAuthRequest;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 ```
 
-5.  In order to ignore unknown JSON properties at the class level, we will add the annotation `@JsonIgnoreProperties(ignoreUnknown = true)` just before the class header:
+3.  In order to ignore unknown JSON properties at the class level, we will add the annotation `@JsonIgnoreProperties(ignoreUnknown = true)` just before the class header:
 
 ```java
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -414,7 +414,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class OktaAppLink {...}
 ```
 
-6. Next we will add the private instance variables that will represent the app's link URL, the URL for the app's logo, and the app's label:
+4. Next we will add the private instance variables that will represent the app's link URL, the URL for the app's logo, and the app's label:
 
 ```java
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -427,7 +427,7 @@ public class OktaAppLink {
 
 ```
 
-7.  Now that we have our private instance variables, we need to generate getters and setters for them so we can access and modify their values from external classes. To do this in IntelliJ:
+5.  Now that we have our private instance variables, we need to generate getters and setters for them so we can access and modify their values from external classes. To do this in IntelliJ:
 
     a. Right-click within the body of the class and choose `Generate...`
 

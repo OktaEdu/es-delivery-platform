@@ -324,11 +324,8 @@ try {
         .setPassword(oktaAuthRequest.getPassword())
         .buildAndCreate(client);
 
-      regResponse.put(
-        "status", "Status: " + user.getStatus().toString()
-      );
-      regResponse.put("userId", "User ID: " + user.getId()
-      );
+      regResponse.put("status", "Status: " + user.getStatus().toString());
+      regResponse.put("userId", "User ID: " + user.getId());
 } 
 ```
 
@@ -340,10 +337,8 @@ catch (ResourceException e) {
       * TODO:  If we catch an error, put the status code and error summary
       * in the registration response
       */
-      regResponse.put("statusCode", "HTTP Status Code: " + e.getStatus()
-      );
-      regResponse.put("errorSummary", "Error Summary: " + e.getCauses().get(0).getSummary()
-      );
+      regResponse.put("statusCode", "HTTP Status Code: " + e.getStatus());
+      regResponse.put("errorSummary", "Error Summary: " + e.getCauses().get(0).getSummary());
     }
 ```
 
