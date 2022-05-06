@@ -612,7 +612,7 @@ if (ModelState.IsValid)
 ```c#
 /*
 * 👇 Lab 3-2: 
-* Add this below our our definition of the oktaUserProfile variable.
+* Add this below our definition of the oktaUserProfile variable.
 * This will construct a model of our new Okta user that we will
 * later pass off to our Okta Client to request that the user is
 * actually created in our Org and activate it immediately upon creation.
@@ -644,7 +644,9 @@ var newUser = await oktaClient.Users.CreateUserAsync(oktaUser);
 ```
 
 10.	But, we want to know if our request to create the user was successful and we want to be able to handle errors. Let’s wrap the above statement in a try-catch block and do the following:
+
     a. If the request is successful, we will store the `Status` and the `userId` returned by the response to the `ViewBag`.  
+    
     b. If it is not a success, we will store the HTTP `Status Code` and `Error Summary` returned by the response.
 
 ```c#
