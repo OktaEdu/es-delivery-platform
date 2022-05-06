@@ -47,10 +47,10 @@ Copyright 2022 Okta, Inc. All Rights Reserved.
 ngrok update
 ```
 
-8.	Enter the following command to set your ngrok authentication token (replace `<your-ngrok-auth-token-here>` with your ngrok auth token):
+8.	Enter the following command to set your ngrok authentication token (replace `<your-ngrok-auth-token>` with your ngrok auth token):
 
 ```bash
-ngrok authtoken <your-ngrok-auth-token-here>
+ngrok authtoken <your-ngrok-auth-token>
 ```
 
 After submitting this command, you should see a message indicating that a `.yml` file has been created:
@@ -67,7 +67,7 @@ Leave this window open.
 
 3.	Navigate to `C:\ClassFiles\platform\hook\DotNet\NetCoreHooks`, and open the `NetCoreHooks17.sln` file.
 
-4.	If warned about security, click OK to open the solution.
+4.	If warned about security, click `OK` to open the solution.
 
 5.	Under Solution Explorer panel, right-click the `NetCoreHooks17` project and select `Properties`.
 
@@ -219,7 +219,7 @@ ngrok http https://localhost:<PORT-NUMBER> -host-header="localhost:<PORT-NUMBER>
 |  **Field**  | **Value**                    |
 |-----------------|------------------------------|
 | Name            | User Account Events         |
-| URL             | Your ngrok URL, e.g. https://`a59d8d5a.ngrok.io`/event/user-account     |
+| URL             | https://`<your-ngrok-address>`/event/user-account  , e.g. https://`a59d8d5a.ngrok.io`/event/user-account     |
 | Authentication field        | x-api-key                   |
 | Authentication secret        | Tra!nme4321                    |
 | Subscribe to events       | <ul><li>- [x] User's Okta profile updated</li></ul><ul><li>- [x] Fired when the user's Okta password is reset</li></ul><ul><li>- [x] User's Okta password updated</li></ul>  
@@ -262,8 +262,9 @@ Since a user’s Okta profile has been updated, this should have triggered our E
 On 2022-05-01T22:44:19.469Z , a user.account.update_profile event happened to your Org with the following description: Update user profile for Okta
 ```
 
-7.	Click the `Stop Debugging` button (or press `Shift` + `F5`) but leave the ngrok command window open. You’ll need it for the next exercise.
+7.	Click the `Stop Debugging` button (or press `Shift`+`F5`).
 
+8. Go to your ngrok command window and press `Ctrl`+`C` to close the session
 
 ---
 Back to [main page](README.md).

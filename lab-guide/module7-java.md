@@ -221,7 +221,9 @@ On 2022-05-01T22:44:19.469Z , a user.account.update_profile event happened to yo
 
 7.  In IntelliJ click `Run` > `Stop 'HookprojectApplication'`.
 
-8.  Leave `hookproject` open for the next lab. 
+8.  Close the `hookproject`project.
+
+9. Go to your ngrok command window and press `Ctrl`+`C` to close the session.
 
 
 ---
