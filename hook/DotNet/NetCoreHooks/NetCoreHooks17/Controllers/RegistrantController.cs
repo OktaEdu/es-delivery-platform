@@ -80,6 +80,7 @@ namespace NetCoreHooks.Controllers
                      * stores the extracted SSN value from userProfile
                      */
                     ssnFromOkta = "";
+                    ssnFromOkta = ssnFromOkta.Replace("-","");
                     Debug.WriteLine($"ssnFromOkta: {ssnFromOkta}");
                 }
                 else // ssn key does not exist in the payload. DENY registration and return an Error in response
@@ -109,6 +110,7 @@ namespace NetCoreHooks.Controllers
                 if (RegistrantDTO != null)
                 {
                     ssnFromDatabase = RegistrantDTO.SSN; // this is the ssn we got from our database
+                    ssnFromDatabase = ssnFromDatabase.Replace("-","");
                 }
                 else // we didn't have any info for that user stored in our database (got null)
                 {
