@@ -155,31 +155,30 @@ namespace NetCoreHooks.Controllers
             }
 
 
-        else // ssn key does not exist in the payload.        
-        {
-            // construct Command that denies registration
-            Command denyRegNoSSN = new Command();
-            Dictionary<String, String> value = new Dictionary<string, string>
+            else // ssn key does not exist in the payload.        
             {
-                { "registration", "DENY" }
-            };
-            denyRegNoSSN.value = value;
-            denyRegNoSSN.type = "com.okta.action.update";
+                // construct Command that denies registration
+                Command denyRegNoSSN = new Command();
+                Dictionary<String, String> value = new Dictionary<string, string>
+                {
+                    { "registration", "DENY" }
+                };
+                denyRegNoSSN.value = value;
+                denyRegNoSSN.type = "com.okta.action.update";
 
-            // construct Error
-            Error error = new Error();
-            ErrorCause errorCauses = new ErrorCause();
-            List<ErrorCause> causesList = new List<ErrorCause> {};
-            errorCauses.ErrorSummary = "The request payload was not in the expected format. SSN is required.";
-            errorCauses.Reason = "INVALID_PAYLOAD";
-            error.ErrorSummary = "Unable to add registrant";
+                // construct Error
+                Error error = new Error();
+                ErrorCause errorCauses = new ErrorCause();
+                List<ErrorCause> causesList = new List<ErrorCause> {};
+                errorCauses.ErrorSummary = "The request payload was not in the expected format. SSN is required.";
+                errorCauses.Reason = "INVALID_PAYLOAD";
+                error.ErrorSummary = "Unable to add registrant";
 
-            // add Command and Error to the response
-            response.commands.Add(denyRegNoSSN);
-            response.Error = error;
-            return Ok(response);
+                // add Command and Error to the response
+                response.commands.Add(denyRegNoSSN);
+                response.Error = error;
+                return Ok(response);
+            }
         }
-
     }
 }
-
