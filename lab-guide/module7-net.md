@@ -463,8 +463,11 @@ response.commands.Add(denyRegNoMatch);
 errorCauses.ErrorSummary = "Unable to add registrant";
 errorCauses.Reason = "INVALID_PAYLOAD";
 error.ErrorSummary = "Unable to add registrant";
+causesList.Add(errorCauses);
+error.ErrorCauses = causesList;
 response.Error = error;
 ```
+
 ### Run the Hook Project
 1.	From the Visual Studio toolbar, click the `IIS Express` button to run the `NetCoreHooks` project.
 
