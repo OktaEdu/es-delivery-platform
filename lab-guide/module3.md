@@ -456,15 +456,7 @@ You should be able to access your org as the registered user.
 
     a. In the upper right corner of this pane, to the right of the Package Source list, click on the `gear icon`.
 
-       - In the next dialog, click on the `green plus button` to define a new repository.
-
-       - In the `Name` field, enter `Nuget.org`
-
-       -  In the `Source` field, enter: https://api.nuget.org/v3/index.json
-
-       - Click `OK`.
-
-    b. Change the Package Source to `Nuget.org`.
+    b. Change the Package Source to `NuGet Package Source` if it's not already selected.
 
     c. In the top left pane, change the tab from `Installed` to `Browse`.
 
