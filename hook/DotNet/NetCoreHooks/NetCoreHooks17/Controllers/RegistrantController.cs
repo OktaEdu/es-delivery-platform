@@ -43,111 +43,77 @@ namespace NetCoreHooks.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> VerifyRegistrantSSNByUserName()
         {
-            string ssnFromOkta = String.Empty;
-            string userName = String.Empty;
-            string ssnFromDatabase = String.Empty;
-            OktaHookResponse response = null;
+            
+            // Construct our response, which we will modify as we step through this method
+            OktaHookResponse response = new OktaHookResponse();
 
-            //grab http request body
+
+            /*
+            * 👇 Lab 7-2:
+            * Review this code segment to understand what is happening.
+            * (No modification necessary)
+            *
+            * 1. First we read the characters from the request body asynchronously 
+            * until the end and store it as a single string.
+            * 
+            * 2. Then we check if the request body is valid (not null)
+            * 
+            * 3. If the request body is valid, we parse the JSON and convert it to a JObject
+            *
+            * 4. Then we extract the information from the "data" entry in that JObject
+            * and extract the information from the "userProfile" entry in the "data" object.
+            * We store this information to it to the variable named userProfile.  
+            * Notice that this entry is another JObject.
+            * 
+            * 5. Finally, we extract the "login" entry from the data JObject.
+            * Notice that this is a string that refers to the username.
+            *
+            */
             var reader = new StreamReader(Request.Body);
             var payLoad = await reader.ReadToEndAsync();
             Debug.WriteLine($"payLoad received: \n{payLoad}");
+            var parsedJson = JObject.Parse(payLoad);
+                JObject userProfile = (JObject)parsedJson
+                    .SelectToken("data")
+                    .SelectToken("userProfile");
+                string userName = userProfile["login"].ToString();
+            /*
+            * ☝️ End of review segment
+            */
 
-            
-            if (payLoad != null) //make sure you have a valid payload
+
+
+            // Check if we got a valid entry keyed on "ssn" in the JObject we stored in userProfile
+            if (userProfile.ContainsKey("ssn")) 
             {
-                
-                var parsedJson = JObject.Parse(payLoad); //convert incoming http request to JSON JObject
-
                 /* 👇 Lab 7-2: 
-                 * TODO: Modify the userProfile variable so that
-                 * it gets the user profile data from the parsed JSON
-                 */
-                JObject userProfile = null;
+                * TODO: If we have a valid ssn entry, 
+                *  Modify the ssnFromOkta variable so that it
+                * stores the extracted SSN value from userProfile
+                */
+                string ssnFromOkta = "";
+                ssnFromOkta = ssnFromOkta.Replace("-","");
+                Debug.WriteLine($"ssnFromOkta: {ssnFromOkta}");
 
-                /* 👇 Lab 7-2: 
-                 * TODO: Now extract the username from the userProfile
-                 * and save it to the String variable named userName
-                 */
 
-                 
-
-            
-                if (userProfile.ContainsKey("ssn")) // this verifies that the SSN key exists before we extract the value
-                {
-                    /* 👇 Lab 7-2: 
-                     * TODO: Modify the ssnFromOkta variable so that it
-                     * stores the extracted SSN value from userProfile
-                     */
-                    ssnFromOkta = "";
-                    ssnFromOkta = ssnFromOkta.Replace("-","");
-                    Debug.WriteLine($"ssnFromOkta: {ssnFromOkta}");
-                }
-                else // ssn key does not exist in the payload. DENY registration and return an Error in response
-                {
-                    response = new OktaHookResponse();
-                    Dictionary<String, String> dict = new Dictionary<string, string>
-                    {
-                        { "registration", "DENY" }
-                    };
-
-                    Error error = new Error();
-                    error.ErrorSummary = "Unable to add registrant";
-                    error.ErrorCauses = new List<ErrorCause>
-                    {
-                        new ErrorCause{ErrorSummary = "SSN is Required",
-                            Domain="end-user", Location="data.UserProfile.login", Reason="SSN could not be verified"}
-                    };
-                    response.Error = error;
-                    Debug.WriteLine(response);
-                    return Ok(response);
-                }
-
-                
-                // get information we have stored for this user from our database so we can compare to the info we got from Okta
+                /*
+                * 👇 Lab 7-2:
+                * Review this code segment to understand what is happening.
+                * (No modification necessary)
+                * 1. First, we retrieve the employee info we have stored in our database using the username
+                * 2. Then we map this information to a RegistrantDTO object so we can access its properties
+                * (e.g., RegistrantDTO.SSN will get the ssn associated with the registrant)
+                */
                 var Registrant = await _simulatedRemoteDBComponent.FindByUserName(userName);
                 var RegistrantDTO = _mapper.Map<RegistrantDTO>(Registrant);
-                if (RegistrantDTO != null)
-                {
-                    ssnFromDatabase = RegistrantDTO.SSN; // this is the ssn we got from our database
-                    ssnFromDatabase = ssnFromDatabase.Replace("-","");
-                }
-                else // we didn't have any info for that user stored in our database (got null)
-                {
-                    // So, we can't verify the SSN!
-                    // Deny registration. Create new Error and return it in a response.
-                    response = new OktaHookResponse();
-                    Dictionary<String, String> dict = new Dictionary<string, string>
-                    {
-                        { "registration", "DENY" }
-                    };
+                /*
+                * ☝️ End of review segment
+                */
 
-                    Command command = new Command();
-                    command.type = "com.okta.action.update";
-                    command.value = dict;
-                    response.commands.Add(command);
-                    Error error = new Error();
-                    error.ErrorSummary = "Unable to add registrant";
-                    error.ErrorCauses = new List<ErrorCause>
-                    {
-                        new ErrorCause{ErrorSummary = "Unable to convert Registrant to RegistrantDTO",
-                            Domain="end-user",
-                            Location="data.UserProfile.login",
-                            Reason="Unable to convert Registrant"}
-                    };
-                    response.Error = error;
-                    Debug.WriteLine("unable to convert Registrant to RegistrantDTO");
-                    return Ok(error);
-                }
 
-                Debug.WriteLine(ssnFromDatabase);
-
-                
-                if (ssnFromOkta == ssnFromDatabase) // Does the SSN the user supplied from Okta match the one from our DB? 
+                if (RegistrantDTO != null && ssnFromOkta == RegistrantDTO.SSN)
                 {
-                    
-                    response = new OktaHookResponse(); // It matched, so now construct a response back to Okta
-                    Command command = new Command();
+                    Command allowAndResetSSN = new Command();
                     /* 👇 Lab 7-2: 
                     * TODO: Construct a command to add to our Command object
                     * The type will be "com.okta.user.profile.update" since we will be updating this Okta user's 
@@ -156,72 +122,64 @@ namespace NetCoreHooks.Controllers
                     * information on Okta now that it has been verified.
                     * Finally, we will add our Command object to the response
                     */
+                    
 
-
-
-                    Debug.WriteLine("SSN match detected. Returing 200 OK\n");
-                    Debug.WriteLine("Response to send back to Okta:\n " + response);
-
-                    //The happy day scenario. We got a good payload with an SSN
-                    //which matched the SSN in the remote system. Return a Command
-                    //object with an "ssn" value of String.Empty
                     return Ok(response);
                 }
-                else // SSNs did not match! Disallow registration. Create new Error object with Error Causes
+
+                else // no ssn match
                 {
-                    
-                    response = new OktaHookResponse();
-                    
-
-                    Command command = new Command();
-                    /* 👇 Lab 7-2: 
-                    * TODO: Construct a command to add to our Command object
-                    * The type will be "com.okta.action.update" which is an action 
-                    * we use when specifying whether to create a new Okta user when importing
-                    * users or matching them against existing Okta users.
-                    * The value DENY registration since the SSNs did not match.
-                    * 
-                    * Finally, we will add our Command object to the response
-                    */
-
-
+                    Debug.WriteLine("No SSN Match");
+                    Command denyRegNoMatch = new Command();
                     Error error = new Error();
-                    /* 👇 Lab 7-2: 
-                    * TODO: Specify in the ErrorSummary that we could not add the registrant
-                    * Leave the ErrorCauses empty
+                    ErrorCause errorCauses = new ErrorCause();
+                    List<ErrorCause> causesList = new List<ErrorCause> {};
+                    /* 👇 Lab 7-2:
+                    * TODO: Specify a command to add to our Commands object
+                    * The type will be "com.okta.action.update" since we 
+                    * The value will be to set registration to "DENY" since the SSN did not match
+                    * Finally, we will add this command to our response
                     */
 
 
-                    response.Error = error;
-                    return Ok(response);
+
+                    
+                    /* 👇 Lab 7-2:
+                    * TODO: Specify in the ErrorSummary that we could not add the registrant
+                    *  Add the error to the payload
+                    */
+
+
+                    return Ok(error);
                 }
             }
-            else
+
+
+        else // ssn key does not exist in the payload.        
+        {
+            // construct Command that denies registration
+            Command denyRegNoSSN = new Command();
+            Dictionary<String, String> value = new Dictionary<string, string>
             {
-                //payload came over null. 
-                //Create new Error object with Error Causes
-                response = new OktaHookResponse();
-                Dictionary<String, String> dict = new Dictionary<string, string>
-                {
-                    { "registration", "DENY" }
-                };
+                { "registration", "DENY" }
+            };
+            denyRegNoSSN.value = value;
+            denyRegNoSSN.type = "com.okta.action.update";
 
-                Command command = new Command();
-                command.type = "com.okta.action.update";
-                command.value = dict;
-                response.commands.Add(command);
+            // construct Error
+            Error error = new Error();
+            ErrorCause errorCauses = new ErrorCause();
+            List<ErrorCause> causesList = new List<ErrorCause> {};
+            errorCauses.ErrorSummary = "The request payload was not in the expected format. SSN is required.";
+            errorCauses.Reason = "INVALID_PAYLOAD";
+            error.ErrorSummary = "Unable to add registrant";
 
-                Error error = new Error();
-                error.ErrorSummary = "Payload not detected";
-                error.ErrorCauses = new List<ErrorCause>
-                    {
-                        new ErrorCause{ErrorSummary = "No payload detected ",
-                            Domain="end-user", Location="data.UserProfile.login",
-                            Reason="Payload arrived null at API"}
-                    };
-                response.Error = error;
-                return Ok(response);
-            }
+            // add Command and Error to the response
+            response.commands.Add(denyRegNoSSN);
+            response.Error = error;
+            return Ok(response);
         }
+
     }
 }
+
