@@ -111,7 +111,7 @@ namespace NetCoreHooks.Controllers
                 */
 
 
-                if (RegistrantDTO != null && ssnFromOkta == RegistrantDTO.SSN)
+                if (RegistrantDTO != null && ssnFromOkta == Registrant.SSN.Replace("-", ""))
                 {
                     Command allowAndResetSSN = new Command();
                     /* 👇 Lab 7-2: 
