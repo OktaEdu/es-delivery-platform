@@ -130,10 +130,9 @@ namespace NetCoreHooks.Controllers
                 else // no ssn match
                 {
                     Debug.WriteLine("No SSN Match");
+                    
+                    
                     Command denyRegNoMatch = new Command();
-                    Error error = new Error();
-                    ErrorCause errorCauses = new ErrorCause();
-                    List<ErrorCause> causesList = new List<ErrorCause> {};
                     /* 👇 Lab 7-2:
                     * TODO: Specify a command to add to our Commands object
                     * The type will be "com.okta.action.update" since we 
@@ -143,7 +142,9 @@ namespace NetCoreHooks.Controllers
 
 
 
-                    
+                    Error error = new Error();
+                    ErrorCause errorCauses = new ErrorCause();
+                    List<ErrorCause> causesList = new List<ErrorCause> {};
                     /* 👇 Lab 7-2:
                     * TODO: Specify in the ErrorSummary that we could not add the registrant
                     *  Add the error to the payload

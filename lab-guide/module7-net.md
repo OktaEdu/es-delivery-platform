@@ -426,7 +426,7 @@ After the `Commands` object and List of `Commands` are instantiated, we are goin
     {
         { "ssn", "" }
     };
-  denyRegNoSSN.value = value;
+  allowAndResetSSN.value = value;
   response.commands.Add(allowAndResetSSN);
 ```
 
@@ -446,7 +446,7 @@ Dictionary<String, String> value = new Dictionary<string, string>
 };
 denyRegNoMatch.value = value;
 denyRegNoMatch.type = "com.okta.action.update";
-response.commands.Add(denyRegNoMatch)
+response.commands.Add(denyRegNoMatch);
 ```
 
 📝 **Note** We did not have to set `com.okta.action.update` command to `"APPROVE"` in the previous step because `"APPROVE"` is the default value. You only need to alter it if you want to deny the registration.
@@ -459,7 +459,6 @@ response.commands.Add(denyRegNoMatch)
 *  Add the error to the payload
 */
 errorCauses.ErrorSummary = "Unable to add registrant";
-error.ErrorSummary = "Unable to add registrant";
 errorCauses.Reason = "INVALID_PAYLOAD";
 error.ErrorSummary = "Unable to add registrant";
 response.Error = error;
