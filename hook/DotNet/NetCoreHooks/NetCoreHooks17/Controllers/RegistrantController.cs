@@ -93,7 +93,6 @@ namespace NetCoreHooks.Controllers
                 * ignoring any dashes the user may have entered
                 */
                 string ssnFromOkta = "";
-                ssnFromOkta = ssnFromOkta.Replace("-","");
                 Debug.WriteLine($"ssnFromOkta: {ssnFromOkta}");
 
 
