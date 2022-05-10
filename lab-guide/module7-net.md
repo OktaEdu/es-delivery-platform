@@ -352,17 +352,7 @@ ssnFromOkta = userProfile["ssn"].ToString();
 ssnFromOkta = ssnFromOkta.Replace("-","");
 ```
 
-2. Now let’s get the username from the user profile and assign the value to our existing String variable named `userName`:
-
-```c#
-/* 👇 Lab 7-2: 
- * TODO: Now extract the username from the userProfile
- * and save it to the String variable named userName
- */
-userName = userProfile["login"].ToString();
-```
-
-3.	We now want to extract the SSN value from the user profile and assign the value to our existing variable named `ssnFromOkta` (`Line 80`):
+2.	We now want to extract the SSN value from the user profile and assign the value to our existing variable named `ssnFromOkta` (`Line 80`):
 
 ```c#
 /* 👇 Lab 7-2: 
@@ -373,7 +363,7 @@ ssnFromOkta = userProfile["ssn"].ToString();
 ssnFromOkta = ssnFromOkta.Replace("-","");
 ```
 
-4. Note that if there was no valid entry for `ssn`  in the payload, the outer `else` clause (around `Line 167`) is reached. In this clause, we create a `Command` that denies registration and an `Error`. Both the `Command` and the `Error` are added to the `response` that is ultimately returned by this method (no modification to this code necessary):
+3. Note that if there was no valid entry for `ssn`  in the payload, the outer `else` clause (around `Line 167`) is reached. In this clause, we create a `Command` that denies registration and an `Error`. Both the `Command` and the `Error` are added to the `response` that is ultimately returned by this method (no modification to this code necessary):
 
 ```c#
 else // ssn key does not exist in the payload.        
@@ -404,7 +394,7 @@ else // ssn key does not exist in the payload.
 
 We will take a deeper look at Commands shortly!
 
-5. Take a look at `Lines 99-111`. In this segment, we get the database information we have stored for this user in our database. This data gets mapped to a RegistrantDTO object. We can access the SSN we got for the registrant by accessing this object's SSN property (e.g., `RegistrantDTO.SSN`)
+4. Take a look at `Lines 99-111`. In this segment, we get the database information we have stored for this user in our database. This data gets mapped to a RegistrantDTO object. We can access the SSN we got for the registrant by accessing this object's SSN property (e.g., `RegistrantDTO.SSN`)
 
 ```c#
 /*
@@ -422,7 +412,7 @@ var RegistrantDTO = _mapper.Map<RegistrantDTO>(Registrant);
 */
 ```
 
-6. Now we can compare the SSN from Okta to the one we got from our database to see if we have a match! We check for this in the next `if` clause on `Line 114`.
+5. Now we can compare the SSN from Okta to the one we got from our database to see if we have a match! We check for this in the next `if` clause on `Line 114`.
 
 If we have a match, we want to create a new `Commands` object. This type of object is where we can supply commands to Okta. Each element in a `Commands` object consists of a name-value pair:
 
@@ -451,7 +441,7 @@ After the `Commands` object and List of `Commands` are instantiated, we are goin
   response.commands.Add(allowAndResetSSN);
 ```
 
-7. However, if we do NOT have a match, we need to specify a different command that will `DENY` registration. We will do this in the inner `else` clause that follows:
+6. However, if we do NOT have a match, we need to specify a different command that will `DENY` registration. We will do this in the inner `else` clause that follows:
 
 
 ```c#
@@ -472,7 +462,7 @@ response.commands.Add(denyRegNoMatch)
 
 📝 **Note** We did not have to set `com.okta.action.update` command to `"APPROVE"` in the previous step because `"APPROVE"` is the default value. You only need to alter it if you want to deny the registration.
 
-8. Finally, we will construct an `Error` to add to the `response`. Under the instantiated  Error object, let's specify that the user could not be registered in the `ErrorSummary`. We will also specify a cause. Last, we will add the `error` to the `response`:
+7. Finally, we will construct an `Error` to add to the `response`. Under the instantiated  Error object, let's specify that the user could not be registered in the `ErrorSummary`. We will also specify a cause. Last, we will add the `error` to the `response`:
 
 ```c#
 /* 👇 Lab 7-2:
@@ -519,7 +509,7 @@ else // we didn't have any info for that user stored in our database (got null)
 }
 ```
 
-5.	On Line `146` we check if the `SSN` received from Okta matches the `SSN` from the database. If it does, we create a new `Command` object. This type of object is where we can supply commands to Okta. Each element in a `Command` object consists of a name-value pair:
+8.	On Line `146` we check if the `SSN` received from Okta matches the `SSN` from the database. If it does, we create a new `Command` object. This type of object is where we can supply commands to Okta. Each element in a `Command` object consists of a name-value pair:
 
 |  **Property**    | **Description**     | **Data Type**              |
 |------------------------|---------------|----------------------------|
@@ -546,7 +536,7 @@ command.value = emptySSN;
 response.commands.Add(command);
 ```
 
-6.	If the `SSN`s do NOT match, we will construct command that will tell Okta to deny registration. We will do this in the inner `else` clause after the `Command` object is instantiated. We will then add the `Command` object to the `response`:
+9.	If the `SSN`s do NOT match, we will construct command that will tell Okta to deny registration. We will do this in the inner `else` clause after the `Command` object is instantiated. We will then add the `Command` object to the `response`:
 
 ```c#
  /* 👇 Lab 7-2: 
@@ -567,7 +557,7 @@ response.commands.Add(command);
   response.commands.Add(command);
 ```
 
-7. Finally, we will construct an `Error` to add to the `response`. :Under the instantiated of the Error object (`Line 190`), let's specify that the user could not be registered in the `ErrorSummary`. We will leave the `ErrorCause` blank. 
+10. Finally, we will construct an `Error` to add to the `response`. :Under the instantiated of the Error object (`Line 190`), let's specify that the user could not be registered in the `ErrorSummary`. We will leave the `ErrorCause` blank. 
 
 ```c#
 /* 👇 Lab 7-2: 
