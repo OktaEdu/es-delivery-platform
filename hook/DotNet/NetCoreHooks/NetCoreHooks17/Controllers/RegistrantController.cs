@@ -170,10 +170,12 @@ namespace NetCoreHooks.Controllers
                 // construct Error
                 Error error = new Error();
                 ErrorCause errorCauses = new ErrorCause();
-                List<ErrorCause> causesList = new List<ErrorCause> {};
+                List<ErrorCause> causesList = new List<ErrorCause> { };
                 errorCauses.ErrorSummary = "The request payload was not in the expected format. SSN is required.";
                 errorCauses.Reason = "INVALID_PAYLOAD";
                 error.ErrorSummary = "Unable to add registrant";
+                causesList.Add(errorCauses);
+                error.ErrorCauses = causesList;
 
                 // add Command and Error to the response
                 response.commands.Add(denyRegNoSSN);

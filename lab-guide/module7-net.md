@@ -369,10 +369,12 @@ else // ssn key does not exist in the payload.
     // construct Error
     Error error = new Error();
     ErrorCause errorCauses = new ErrorCause();
-    List<ErrorCause> causesList = new List<ErrorCause> {};
+    List<ErrorCause> causesList = new List<ErrorCause> { };
     errorCauses.ErrorSummary = "The request payload was not in the expected format. SSN is required.";
     errorCauses.Reason = "INVALID_PAYLOAD";
     error.ErrorSummary = "Unable to add registrant";
+    causesList.Add(errorCauses);
+    error.ErrorCauses = causesList;
 
     // add Command and Error to the response
     response.commands.Add(denyRegNoSSN);
@@ -424,7 +426,7 @@ After the `Commands` object and List of `Commands` are instantiated, we are goin
   allowAndResetSSN.type = "com.okta.user.profile.update";
   Dictionary<String, String> value = new Dictionary<string, string>
     {
-        { "ssn", "" }
+        { "ssn", String.Empty }
     };
   allowAndResetSSN.value = value;
   response.commands.Add(allowAndResetSSN);
@@ -462,98 +464,6 @@ errorCauses.ErrorSummary = "Unable to add registrant";
 errorCauses.Reason = "INVALID_PAYLOAD";
 error.ErrorSummary = "Unable to add registrant";
 response.Error = error;
-```
-
-
-Notice that if we did NOT get valid data from our database for the user, we DENY registration and return an error in the response (`Lines 115-141`). 
-
-```c#
-else // we didn't have any info for that user stored in our database (got null)
-{
-    // So, we can't verify the SSN!
-    // Deny registration. Create new Error and return it in a response.
-    response = new OktaHookResponse();
-    Dictionary<String, String> dict = new Dictionary<string, string>
-    {
-        { "registration", "DENY" }
-    };
-
-    Command command = new Command();
-    command.type = "com.okta.action.update";
-    command.value = dict;
-    response.commands.Add(command);
-    Error error = new Error();
-    error.ErrorSummary = "Unable to add registrant";
-    error.ErrorCauses = new List<ErrorCause>
-    {
-        new ErrorCause{ErrorSummary = "Unable to convert Registrant to RegistrantDTO",
-            Domain="end-user",
-            Location="data.UserProfile.login",
-            Reason="Unable to convert Registrant"}
-    };
-    response.Error = error;
-    Debug.WriteLine("unable to convert Registrant to RegistrantDTO");
-    return Ok(error);
-}
-```
-
-7.	On Line `146` we check if the `SSN` received from Okta matches the `SSN` from the database. If it does, we create a new `Command` object. This type of object is where we can supply commands to Okta. Each element in a `Command` object consists of a name-value pair:
-
-|  **Property**    | **Description**     | **Data Type**              |
-|------------------------|---------------|----------------------------|
-| type|One of the [supported commands](https://developer.okta.com/docs/reference/import-hook/#supported-commands)|String|                                      |
-| value| The parameter to pass to the command|[value](https://developer.okta.com/docs/reference/import-hook/#value)| 
-
-Under `Line 150` where the `Command` object is instantiated, we are going to specify a command that will update the user's Okta profile so that Okta will no longer store the user's SSN now that it has been verified. We will then add the `Command` object to our `response`:
-
-```c#
-/* 👇 Lab 7-2: 
-* TODO: Construct a command to add to our Command object
-* The type will be "com.okta.user.profile.update" since we will be updating this Okta user's 
-* profile.  
-* The value will set the user's SSN to the empty string so that we no longer store this 
-* information on Okta now that it has been verified.
-* Finally, we will add our Command object to the response
-*/
-Dictionary<String, String> emptySSN = new Dictionary<string, string>
-{
-    { "ssn", String.Empty }
-};
-command.type = "com.okta.user.profile.update";
-command.value = emptySSN;
-response.commands.Add(command);
-```
-
-8.	If the `SSN`s do NOT match, we will construct command that will tell Okta to deny registration. We will do this in the inner `else` clause after the `Command` object is instantiated. We will then add the `Command` object to the `response`:
-
-```c#
- /* 👇 Lab 7-2: 
-  * TODO: Construct a command to add to our Command object
-  * The type will be "com.okta.action.update" which is an action 
-  * we use when specifying whether to create a new Okta user when importing
-  * users or matching them against existing Okta users.
-  * The value DENY registration since the SSNs did not match.
-  * 
-  * Finally, we will add our Command object to the response
-  */
-  Dictionary<String, String> denyRegistration = new Dictionary<string, string>
-  {
-      { "registration", "DENY" }
-  };
-  command.type = "com.okta.action.update";
-  command.value = denyRegistration;
-  response.commands.Add(command);
-```
-
-9. Finally, we will construct an `Error` to add to the `response`. :Under the instantiated of the Error object (`Line 190`), let's specify that the user could not be registered in the `ErrorSummary`. We will leave the `ErrorCause` blank. 
-
-```c#
-/* 👇 Lab 7-2: 
- * TODO: Specify in the ErrorSummary that we could not add the registrant
- * Leave the ErrorCauses empty
- */
-error.ErrorSummary = "Unable to add registrant";
-error.ErrorCauses = new List<ErrorCause>{};
 ```
 ### Run the Hook Project
 1.	From the Visual Studio toolbar, click the `IIS Express` button to run the `NetCoreHooks` project.
