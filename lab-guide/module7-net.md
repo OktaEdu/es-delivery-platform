@@ -347,8 +347,8 @@ if (payLoad != null) //make sure you have a valid payload
 /* 👇 Lab 7-2: 
  * TODO: If we have a valid ssn entry, 
  *  Modify the ssnFromOkta variable so that it
-  * stores the extracted SSN value from userProfile
-* ignoring any dashes the user may have entered
+ * stores the extracted SSN value from userProfile
+ * ignoring any dashes the user may have entered
  */
 string ssnFromOkta = userProfile["ssn"].ToString().Replace("-","");
 ```
