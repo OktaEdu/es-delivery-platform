@@ -76,7 +76,7 @@ namespace NetCoreHooks.Controllers
                 JObject userProfile = (JObject)parsedJson
                     .SelectToken("data")
                     .SelectToken("userProfile");
-                string userName = userProfile["login"].ToString();
+                string userName = userProfile["login"].ToString().ToLower();
             /*
             * ☝️ End of review segment
             */
