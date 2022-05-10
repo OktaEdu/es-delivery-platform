@@ -48,10 +48,10 @@ Copyright 2022 Okta, Inc. All Rights Reserved.
 ngrok update
 ```
 
-8.	Enter the following command to set your ngrok authentication token (replace `<your-ngrok-auth-token-here>` with your ngrok auth token):
+8.	Enter the following command to set your ngrok authentication token (replace `<your-ngrok-auth-token>` with your ngrok auth token):
 
 ```bash
-ngrok authtoken <your-ngrok-auth-token-here>
+ngrok authtoken <your-ngrok-auth-token>
 ```
 
 After submitting this command, you should see a message indicating that a `.yml` file has been created:
@@ -68,13 +68,11 @@ Leave this window open.
 
 3.	Navigate to `C:\ClassFiles\platform\hook\DotNet\NetCoreHooks`, and open the `NetCoreHooks17.sln` file.
 
-4.	If warned about security, click OK to open the solution.
+4.	If warned about security, click `OK` to open the solution.
 
 5.	Under Solution Explorer panel, right-click the `NetCoreHooks17` project and select `Properties`.
 
-6.	Under the Debug section, check the `Enable SSL` checkbox.
-
-7.	Save the project, accepting any security certificates, and then close the Properties tab.
+6.	Save the project, accepting any security certificates, and then close the Properties tab.
 
 ### Explore the EventController Class
 
@@ -189,14 +187,14 @@ Quinn Morelli : 222-22-2222
 Javier Lopez : 777-77-7777
 ```
 
-3.	Make note of the **port number** in the address bar (e.g., `44370`. Your port number may vary). This will be used in the next step.
+3.	Make note of the **port number** in the address bar (e.g., `50157`. Your port number may vary). This will be used in the next step.
 
 ### Execute ngrok from your Command Window
 
 1.	Return to your ngrok command window from the first step. Execute the following command, replacing `<PORT-NUMBER>` with the value you noted in the previous step.:
 
 ```bash
-ngrok http https://localhost:<PORT-NUMBER> -host-header="localhost:<PORT-NUMBER>"
+ngrok http <PORT-NUMBER> -host-header="localhost:<PORT-NUMBER>"
 ```
 
 2.	ngrok will respond with some Forwarding URLs: 
@@ -220,7 +218,7 @@ ngrok http https://localhost:<PORT-NUMBER> -host-header="localhost:<PORT-NUMBER>
 |  **Field**  | **Value**                    |
 |-----------------|------------------------------|
 | Name            | User Account Events         |
-| URL             | Your ngrok URL, e.g. https://`a59d8d5a.ngrok.io`/event/user-account     |
+| URL             | https://`<your-ngrok-address>`/event/user-account  , e.g. https://`a59d8d5a.ngrok.io`/event/user-account      |
 | Authentication field        | x-api-key                   |
 | Authentication secret        | Tra!nme4321                    |
 | Subscribe to events       | <ul><li>- [x] User's Okta profile updated</li></ul><ul><li>- [x] Fired when the user's Okta password is reset</li></ul><ul><li>- [x] User's Okta password updated</li></ul>  
