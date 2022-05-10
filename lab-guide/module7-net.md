@@ -461,7 +461,7 @@ response.commands.Add(denyRegNoMatch);
 * TODO: Specify in the ErrorSummary that we could not add the registrant
 *  Add the error to the payload
 */
-errorCauses.ErrorSummary = "Unable to add registrant";
+errorCauses.ErrorSummary = "SSN doesn't match. Please try again.";
 errorCauses.Reason = "INVALID_PAYLOAD";
 error.ErrorSummary = "Unable to add registrant";
 causesList.Add(errorCauses);
