@@ -340,7 +340,7 @@ if (payLoad != null) //make sure you have a valid payload
 */
 ```
 
-### Implement coding changes
+### Implement SSN verification for registration
 1.	In the first `if` clause that follows on `Line 88`, we verify that we got a valid entry for `ssn` in the part of the JSON payload we stored to `userProfile`. Let's modify the body of this `if` clause to specify what should happen when this is true. We want to store the `ssn` as a `String`, ensuring that we ignore any dashes the user may have entered:
 
 ```c#
