@@ -345,11 +345,12 @@ if (payLoad != null) //make sure you have a valid payload
 
 ```c#
 /* 👇 Lab 7-2: 
- * TODO: Modify the ssnFromOkta variable so that it
- * stores the extracted SSN value from userProfile
+ * TODO: If we have a valid ssn entry, 
+ *  Modify the ssnFromOkta variable so that it
+  * stores the extracted SSN value from userProfile
+* ignoring any dashes the user may have entered
  */
-ssnFromOkta = userProfile["ssn"].ToString();
-ssnFromOkta = ssnFromOkta.Replace("-","");
+string ssnFromOkta = userProfile["ssn"].ToString();
 ```
 
 2. Note that if there was no valid entry for `ssn`  in the payload, the outer `else` clause (around `Line 167`) is reached. In this clause, we create a `Command` that denies registration and an `Error`. Both the `Command` and the `Error` are added to the `response` that is ultimately returned by this method (no modification to this code necessary):

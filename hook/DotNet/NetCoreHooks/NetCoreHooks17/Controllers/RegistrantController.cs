@@ -90,6 +90,7 @@ namespace NetCoreHooks.Controllers
                 * TODO: If we have a valid ssn entry, 
                 *  Modify the ssnFromOkta variable so that it
                 * stores the extracted SSN value from userProfile
+                * ignoring any dashes the user may have entered
                 */
                 string ssnFromOkta = "";
                 ssnFromOkta = ssnFromOkta.Replace("-","");
