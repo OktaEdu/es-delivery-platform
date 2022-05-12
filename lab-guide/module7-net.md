@@ -24,41 +24,7 @@ Copyright 2022 Okta, Inc. All Rights Reserved.
 
 ---
 
-### Get an Ngrok Authentication Token
 
-1.	Before we begin, stop any web servers left running in the VM. To do this, go to the Command Line Windows where the servers are running and press `Ctrl`+`C`. Close these Command Line Windows.
-
-2.	Open a browser window and navigate to www.ngrok.com.
-
-3.	If you do not already have an ngrok account, click the `Sign Up` button. At the prompt, create a new ngrok account:
-
-<img src="img/7-2-ngrok_signup.png" width=" 400px">
-
-4.	ngrok responds by showing you a screen with your authentication token:
-
-<img src="img/7-2-ngrok_auth_token.png" width=" 600px">
-
-5.	Copy and paste this token into a new Notepad text file, `ngrokToken.txt`.
-
-6.	In your VM, open a NEW Command Prompt window (This can be done by right-clicking on the Command Prompt icon in the task bar and selecting Command Prompt)
-
-7.	Enter the following command to update ngrok:
-
-```bash
-ngrok update
-```
-
-8.	Enter the following command to set your ngrok authentication token (replace `<your-ngrok-auth-token>` with your ngrok auth token):
-
-```bash
-ngrok authtoken <your-ngrok-auth-token>
-```
-
-After submitting this command, you should see a message indicating that a `.yml` file has been created:
-
-<img src="img/7-2-ngrok_yml.png" width=" 600px">
-
-Leave this window open.
 
 ### Open the Project in Visual Studio 2017
 
@@ -69,10 +35,6 @@ Leave this window open.
 3.	Navigate to `C:\ClassFiles\platform\hook\DotNet\NetCoreHooks`, and open the `NetCoreHooks17.sln` file.
 
 4.	If warned about security, click `OK` to open the solution.
-
-5.	Under Solution Explorer panel, right-click the `NetCoreHooks17` project and select `Properties`.
-
-6.	Save the project, accepting any security certificates, and then close the Properties tab.
 
 ### Explore the EventController Class
 
@@ -188,17 +150,20 @@ Quinn Morelli : 222-22-2222
 Javier Lopez : 777-77-7777
 ```
 
-3.	Make note of the **port number** in the address bar (e.g., `50157`. Your port number may vary). This will be used in the next step.
-
 ### Execute ngrok from your Command Window
 
-1.	Return to your ngrok command window from the first step. Execute the following command, replacing `<PORT-NUMBER>` with the value you noted in the previous step.:
+1.	Open a new command line window and enter the following command:
 
 ```bash
-ngrok http <PORT-NUMBER> -host-header="localhost:<PORT-NUMBER>"
+ngrok update
+```
+2. Execute the following command:
+
+```bash
+ngrok http 8080 -host-header="localhost:8080"
 ```
 
-2.	ngrok will respond with some Forwarding URLs: 
+3.	ngrok will respond with some Forwarding URLs: 
 
 <img src="img/7-2-ngrok_forwarding_urls.png" width=" 600px">
 
