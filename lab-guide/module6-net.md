@@ -44,9 +44,9 @@ Copyright 2022 Okta, Inc. All Rights Reserved.
 
 2.	Declare and initialize the `_oktaUrl`, and `_oktaApiToken` variables. 
 
-    a. For `_oktaApiToken`: replace the sample value with the API token you generated.
+   a. For `_oktaApiToken`: replace the sample value with the API token you generated.
 
-    b. For `_oktaUrl`: replace `###` with your assigned Okta org number.
+   b. For `_oktaUrl`: replace `###` with your assigned Okta org number.
 
 ```c#
 // TODO: 👇 Lab 6.1: replace value with your Okta org URL 👇
@@ -80,19 +80,19 @@ private readonly string _oktaApiToken = "abc123";
 
 2.	In the `NuGet: OktaAPILab` page, perform the following:
 
-    a. In the top left pane, if necessary, change the tab from `Installed` to `Browse`.
+   a. In the top left pane, if necessary, change the tab from `Installed` to `Browse`.
 
-    b. In the upper left Search field, enter: `okta`
+   b. In the upper left Search field, enter: `okta`
 
-    c. Select `Okta.Auth.Sdk by Okta, Inc`.
+   c. Select `Okta.Auth.Sdk by Okta, Inc`.
 
-    d. Select `OktaAPILab` from the project list.
+   d. Select `OktaAPILab` from the project list.
 
-    e. Select `1.1.0` from the Version dropdown on the right side and click `Install`.
+   e. Select `1.1.0` from the Version dropdown on the right side and click `Install`.
 
-    f. In the Preview Changes window, select `OK`.
+   f. In the Preview Changes window, select `OK`.
 
-    g. After the process has completed, close the tab for NuGet.
+   g. After the process has completed, close the tab for NuGet.
 
 3.	In the Solution Explorer, open `Controllers` > `AccountController`.
 
@@ -424,8 +424,9 @@ using Okta.Sdk.Configuration;
 ```
 3.	Next, modify the `_oktaUrl`, and `_oktaApiToken` variables. 
 
-    a. For `_oktaUrl`: replace `###` with your assigned Okta org number.
-    b. For `_oktaApiToken`: replace the sample value with the API token you generated.
+   a. For `_oktaUrl`: replace `###` with your assigned Okta org number.
+
+   b. For `_oktaApiToken`: replace the sample value with the API token you generated.
  
     
    📝 **Note:** In our example, we are placing the API token directly in the source code for simplicity sake. **This should not be done for production systems**. The API token is a secret that should be not stored in source code.

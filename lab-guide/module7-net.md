@@ -78,14 +78,15 @@ Leave this window open.
 
 1.	In the Visual Studio Solution Explorer window:
     
-    a. Open the `Controllers` folder.
+   a. Open the `Controllers` folder.
 
-    b. Double-click on `EventController.cs`.
+   b. Double-click on `EventController.cs`.
 
 2.	Notice this controller supports two HTTP actions: `GET`  and `POST`. 
 
-    a. The `Get()` method verifies the hook by accepting a verification header, and sending the value back to Okta wrapped in a `VerificationResponse` object.
-    b. The `Post()` method uses the `HttpRequest` object to capture incoming `json`. The method parses the `json` using `Linq-to-Json`. Then an `OktaEvents` object is created and populated with the parsed `json` data.
+   a. The `Get()` method verifies the hook by accepting a verification header, and sending the value back to Okta wrapped in a `VerificationResponse` object.
+
+   b. The `Post()` method uses the `HttpRequest` object to capture incoming `json`. The method parses the `json` using `Linq-to-Json`. Then an `OktaEvents` object is created and populated with the parsed `json` data.
 
 ### Implement the Verification Function
 
@@ -94,9 +95,9 @@ Leave this window open.
 ```c#
 /*
 * 👇 Lab 7-1: 
-* TODO: Set the value of VERIFICATION_HEADER to "x-Okta-Verification-Challenge"
+* TODO: Set the value of VERIFICATION_HEADER to "x-okta-verification-challenge"
 */
-private const string VERIFICATION_HEADER = "x-Okta-Verification-Challenge";
+private const string VERIFICATION_HEADER = "x-okta-verification-challenge";
 ```
 
 2.	Locate the `Get()` function (around `Line 41`) and modify the response variable around `Line 49` so that it refers to a new `VerificationResponse` object.
@@ -301,7 +302,7 @@ User validation, even with self-service registration, can be extremely helpful a
 OktaHookResponse response = new OktaHookResponse();
 ```
 
-5. Examine the next code segement (beginning `Line 72`) to gain an understand what is happening. 
+5. Examine the next code segment (beginning `Line 72`) to gain an understand what is happening: 
 
 ```c#
 /*
@@ -502,7 +503,7 @@ Javier Lopez : 777-77-7777
 |  **Field**    | **Value**                                                                |
 |--------------|---------------------------------------------------------------------------|
 | Name           | SSN Validation                                                          |
-| URL           | Your ngrok url (e.g. https://`a59d8d5a.ngrok.io`/registration/dblookup)  |
+| URL           | https://`<your-ngrok-url>`/registration/dblookup (e.g. https://`a59d8d5a.ngrok.io`/registration/dblookup)  |
 | Authentication field       |    x-api-key                                                |
 | Authentication secret       |        Tra!nme4321                                         |
 
