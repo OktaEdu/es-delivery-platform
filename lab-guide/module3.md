@@ -259,7 +259,7 @@ public class OktaAuthRequest {
 }
 ```
 
-9.  We're now going to generate getters and setters for our private instance variables. To do this in IntelliJ:
+4.  We're now going to generate getters and setters for our private instance variables. To do this in IntelliJ:
 
     a. Right-click within the `OktaAuthRequest` class in the space directly **below** the private instance variables we just declared
 
@@ -430,13 +430,13 @@ You should be able to access your org as the registered user.
 
 3.	In the New Project dialog box, perform the following:
 
-    a. In the left pane, navigate to `Installed` > `Visual C#` > `.NET Core`.
+  a. In the left pane, navigate to `Installed` > `Visual C#` > `.NET Core`.
 
-    b. In the right pane, select `ASP.NET Core Web Application`.
+  b. In the right pane, select `ASP.NET Core Web Application`.
 
-    c. In the `Name` field, enter: `OktaAPILab` 
+  c. In the `Name` field, enter: `OktaAPILab` 
 
-    d. Click `OK`.
+  d. Click `OK`.
 
 4.	In the New ASP.NET Core Web Application dialog box, perform the following:
 
@@ -454,31 +454,23 @@ You should be able to access your org as the registered user.
 
 2.	In the `NuGet: OktaAPILab` tab, perform the following:
 
-    a. In the upper right corner of this pane, to the right of the Package Source list, click on the `gear icon`.
+  a. In the upper right corner of this pane, to the right of the Package Source list, click on the `gear icon`.
 
-       - In the next dialog, click on the `green plus button` to define a new repository.
+  b. Change the Package Source to `NuGet Package Source` if it's not already selected.
 
-       - In the `Name` field, enter `Nuget.org`
+  c. In the top left pane, change the tab from `Installed` to `Browse`.
 
-       -  In the `Source` field, enter: https://api.nuget.org/v3/index.json
+  d. In the upper left `Search` field, enter: `okta`.
 
-       - Click `OK`.
+  e. Select `Okta.Sdk by Okta, Inc`.
 
-    b. Change the Package Source to `Nuget.org`.
+  f. Select `1.4.2` from the Version dropdown on the right side and click `Install`.
 
-    c. In the top left pane, change the tab from `Installed` to `Browse`.
+  g. In the Preview Changes window, select `OK`.
 
-    d. In the upper left `Search` field, enter: `okta`.
+  h. In the License Acceptance window, select `I Accept`.
 
-    e. Select `Okta.Sdk by Okta, Inc`.
-
-    f. Select `1.4.2` from the Version dropdown on the right side and click `Install`.
-
-    g. In the Preview Changes window, select `OK`.
-
-    h. In the License Acceptance window, select `I Accept`.
-
-    i. After the process has completed, close the tab for NuGet.
+  i. After the process has completed, close the tab for NuGet.
 
 ### Configure the Registration Page
 
@@ -645,9 +637,11 @@ var newUser = await oktaClient.Users.CreateUserAsync(oktaUser);
 
 10.	But, we want to know if our request to create the user was successful and we want to be able to handle errors. Let’s wrap the above statement in a try-catch block and do the following:
 
-    a. If the request is successful, we will store the `Status` and the `userId` returned by the response to the `ViewBag`.  
-    
-    b. If it is not a success, we will store the HTTP `Status Code` and `Error Summary` returned by the response.
+
+   a. If the request is successful, we will store the `Status` and the `userId` returned by the response to the `ViewBag`.  
+
+   b. If it is not a success, we will store the HTTP `Status Code` and `Error Summary` returned by the response.
+
 
 ```c#
 /*

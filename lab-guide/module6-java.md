@@ -39,7 +39,8 @@ Copyright 2022 Okta, Inc. All Rights Reserved.
 <h4>Use an Okta account to log in.</h4>
 <h4 style="color:blue" th:if="${Status}" th:text="${Status}"></h4>
  <!--
-    👇 Lab 6-1: Add an additional h4 tag below to display the Session Token
+    👇 Lab 6-1: 
+    TODO: Add an additional h4 tag below to display the Session Token
  -->
 <h4 style="color:blue" th:if="${SessionToken}" th:text="${SessionToken}"></h4> 
 <h4 style="color:red" th:if="${ErrorSummary}" th:text="${ErrorSummary}"></h4>
@@ -59,7 +60,7 @@ Copyright 2022 Okta, Inc. All Rights Reserved.
 
 ```java
 /* 👇 Lab 6-1:
- * import the OktaAuthRequest model
+ * TODO: import the OktaAuthRequest model
  */
 import com.okta.examples.model.OktaAuthRequest;
 ```
@@ -68,7 +69,7 @@ import com.okta.examples.model.OktaAuthRequest;
 
 ```java
 /* 👇 Lab 6-1:
- * Declare an abstract method called authentication()
+ * TODO: Declare an abstract method called authentication()
  * @param oktaAuthRequest: an OktaAuthRequest object
  * @return: an AuthenticationResponse object
  * @throws: an AuthenticationException object
@@ -87,7 +88,7 @@ AuthenticationResponse authenticate(OktaAuthRequest oktaAuthRequest) throws Auth
 
 ```java
 /* 👇 Lab 6-1:
- * import the OktaAuthRequest model
+ * TODO: import the OktaAuthRequest model
  */
 import com.okta.examples.model.OktaAuthRequest;
 ```
@@ -96,7 +97,7 @@ import com.okta.examples.model.OktaAuthRequest;
 
 ```java
 /* 👇 Lab 6-1:
- * Define the authentication client using the AuthenticationClients from the SDK
+ * TODO: Define the authentication client using the AuthenticationClients from the SDK
  */
 client = AuthenticationClients.builder().setOrgUrl(orgUrl).build();
 ```
@@ -480,6 +481,7 @@ import com.okta.examples.model.OktaAppLink;
 ```
 
 3.  Since this class implements the `OktaUserService` interface, we need to implement the `getAppLinks()` method. We'll start with just the method signature and an empty method body (`TODO #1`):
+
 ```java
 /*  Lab 6-4:
 * TODO: Implement the abstract method getAppLinks() inherited from OktaUserService

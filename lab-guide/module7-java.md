@@ -183,7 +183,7 @@ ngrok http 8080
 |  **Field**  | **Value**                    |
 |-----------------|------------------------------|
 | Name            | User Account Events         |
-| URL             | Your ngrok URL, e.g. https://`a59d8d5a.ngrok.io`/event/user-account     |
+| URL             | https://`<your-ngrok-url>`/event/user-account e.g. https://`a59d8d5a.ngrok.io`/event/user-account     |
 | Authentication field        | x-api-key                   |
 | Authentication secret        | Tra!nme4321                    |
 | Subscribe to events       | <ul><li>- [x] User's Okta profile updated</li></ul><ul><li>- [x] Fired when the user's Okta password is reset</li></ul><ul><li>- [x] User's Okta password updated</li></ul>                  |
@@ -330,7 +330,7 @@ employee = restTemplate.getForObject(URI, String.class);
 OktaHookResponse response = new OktaHookResponse();
 ```
 
-3.  Examine the next code segement (beginning `Line 53`) to gain an understand what is happening. Note that this segment makes use of the utility function you examined in the [Explore the RequestConverter Class](#explore-the-requestconverter-class) of this lab.
+3.  Examine the next code segment (beginning `Line 53`) to gain an understand what is happening. Note that this segment makes use of the utility function you examined in the [Explore the RequestConverter Class](#explore-the-requestconverter-class) of this lab.
 
 ```java
  /*
@@ -491,7 +491,7 @@ errorCauses.setReason("INVALID_PAYLOAD");
 error.setErrorSummary("Invalid request payload");
 causesList.add(errorCauses);
 error.setErrorCauses(causesList);
-response.setError(error);}
+response.setError(error);
 ```
 
 ### Deploy the Hook Project
@@ -515,7 +515,7 @@ response.setError(error);}
 |  **Field**    | **Value**                                                                |
 |--------------|---------------------------------------------------------------------------|
 | Name           | SSN Validation                                                          |
-| URL           | Your ngrok url (e.g. https://`a59d8d5a.ngrok.io`/registration/dblookup)  |
+| URL           | https://`<your-ngrok-url>`/registration/dblookup (e.g. https://`a59d8d5a.ngrok.io`/registration/dblookup)  |
 | Authentication field       |    x-api-key                                                |
 | Authentication secret       |        Tra!nme4321                                         |
 
