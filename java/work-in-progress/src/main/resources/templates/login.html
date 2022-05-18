@@ -10,9 +10,10 @@
                     <h4>Use an Okta account to Log In</h4>
                     <h4 style="color:blue" th:if="${Status}" th:text="${Status}"></h4>
                     <h4 style="color:red" th:if="${ErrorSummary}" th:text="${ErrorSummary}"></h4>
-                    <!--
-                       👇 Lab 6-1: Add an additional h4 tag below to display the Session Token
-                    -->
+                     <!--
+                        👇 Lab 6-1: 
+                        TODO: Add an additional h4 tag below to display the Session Token
+                     -->
                     <form th:action="@{/login}" method="post">
                         <div class="form-group row">
                             <label for="email" class="col-sm-2 col-form-label">Email</label>

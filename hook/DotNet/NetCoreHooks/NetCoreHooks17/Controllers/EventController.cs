@@ -24,7 +24,7 @@ namespace NetCoreHooks.Controllers
 
         /*
          * 👇 Lab 7-1: 
-         * Set the value of VERIFICATION_HEADER to "x-Okta-Verification-Challenge"
+         * Set the value of VERIFICATION_HEADER to "x-okta-verification-challenge"
          */
         private const string VERIFICATION_HEADER = "";
 
