@@ -27,8 +27,7 @@ Copyright 2022 Okta, Inc. All Rights Reserved.
 
 1.  Sign into the virtual machine with the information provided by Okta.
 
-    a.  Navigate to
-        [**https://okta.instructorled.training**](https://okta.instructorled.training).
+    a.  Navigate to [**https://okta.instructorled.training**](https://okta.instructorled.training).
 
     b.  In the field labeled `Access Code`, enter the 10-digit code assigned to you by your instructor.
 
@@ -43,23 +42,25 @@ Copyright 2022 Okta, Inc. All Rights Reserved.
     g.  In the Windows log in area, change the current user by clicking
         on the left arrow button to the left of the default profile
         picture.
-        <img src="img/1-1-vm_login.png" width="400px">
 
-    h.  Select `Other user`.
+<img src="img/1-1-vm_login.png" width="400px">
 
-    i.  Enter the following credentials to log into Windows:
-     ```
-     Username: Administrator
-     Password: Tra!nme4321
-     ```
+h.  Select `Other user`.
+
+i.  Enter the following credentials to log into Windows:
+    ```
+    Username: Administrator
+    Password: Tra!nme4321
+    ```
 
 
 2.  Sign into your Okta org.
 
     a.  Launch your browser.
 
-    b.  Navigate to your Okta org assigned to you by your instructor.
-        For example, `https://oktaiceXXX.oktapreview.com`.
+    b.  Navigate to your Okta org assigned to you by your instructor. For example:
+
+    `https://oktaiceXXX.oktapreview.com`
 
     c.  On the **Okta Sign In** page, sign in with the following credentials:
 
