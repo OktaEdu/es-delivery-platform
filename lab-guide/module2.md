@@ -408,7 +408,7 @@ This will return the next user in the result list. Copy this user's `id`.
 9.  In the address bar, change `after` to `before` and update the `id` value with the one you just copied.
 
 ```http
- {{url}}/api/v1/users?**before=00u...
+ {{url}}/api/v1/users?before=00u...
 ```
 
 10. Click `Send`. This should be the first user again.
