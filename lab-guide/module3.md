@@ -303,7 +303,7 @@ this.client = Clients.builder()
 
 ```java
 /* 👇 Lab 3-2:
- * TODO: Add the @ModuleAttribute annotation to this method
+ * TODO: Add the @ModelAttribute annotation to this method
  *   and modify the parameters list to include an OktaAuthRequest reference
  */
 @ModelAttribute

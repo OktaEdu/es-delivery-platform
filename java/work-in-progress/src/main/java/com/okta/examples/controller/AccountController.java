@@ -58,7 +58,7 @@ public class AccountController {
 
     @PostMapping("/register")
     /* 👇 Lab 3-2:
-     * TODO: Add the @ModuleAttribute annotation to this method
+     * TODO: Add the @ModelAttribute annotation to this method
      *   and modify the parameters list to include an OktaAuthRequest reference
      */
     public ModelAndView doRegister()
