@@ -19,90 +19,187 @@ import java.util.List;
 @RestController
 public class RegistrationInlineHookController {
 
-    //Look up database before user can register
+    /*
+     * Verify that the SSN supplied to Okta matches the one
+     * we have stored in our DB before permitting registration
+     */
     @PostMapping("/registration/dblookup")
     public OktaHookResponse accountEvents(HttpServletRequest request) {
 
-        //Setup the OktaHookResponse structure
-        Commands command1 = new Commands();
-        List<Commands> commandsList = new ArrayList<>();
-        Error error = new Error();
-        ErrorCauses errorCauses = new ErrorCauses();
-        List<ErrorCauses> causesList = new ArrayList<>();
+        // Construct our response, which we will modify as we step through this method
         OktaHookResponse response = new OktaHookResponse();
 
-        //Parse username and SSN from request payload
+
+
+        /*
+         * 👇 Lab 7-2:
+         * Review this code segment to understand what is happening.
+         * (No modification necessary)
+         *
+         * 1. First, we use our utility function to parse through the
+         * JSON payload of Okta's request to our external service
+         * This function will convert the payload into a JSONObject (eventBody)
+         *
+         * For an example of what this payload looks like see:
+         * https://developer.okta.com/docs/concepts/event-hooks/#sample-event-delivery-payload
+         *
+         * 2. Then we extract the information from the "data" entry in that JSONObject
+         * and store it to the variable named data.  Notice that this entry is another JSONObject.
+         *
+         * 3. Finally, we extract the "login" entry from the data JSONObject.
+         * Notice that this is a String that refers to the username.
+         *
+         */
         JSONObject eventBody = RequestConverter.httpToJSON(request);
         JSONObject userProfile = eventBody.getJSONObject("data").getJSONObject("userProfile");
         String username = userProfile.getString("login");
+        /*
+         * ☝️ End of review segment
+         */
 
-        //Check if the input data is valid
+        // Check if we got a valid entry keyed on "ssn" in the JSONObject we stored in userProfile
         if (!userProfile.isNull("ssn")) {
-            String ssn = userProfile.getString("ssn");
-            EmployeeBasicInfo newEmployeeFromOkta = new EmployeeBasicInfo(username, ssn);
+            /*
+             * 👇 Lab 7-2:
+             * TODO: If we have a valid ssn entry, let's store it to a String named ssnFromOkta
+             *  Modify the ssnFromOkta variable so that it stores this value.
+             * The username and ssnFromOkta are then used to construct a new EmployeeBasicInfo object
+             */
+            String ssnFromOkta = userProfile.getString("ssn");
+            EmployeeBasicInfo newEmployeeFromOkta =  new EmployeeBasicInfo(username, ssnFromOkta);
 
-            //Call the 3rd party DB to get employee ssn based on the username.
-            String employeeInfo = getEmployees(newEmployeeFromOkta.getUsername());
+            /*
+             * 👇 Lab 7-2:
+             * Review this code segment to understand what is happening.
+             * (No modification necessary)
+             * 1. First, we retrieve the employee info we have stored in our database using the username
+             * 2. Then we parse through this information using our utility function.
+             * This will create a new EmployeeBasicInfo object that stores the username and the SSN
+             * from the database.
+             */
+            String employeeInfo = getEmployees(username);
             EmployeeBasicInfo employeeFromDB = EmployeeConverter.parseEmployeeInfo(employeeInfo);
+            /*
+             * ☝️ End of review segment
+             */
 
-            //Compare the employee payloads
-            //if the ssn is the same, allow the registration
-            if (employeeFromDB  != null && newEmployeeFromOkta.getSsn().equals(employeeFromDB.getSsn())) {
+            if(employeeFromDB != null &&  ssnFromOkta.equals(employeeFromDB.getSsn())){
+                // construct command
+                Commands allowAndResetSSN = new Commands();
+                List<Commands> commandsList = new ArrayList<>();
+
+                /* 👇 Lab 7-2:
+                 * TODO: Specify a command to add to our Commands object registration is allowed
+                 * The type will be "com.okta.user.profile.update" since we will be updating this Okta user's
+                 * profile.
+                 * The value will set the user's SSN to the empty string so that we no longer store this
+                 * information on Okta now that it has been verified.
+                 * Finally, we will add our Command object to the response
+                 */
+                allowAndResetSSN.setType("com.okta.user.profile.update");
                 HashMap<String, String> value = new HashMap<>();
-                value.put("ssn", "");
-                command1.setValue(value);
-                command1.setType("com.okta.user.profile.update");
-                commandsList.add(command1);
+                value.put("ssn", ""); // set ssn to empty string
+                allowAndResetSSN.setValue(value);
+                commandsList.add(allowAndResetSSN);
                 response.setCommands(commandsList);
 
-            //If SSN doesn't match, deny the registration with error messgae SSN is not matching
-            } else {
+
+            }
+
+            else {
+                // construct command
+                Commands denyRegNoMatch = new Commands();
+                List<Commands> commandsList = new ArrayList<>();
+
+                /* 👇 Lab 7-2:
+                 * TODO: Specify a command to add to our Commands object when registration is denied
+                 * The type will be "com.okta.action.update" which is an action
+                 * we use when specifying whether to create a new Okta user when importing
+                 * users or matching them against existing Okta users.
+                 * The value DENY registration since the SSNs did not match.
+                 *
+                 * Finally, we will add our Command object to the response
+                 */
+                denyRegNoMatch.setType("com.okta.action.update");
                 HashMap<String, String> value = new HashMap<>();
                 value.put("registration", "DENY");
-                command1.setValue(value);
-                command1.setType("com.okta.action.update");
-                commandsList.add(command1);
+                denyRegNoMatch.setValue(value);
+                commandsList.add(denyRegNoMatch);
+                response.setCommands(commandsList);
 
-                errorCauses.setErrorSummary("SSN doesn't match. Please try again.");
+
+
+
+                // construct Error
+                Error error = new Error();
+                ErrorCauses errorCauses = new ErrorCauses();
+                List<ErrorCauses> causesList = new ArrayList<>();
+                /* 👇 Lab 7-2:
+                 * TODO: Specify in the ErrorSummary that we could not add the registrant
+                 *  Add the error to the payload
+                 *
+                 */
+                errorCauses.setErrorSummary("Unable to add registrant.");
                 errorCauses.setReason("INVALID_PAYLOAD");
                 error.setErrorSummary("Invalid request payload");
                 causesList.add(errorCauses);
                 error.setErrorCauses(causesList);
-
-                response.setCommands(commandsList);
                 response.setError(error);
+
+
             }
 
-            // Compose the response body to okta with Deny action and error message that both username and SSN are required
-        } else {
+        }
+        else { // ssn does not exist in the payload.
+            // construct Command that denies registration
+            Commands denyRegNoSSN = new Commands();
+            List<Commands> commandsList = new ArrayList<>();
             HashMap<String, String> value = new HashMap<>();
             value.put("registration", "DENY");
-            command1.setValue(value);
-            command1.setType("com.okta.action.update");
-            commandsList.add(command1);
+            denyRegNoSSN.setValue(value);
+            denyRegNoSSN.setType("com.okta.action.update");
+            commandsList.add(denyRegNoSSN);
 
+            // construct Error
+            Error error = new Error();
+            ErrorCauses errorCauses = new ErrorCauses();
+            List<ErrorCauses> causesList = new ArrayList<>();
             errorCauses.setErrorSummary("The request payload was not in the expected format. SSN is required.");
             errorCauses.setReason("INVALID_PAYLOAD");
             error.setErrorSummary("Invalid request payload");
             causesList.add(errorCauses);
             error.setErrorCauses(causesList);
 
+
+            // add Command and Error to the response
             response.setCommands(commandsList);
             response.setError(error);
         }
 
-        System.out.println(response.toString());
 
+        System.out.println(response.toString());
         return response;
 
     }
 
     private String getEmployees(String username) {
-        final String uri = "http://localhost:8082/employees/search/findByUsername?username=" + username;
+        /*
+         * 👇 Lab 7-2:
+         * TODO: Set the value of URI to
+         *  "http://localhost:8085/employees/search/findByUsername?username="
+         *   concatenated with the username parameter that is passed into this method
+         */
+        final String URI =  "http://localhost:8085/employees/search/findByUsername?username=" +  username;
+
+        String employee = "";
+        /*
+         * 👇 Lab 7-2:
+         * TODO: Instantiate a new RestTemplate object that will serve as our REST Client
+         *  Pass our URI to the REST client using its getForObject() method
+         * See https://www.baeldung.com/rest-template for documentation on RestTemplate
+         */
         RestTemplate restTemplate = new RestTemplate();
-
-        String employee = restTemplate.getForObject(uri, String.class);
-
+        employee = restTemplate.getForObject(URI, String.class);
         return employee;
 
     }
