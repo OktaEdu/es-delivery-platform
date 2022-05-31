@@ -24,6 +24,8 @@ Copyright 2022 Okta, Inc. All Rights Reserved.
 
 ---
 
+📝 **Note**  You can view the solution code for Labs 7-1 and 7-2 in the `hookproject_solution` project.
+
 ### Open the Project in IntelliJ
 
 1.  Before you begin, **stop any web servers** left running in the VM. To do this, go to the command line windows where the servers are running and press `Ctrl`+`C`. Close these command line windows.
@@ -237,6 +239,8 @@ User validation, even with self-service registration, can be extremely helpful a
 ⚠️ **Prerequisite:** Completion of [Lab 7-1](#lab-7-1-send-user-accounts-updates-using-an-event-hook) and [Lab 3-1](module3.md#lab-3-1-implement-self-service-registration)
 
 ---
+
+📝 **Note**: You do not have to implement anything in the `employee-api` project, so there is no separate employee-api_solution project. Just as in Lab 7-1, you are only implementing code in the `hookproject` project. You can view the solution code for Labs 7-1 and 7-2 in the `hookproject_solution` project.
 
 ### Open and Deploy the Employee Project in IntelliJ
 
