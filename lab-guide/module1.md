@@ -289,7 +289,7 @@ app to Okta when federating access with OIDC.
 
     a.  Click `Edit`.
 
-    b.  Next to **Grant Type**, check `Implicit (hybrid)`
+    b.  Next to **Grant Type**, leave Authorization Code checked.
 
     c.  Change the `Initiate Login URI` field to `http://localhost:8081/login`
 
