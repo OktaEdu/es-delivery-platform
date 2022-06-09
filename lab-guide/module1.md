@@ -271,29 +271,24 @@ npm install
   |**Attribute**          | **Value**|
   |-----------------------|-----------------------------------------------|
   |App integration name   | Promos Green                                |
+  | Grant type | Authorization Code |
   |Sign-in redirect URIs  | `http://localhost:8081/redirect`              |
 
-7.  Scroll down to the **Assignments** section and select `Limit access to selected groups`
+7.  Under the **Assignments** section, select `Limit access to selected groups`
 
 8.  In the `Selected group(s)` field, type and select `Retailers`
 
 9.  Click `Save`.
 
-10. In the Client Credentials section that pops up, copy the **Client
-    ID** and paste its value in Notepad for later use.
+10. In the Client Credentials section that pops up, copy the **Client ID** and paste its value in Notepad for later use.
 
-Later, you use the Client ID inside the Promos Green app to identify the
-app to Okta when federating access with OIDC.
+Later, you use the Client ID inside the Promos Green app to identify the app to Okta when federating access with OIDC.
 
-11. Scroll down to the **General Settings** section on this page.
+11. Scroll down to the **General Settings** section on this page and click `Edit`.
 
-    a.  Click `Edit`.
+12.	Scroll down to **LOGIN** change the `Initiate Login URI` field to `http://localhost:8081/login`
 
-    b.  Next to **Grant Type**, check `Implicit (hybrid)`
-
-    c.  Change the `Initiate Login URI` field to `http://localhost:8081/login`
-
-    d.  Click `Save`.
+13.  Click `Save`.
 
 ### Configure CORS for AJAX Calls
 
