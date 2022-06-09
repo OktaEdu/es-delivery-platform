@@ -213,10 +213,9 @@ Password: Tra!nme4321
 
 2.  Click the `Assign People` button.
 
-3.  In the Search bar, type `Kay` and select her name. You will see her
-    name and email in the `Not Members` column.
+3.  In the Search bar, search for `Kay West`.
 
-4.  Click the `Add All` button.
+4.  In the search results to the right of Kay West’s name, click the `+` button to add them to the Retailers group.
 
 5.  Click `Save`.
 
