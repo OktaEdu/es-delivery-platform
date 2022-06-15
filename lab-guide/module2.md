@@ -59,11 +59,9 @@ Copyright 2022 Okta, Inc. All Rights Reserved.
 
 1.  In the VM, launch the **Postman** app (an orange circular icon).
 
-2.  Click the gear icon at the top-right corner of the program.
+2.  Click the `Import` button on the top left of the application.
 
-    <img src="img/2-1-postman_env.png" width="400px">
-
-3.  Click `Import` and then click `Choose Files`.
+3.	Click `Upload Files`.
 
 4.  Navigate to `C:\ClassFiles\platform\rest\`.
 
@@ -96,11 +94,9 @@ Copyright 2022 Okta, Inc. All Rights Reserved.
 
 📝 **Note** In this section, you import the same API collections provided by Okta at [developer.okta.com](https://developer.okta.com/). For your convenience, we already downloaded all collections to your disk.
 
-1.  Click the `Import` button, located in the top-left corner.
+1.	Click the `Import` button on the top left of the application.
 
-    <img src="img/2-1-postman_import.png" width="400px">
-
-2.  In the Import Files tab, click `Choose Files`.
+2.	Click `Upload Files`.
 
 3.  Navigate to `C:\ClassFiles\platform\rest\collections\`
 

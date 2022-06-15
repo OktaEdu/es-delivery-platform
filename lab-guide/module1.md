@@ -356,8 +356,7 @@ This should open `http://localhost:8081/home` in your default browser.
 
 8.  Click on `Logout of App` and close the browser.
 
-9.  Keep the **web server** running in the Command Prompt, as we will
-    use the Promos Green app in Lab 5-4.
+9. Keep the web server running in the Command Prompt, as we will use the Promos Green app in `Labs 5-4` through `5-6`.
 
 ## Lab 1-5: Explore the System Logs
 

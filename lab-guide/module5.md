@@ -447,15 +447,19 @@ if (res.status == 'SUCCESS') {
 
 5.  Click `Edit`.
 
-6.  Change the value for the `Login Initiated by` field to `Either Okta or App`.
+6.	In the `APPLICATION` section, check `Implicit (hybrid)`. Leave `Authorization Code` checked as well.
 
-7.  Select the `Display application icon to users` check box.
+📝 **Note**: Even though our application uses PKCE instead of an Implicit flow, we need to check this option in order to get the App Embed Link. You can actually toggle off Implicit flow once you copy the Embed Link in `Step 10`.
 
-8.  Click `Save`.
+7. 	Scroll down to the `LOGIN` section. Change the value for the `Login Initiated by` field to `Either Okta or App`.
 
-9.  Under the App Embed Link, copy the `EMBED LINK`.
+8.  Select the `Display application icon to users` check box.
 
-10. **Logout** of Okta.
+9.  Click `Save`.
+
+10.  Under the App Embed Link, copy the `EMBED LINK`.
+
+11. **Logout** of Okta.
 
 ### Configure the to the App Embed Link
 
