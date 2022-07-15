@@ -267,7 +267,7 @@ C:\ClassFiles\platform\osw\login_customize_complete.html
 |body             | Defines a general background for the entire login page               |
 |#okta-sign-in .* | Override the styles defined for the Sign-In Widget                   |
 
-📝 **Note**: To check what css classes you can edit inside the widget -- under the #okta-sign-in class, download and review the [okta-theme.css(https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/1.7.0/css/okta-theme.css) file.
+📝 **Note**: To check what css classes you can edit inside the widget -- under the #okta-sign-in class, download and review the [okta-theme.css](https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/1.7.0/css/okta-theme.css) file.
 
 
 4.  Update the `oktaSignIn` variable to add a second property for the logo image:
