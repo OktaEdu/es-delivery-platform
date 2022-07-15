@@ -190,7 +190,7 @@ The Login page with the Sign-In Widget is displayed.
 
   |**Attribute**  | **Value**|
   |---------------|---------------------------------------------------------|
-  |Name           | Promos Green                                            |
+  |Name           | Okta SIW                                            |
   |Origin URL     | `http://localhost:8082`                                 |
   |CORS           | <ul><li>- [x] (checked)</li></ul>                       |
   |Redirect       | <ul><li>- [ ] (unchecked)</li></ul>                     |
