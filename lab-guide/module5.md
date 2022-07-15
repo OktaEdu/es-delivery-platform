@@ -292,7 +292,7 @@ var oktaSignIn = new OktaSignIn({
 ### Customize the Sign-In Widget Settings
 
 📝 **Note** This section focuses on how you can modify the variables passed to the OktaSignIn to change the sign-in widget settings. To know more
-about the JavaScript options available, check the [Sign-In Widget reference page](https://developer.okta.com/code/javascript/okta_sign-in_widget_ref).
+about the JavaScript options available, check the [Sign-In Widget reference page](https://developer.okta.com/docs/guides/archive-embedded-siw/main/).
 
 1.  Return to `login.html` in **Atom**.
 
