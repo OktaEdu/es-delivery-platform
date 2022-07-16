@@ -135,9 +135,9 @@ An HTML page is displayed.
 |-----------------------------|--------------|----------------------------------------------------------------------|
 |Uncomment                    | 9            | Download the sign-in widget JavaScript code: `okta-sign-in.min.js`   |
 |Uncomment                    | 10           | Download the sign-in widget stylesheet (CS): `okta-sign-in.min.css`  |
-|Comment                      | 15           | No longer needed as we are configuring the widget                    |
-|Uncomment                    | 17           | A div element that loads the sign-in widget in page                  |
-|Uncomment                    | 22-34        | JavaScript code in page that launches the Sign-In Widget in the page |
+|Comment                      | 15-17           | No longer needed as we are configuring the widget                    |
+|Uncomment                    | 19           | A div element that loads the sign-in widget in page                  |
+|Uncomment                    | 24-36        | JavaScript code in page that launches the Sign-In Widget in the page |
 
 
 7.  Replace the **orgUrl** value to match your unique Okta Ice org.
@@ -162,7 +162,7 @@ The Login page with the Sign-In Widget is displayed.
 
     🛑 **Pause** and answer the following thought questions:
 
-       - Are you logged into Okta?**
+       - Are you logged into Okta?
 
        - Why or why not?
 
