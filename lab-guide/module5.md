@@ -238,26 +238,28 @@ C:\ClassFiles\platform\osw\login_customize_complete.html
 
 1.  Return to **Atom** and edit the `login.html` file.
 
-2.  To change the login page background, add the following CSS code
-    before the `<head>` tag:
+2.  To change the login page background, add the following CSS code in the `<head>` section under the comment `<!--Insert Custom CSS under here-->`:
 
 ```html
-<style>
-  body {
-    background-image: url("img/ice-cream-bg.jpg");
-    background-size: cover;
-  }
-  #okta-sign-in .okta-sign-in-header {
-    background-color: #FFFFEE;
-  }
-  #okta-sign-in .auth-content {
-    background-color: #FF5C5C;
-    color: #000000;
-  }
-  #okta-sign-in .okta-form-title{
-    color: #FFFFFF;
-  }
-</style>
+
+  <style>
+    body {
+      background-image: url("img/ice-cream-bg.png");
+      background-size: cover;
+    }
+    #okta-sign-in * {
+      color: #343633;
+    }
+    #okta-sign-in .okta-sign-in-header {
+      background-color: #343633;
+    }
+    #okta-sign-in .auth-content {
+      background-color: #B4EDD2;
+    }
+    #okta-sign-in.auth-container a.link:link {
+    color: #343633;
+    }
+  </style>
 ```
 
 3.  Take a look at the the CSS to see what it does:
@@ -267,44 +269,48 @@ C:\ClassFiles\platform\osw\login_customize_complete.html
 |body             | Defines a general background for the entire login page               |
 |#okta-sign-in .* | Override the styles defined for the Sign-In Widget                   |
 
-📝 **Note**: To check what css classes you can edit inside the widget -- under the #okta-sign-in class, download and review the [okta-theme.css](https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/1.7.0/css/okta-theme.css) file.
+📝 **Note**: [More advanced customization options](https://github.com/okta/okta-signin-widget/blob/286611d539eaf987de7282416cd6328f837ac3af/docs/classic.md#colors) are available through modifying the Sass source files and building the widget. This requires using the [NPM module](https://github.com/okta/okta-signin-widget/blob/286611d539eaf987de7282416cd6328f837ac3af/docs/classic.md#using-the-npm-module) rather than accessing the Okta SIW assets [via CDN](https://github.com/okta/okta-signin-widget/blob/286611d539eaf987de7282416cd6328f837ac3af/docs/classic.md#using-the-okta-cdn), as we are here.
 
 
-4.  Update the `oktaSignIn` variable to add a second property for the logo image:
+4.  Update the `oktaSignIn` variable to customize additional properties. This will add a logo and adjust the color of the Sign In button on the widget.
 
 ```javascript
 var oktaSignIn = new OktaSignIn({
-  baseUrl: orgUrl,
-  logo: '/img/ice-logo.png' // add logo image
+  baseUrl: orgUrl, // make sure you add a comma here!
+  logo: '/img/ice-logo.png', // add logo image
+  logoText: 'Okta Ice', // Text to describe the logo
+  brandName: 'Okta Ice', // Shows up in emails
+  colors: {
+    brand: '#cc99cc' // changes the color of the button
+  },
 });
 ```
 
-5.  Confirm that the code looks like the following:
+7.  **Save** the `login.html` file.
 
- <img src="img/5-3-siw_css.png" width=" 500px">
-
-6.  **Save** the `login.html` file.
-
-7.  Access http://localhost:8082/login.html and confirm that the rebranding and the login form colors have changed.
+8.  Access http://localhost:8082/login.html and confirm that the rebranding and the login form colors have changed.
    
 <img src="img/5-3-siw_branding.png" width=" 500px">
 
 ### Customize the Sign-In Widget Settings
 
 📝 **Note** This section focuses on how you can modify the variables passed to the OktaSignIn to change the sign-in widget settings. To know more
-about the JavaScript options available, check the [Sign-In Widget reference page](https://developer.okta.com/code/javascript/okta_sign-in_widget_ref).
+about the JavaScript options available, check the [Sign-In Widget reference page](https://developer.okta.com/docs/guides/archive-embedded-siw/main/).
 
 1.  Return to `login.html` in **Atom**.
 
-2.  Edit the `oktaSignIn` variable as follows (including the comma after the logo):
+2.  Edit the `oktaSignIn` variable as follows (including the comma after the `colors` section):
 
 ```javascript
-logo: '/img/ice-logo.png', // add the comma here and the additional properties
+colors: {
+        brand: '#cc99cc'
+        },
+// Additional code goes under here
 i18n: {
   'en': {
-    'primaryauth.title': 'Okta Ice SSO',
-    'primaryauth.username.placeholder': 'Your ICE email',
-    'primaryauth.password.placeholder': 'Your ICE password'            
+    'primaryauth.title': 'Okta Ice Portal SSO',
+    'primaryauth.username.placeholder': 'ICE E-mail',
+    'primaryauth.password.placeholder': 'ICE Password'            
   }
 },
 helpLinks: {
@@ -321,26 +327,22 @@ features: {
 }
 ```
 
-3.  Confirm that your code looks like the following:
-
-<img src="img/5-3-siw_css_properties.png" width=" 500px">
-
-4.  Take a moment to digest what the `oktaSignIn` properties define:
+3.  Take a moment to digest what the `oktaSignIn` properties define:
 
 |**Property**     | **What it does**                                                              |
 |-----------------|-------------------------------------------------------------------------------|
-|I18n             | Labels for English                                                            |
+|i18n             | Labels for English                                                            |
 |helpLinks        | What links are available when you click the **Need help signing in?** option  |
 |features         | What features will be available during the sign-in                            |
 
 
-📝  **Notes:** To know more about all options available with the Sign-In Widget, check the [Sign-In Widget reference page](https://developer.okta.com/code/javascript/okta_sign-in_widget_ref).
+📝  **Notes:** To know more about all options available with the Sign-In Widget, check the [Sign-In Widget reference page](https://developer.okta.com/docs/guides/archive-embedded-siw/main/).
 
-5.  **Save** the `login.html` file.
+4.  **Save** the `login.html` file.
 
-6.  Access http://localhost:8082/login.html and confirm the following changes to the Sign-In Widget:
+5.  Access http://localhost:8082/login.html and confirm the following changes to the Sign-In Widget:
 
-    a.  The displayed title changed from "Sign In" to "Okta Ice SSO".
+    a.  The displayed title changed from "Sign In" to "Okta Ice Portal SSO".
 
     b.  The Remember Me check box is no longer available.
 
