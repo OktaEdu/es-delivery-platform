@@ -133,8 +133,7 @@ An HTML page is displayed.
 
 |**Action**                   |  **Line**    | **What it does**                                                     |
 |-----------------------------|--------------|----------------------------------------------------------------------|
-|Uncomment                    | 9            | Download the sign-in widget JavaScript code: `okta-sign-in.min.js`   |
-|Uncomment                    | 10           | Download the sign-in widget stylesheet (CS): `okta-sign-in.min.css`  |
+|Uncomment                    | 9-10            | Access the Okta SIW JavaScript and CSS via CDN |
 |Comment                      | 15-17           | No longer needed as we are configuring the widget                    |
 |Uncomment                    | 19           | A div element that loads the sign-in widget in page                  |
 |Uncomment                    | 24-36        | JavaScript code in page that launches the Sign-In Widget in the page |
