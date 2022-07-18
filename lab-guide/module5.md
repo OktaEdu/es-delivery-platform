@@ -274,7 +274,7 @@ C:\ClassFiles\platform\osw\login_5-3_complete.html
 📝 **Note**: You can read more about customizing the CSS from our [Custom Widget Guide](https://developer.okta.com/docs/guides/custom-widget/main/#modify-the-css). More advanced customization options are available through modifying the Sass source files and building the widget. This requires using the [NPM module](https://github.com/okta/okta-signin-widget/blob/286611d539eaf987de7282416cd6328f837ac3af/docs/classic.md#using-the-npm-module) rather than accessing the Okta SIW assets [via CDN](https://github.com/okta/okta-signin-widget/blob/286611d539eaf987de7282416cd6328f837ac3af/docs/classic.md#using-the-okta-cdn), as we are here.
 
 
-4.  Update the `oktaSignIn` variable to customize additional properties. This will add a logo and adjust the color of the `Sign In` button on the widget.
+4.  Update the `OktaSignIn` object to customize additional properties. This will add a logo and adjust the color of the `Sign In` button on the widget.
 
 ```javascript
 var oktaSignIn = new OktaSignIn({
@@ -332,12 +332,12 @@ features: {
 
 |**Property**     | **What it does**                                                              |
 |-----------------|-------------------------------------------------------------------------------|
-|i18n             | Labels for English                                                            |
-|helpLinks        | What links are available when you click the **Need help signing in?** option  |
-|features         | What features will be available during the sign-in                            |
+|`i18n`             | Internationalization and Localization. We define the `en` property to customize the English language SIW labels.                                                            |
+|`helpLinks`        | Changes the Help, Forgot Password, and Unlock links  |
+|`features`         | Updates which features will be available in the UI during sign-in       |
 
 
-📝  **Notes:** To know more about all options available with the Sign-In Widget, check the [Sign-In Widget reference page](https://developer.okta.com/docs/guides/archive-embedded-siw/main/).
+📝  **Note:** To learn more about customizing the SIW properties, check the [Self-hosted SIW Customization Guide](https://developer.okta.com/docs/guides/custom-widget/main/#style-the-self-hosted-sign-in-widget).
 
 4.  **Save** the `login.html` file.
 
