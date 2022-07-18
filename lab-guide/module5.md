@@ -88,6 +88,11 @@ You should be redirected to the Okta Home page under your custom domain.
 ⏱️ **Duration:**     15 minutes
 
 ---
+📝 **Note** The solution code for this lab is available on your VM at:
+
+```bash
+C:\ClassFiles\platform\osw\login_5-2_complete.html
+```
 
 ### Launch the HTTP Server
 
@@ -226,8 +231,7 @@ At this point, you installed, configured, and tested the SIW. In the next lab, y
 
 ---
 
-📝 **Note** For your convenience, the code snippets provided in this and the next few labs are available in the course environment. You can
-either enter code manually or copy the code from:
+📝 **Note** The solution code for this lab is available on your VM at:
 
 ```bash
 C:\ClassFiles\platform\osw\login_5-3_complete.html
@@ -240,7 +244,6 @@ C:\ClassFiles\platform\osw\login_5-3_complete.html
 2.  To change the login page background, add the following CSS code in the `<head>` section under the comment `<!--Insert Custom CSS under here-->`:
 
 ```html
-
   <style>
     body {
       background-image: url("img/ice-cream-bg.png");
@@ -274,7 +277,7 @@ C:\ClassFiles\platform\osw\login_5-3_complete.html
 📝 **Note**: You can read more about customizing the CSS from our [Custom Widget Guide](https://developer.okta.com/docs/guides/custom-widget/main/#modify-the-css). More advanced customization options are available through modifying the Sass source files and building the widget. This requires using the [NPM module](https://github.com/okta/okta-signin-widget/blob/286611d539eaf987de7282416cd6328f837ac3af/docs/classic.md#using-the-npm-module) rather than accessing the Okta SIW assets [via CDN](https://github.com/okta/okta-signin-widget/blob/286611d539eaf987de7282416cd6328f837ac3af/docs/classic.md#using-the-okta-cdn), as we are here.
 
 
-4.  Update the `OktaSignIn` object to customize additional properties. This will add a logo and adjust the color of the `Sign In` button on the widget.
+4.  Update the `OktaSignIn` object to customize some of the SIW properties. This will add a logo and adjust the color of the `Sign In` button on the widget.
 
 ```javascript
 var oktaSignIn = new OktaSignIn({
@@ -296,11 +299,15 @@ var oktaSignIn = new OktaSignIn({
 
 ### Customize the Sign-In Widget Configurations
 
-📝 **Note** This section focuses on how you can change certain SIW configurations by defining properties passed to the OktaSignIn object. For more information, refer to the [Self-hosted SIW Customization Guide](https://developer.okta.com/docs/guides/custom-widget/main/#style-the-self-hosted-sign-in-widget).
+📝 **Note** The solution code for this lab is available on your VM at:
+
+```bash
+C:\ClassFiles\platform\osw\login_5-4_complete.html
+```
 
 1.  Return to `login.html` in **Atom**.
 
-2.  Edit the `oktaSignIn` variable as follows (including the comma after the `colors` section):
+2. 	Edit the `OktaSignIn` object as follows to define additional properties after the `colors` section:
 
 ```javascript
 colors: {
@@ -328,7 +335,7 @@ features: {
 }
 ```
 
-3.  Take a moment to digest what the `oktaSignIn` properties define:
+3.	Let’s break down these `OktaSignIn` properties:
 
 |**Property**     | **What it does**                                                              |
 |-----------------|-------------------------------------------------------------------------------|
@@ -343,9 +350,9 @@ features: {
 
 5.  Access http://localhost:8082/login.html and confirm the following changes to the Sign-In Widget:
 
-    a.  The displayed title changed from "Sign In" to "Okta Ice Portal SSO".
+    a.  The widget **title** has changed from "Sign In" to "Okta Ice Portal SSO".
 
-    b.  The Remember Me check box is no longer available.
+    b.  The **Remember Me** check box is no longer available.
 
     c.  The **Need help signing in?** display new options linking to custom pages.
 
@@ -361,7 +368,7 @@ features: {
 
 ### ✅ Checkpoint
 
-At this point, you explored popular UI customizations in the Sign-In Widget. In the next practice lab, you will learn to control and pause the Sign-In widget redirection after a successful login. Knowing how to control the Sign-In widget redirection can help you with routing users to any app after a successful authentication, as well as with extracting basic user information -- such as the user login and name -- during the authentication.
+At this point, you explored popular UI customizations in the Sign-In Widget. In the next practice lab, you will learn to control and pause redirection from the SIW after a successful login. This will allow you to route users to any application after a successful authentication. It will also allow you to extract basic user information (e.g., user login and name) upon authentication.
 
 ## Lab 5-4: Sign-in to App using the OpenID Connect Initiate SSO URL
 
@@ -374,6 +381,12 @@ At this point, you explored popular UI customizations in the Sign-In Widget. In 
 ⚠️ **Prerequisite:** Completion of [Module 1](module1.md), up to and including Lab 1-4
 
 ---
+
+📝 **Note** The solution code for this lab is available on your VM at:
+
+```bash
+C:\ClassFiles\platform\osw\login_5-4_complete.html
+```
 
 ### Enable redirect to the Promos Green app.
 
