@@ -423,7 +423,7 @@ var redirectUrl = 'http://localhost:8081/login';
 
 ```javascript
 if (res.status == 'SUCCESS') {
-  res.session.setCookieAndRedirect(redirectUrl);
+  res.session.setCookieAndRedirect(redirectUrl); // change this line
 }
 ```
 
@@ -450,6 +450,12 @@ if (res.status == 'SUCCESS') {
 ⚠️ **Prerequisite:** Completion of [Lab 5-1](module5.md/#lab-5-1-configure-a-custom-okta-hosted-sign-in-page)
 
 ---
+
+📝 **Note** The solution code for this lab is available on your VM at:
+
+```bash
+C:\ClassFiles\platform\osw\login_5-5_complete.html
+```
 
 ### Obtain the App Embed Link
 
