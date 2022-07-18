@@ -83,7 +83,7 @@ You should be redirected to the Okta Home page under your custom domain.
 
 🎯 **Objective:**   Develop your own page using the Okta Sign-In widget.  
 
-🎬 **Scenario**    Okta Ice decided to implement their own sign-in page to Okts.
+🎬 **Scenario**    Okta Ice decided to implement their own sign-in page to Okta.
 
 ⏱️ **Duration:**     15 minutes
 
@@ -115,9 +115,9 @@ An HTML page is displayed.
 
 📝 **Notes:**
 
--   In this task, you enable the Sign-In Widget by uncommenting lines within the `login.html` page.
+-   In this task, you enable the Okta Sign-In Widget (SIW) by uncommenting lines within the `login.html` page.
 
--   For your convenience, the code snippet provided with the login page is copied from the [Sign-In Widget documentation sample codes](http://developer.okta.com/code/javascript/okta_sign-in_widget#creating-an-html-file-with-the-widget-code).
+-   For your convenience, the code snippet provided with the login page is copied from the [SIW documentation sample code](http://developer.okta.com/code/javascript/okta_sign-in_widget#creating-an-html-file-with-the-widget-code).
 
 1.  In your VM, launch **Atom**.
 
@@ -136,7 +136,7 @@ An HTML page is displayed.
 |Uncomment                    | 9-10            | Access the Okta SIW JavaScript and CSS via CDN |
 |Comment                      | 15-17           | No longer needed as we are configuring the widget                    |
 |Uncomment                    | 19           | A div element that loads the sign-in widget in page                  |
-|Uncomment                    | 24-36        | JavaScript code in page that launches the Sign-In Widget in the page |
+|Uncomment                    | 24-38        | JavaScript code in page that launches the Sign-In Widget in the page |
 
 
 7.  Replace the **orgUrl** value to match your unique Okta Ice org.

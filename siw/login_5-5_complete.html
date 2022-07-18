@@ -6,54 +6,56 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Welcome to Okta Ice</title>
 	<!-- Okta Sign-In Widget: Core js and css -->
-  <script src="https://global.oktacdn.com/okta-signin-widget/4.3.5/js/okta-sign-in.min.js" type="text/javascript"></script>
-  <link href="https://global.oktacdn.com/okta-signin-widget/4.3.5/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
+  <script src="https://global.oktacdn.com/okta-signin-widget/6.5.0/js/okta-sign-in.min.js" type="text/javascript"></script>
+  <link href="https://global.oktacdn.com/okta-signin-widget/6.5.0/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
+  <!--Insert Custom CSS under here-->
   <style>
     body {
-      background-image: url("img/ice-cream-bg.jpg");
+      background-image: url("img/ice-cream-bg.png");
       background-size: cover;
     }
+    #okta-sign-in * {
+      color: #343633;
+    }
     #okta-sign-in .okta-sign-in-header {
-      background-color: #FFFFEE;
+      background-color: #343633;
     }
     #okta-sign-in .auth-content {
-      background-color: #FF5C5C;
-      color: #000000;
+      background-color: #B4EDD2;
     }
-    #okta-sign-in .okta-form-title{
-      color: #FFFFFF;
+    #okta-sign-in.auth-container a.link:link {
+    color: #343633;
     }
   </style>
 </head>
 <body>
-  <div class="title">Welcome to Okta Ice</div>
+  <!--<div class="title">Welcome to Okta Ice</div>
   <hr>
-  <!-- <div class="title">It would be awesome to have <br> a login form here</div> -->
+<div class="title">It would be awesome to have <br> a login form here</div> -->
 
   <div id="okta-login-container"></div>
 
   <div class="footer">
-    Copyright 2010-2020 Okta Ice. All rights reserved.
+    Copyright 2010-2022 Okta Ice. All rights reserved.
   </div>
 
   <script type="text/javascript">
-		var orgUrl = 'https://oktaiceXXX.oktapreview.com';
-    var redirectUrl = 'http://localhost:8081/login';
-    var clientId = '0xxxxxxxxxxxxxxxxx'
+		var orgUrl = 'https://oktaice###.oktapreview.com';
+    // add the following code:
+    var redirectUrl = '<EMBED_LINK>';
     var oktaSignIn = new OktaSignIn({
       baseUrl: orgUrl,
-      clientId:clientId,
-      redirectUri: redirectUrl,
-      authParams: {
-           responseType: 'code',
-           scopes: ['openid','email','profile']
-         },
-      logo: '/img/ice-logo.png',
+      logo: '/img/ice-logo.png', // add logo image
+      logoText: 'Okta Ice', // Text to describe the logo
+      brandName: 'Okta Ice', // Shows up in emails
+      colors: {
+        brand: '#cc99cc' // changes the color of the button
+        },
       i18n: {
         'en': {
-          'primaryauth.title': 'Okta Ice SSO',
-          'primaryauth.username.placeholder': 'Your ICE email',
-          'primaryauth.password.placeholder': 'Your ICE password'
+          'primaryauth.title': 'Okta Ice Portal SSO',
+          'primaryauth.username.placeholder': 'ICE E-mail',
+          'primaryauth.password.placeholder': 'ICE Password'            
         }
       },
       helpLinks: {
@@ -69,20 +71,15 @@
         selfServiceUnlock: true
       }
     });
-
     oktaSignIn.renderEl(
       { el: '#okta-login-container' },
       function (res) {
-        if (res.status === 'SUCCESS') {
+        if (res.status == 'SUCCESS') {
           res.session.setCookieAndRedirect(redirectUrl);
         }
-      },
-      function error(err) {
-        alert(err.message);
       }
     );
-	</script>
-
+	</script> 
 
   <!-- Default page style -->
   <style>
