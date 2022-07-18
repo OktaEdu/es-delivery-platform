@@ -117,7 +117,7 @@ An HTML page is displayed.
 
 -   In this task, you enable the Okta Sign-In Widget (SIW) by uncommenting lines within the `login.html` page.
 
--   For your convenience, the code snippet provided with the login page is copied from the [SIW documentation sample code](http://developer.okta.com/code/javascript/okta_sign-in_widget#creating-an-html-file-with-the-widget-code).
+-   For your convenience, the code snippet provided with the login page is copied from the [SIW documentation sample code](https://developer.okta.com/docs/guides/archive-embedded-siw/main/).
 
 1.  In your VM, launch **Atom**.
 
@@ -214,13 +214,13 @@ You're ready to test your integration.
 
 ### ✅ Checkpoint
 
-At this point, you installed, configured, and tested the Sign-In Widget. In the next practice lab, you will learn to perform the most popular UI customizations available in the Sign-In widget.
+At this point, you installed, configured, and tested the SIW. In the next lab, you will learn to perform the most popular UI customizations available in the SIW.
 
 ## Lab 5-3: Customize the Sign-In Widget UI
 
-🎯 **Objective:**  Perform the most popular Sign-In Widget customizations: rebranding, container, title, help tooltip, help links, and feature customizations.     
+🎯 **Objective:**  Perform the most popular SIW customizations: rebranding, container, title, help tooltip, help links, and feature customizations.     
 
-🎬 **Scenario**    Okta Ice decided to implement their own sign-in page to Okta. Now that you have the Sign-In Widget working, it's time to change the look and feel according to Okta Ice preferences. 
+🎬 **Scenario**    Okta Ice decided to implement their own sign-in page to Okta. Now that you have the SIW working, it's time to change the look and feel according to Okta Ice preferences. 
 
 ⏱️ **Duration:**   15 minutes
 
@@ -230,7 +230,7 @@ At this point, you installed, configured, and tested the Sign-In Widget. In the 
 either enter code manually or copy the code from:
 
 ```bash
-C:\ClassFiles\platform\osw\login_customize_complete.html
+C:\ClassFiles\platform\osw\login_5-3_complete.html
 ```
 
 ### Rebrand the Sign-In Widget Page and Login Container
@@ -261,17 +261,17 @@ C:\ClassFiles\platform\osw\login_customize_complete.html
   </style>
 ```
 
-3.  Take a look at the the CSS to see what it does:
+3.	Examine the CSS selectors:
 
 |**CSS Selector** | **What it does**                                                     |
 |-----------------|----------------------------------------------------------------------|
 |body             | Defines a general background for the entire login page               |
-|#okta-sign-in .* | Override the styles defined for the Sign-In Widget                   |
+|#okta-sign-in .* | Overwrite CSS of elements styles inside the okta-sign-in container                 |
 
-📝 **Note**: [More advanced customization options](https://github.com/okta/okta-signin-widget/blob/286611d539eaf987de7282416cd6328f837ac3af/docs/classic.md#colors) are available through modifying the Sass source files and building the widget. This requires using the [NPM module](https://github.com/okta/okta-signin-widget/blob/286611d539eaf987de7282416cd6328f837ac3af/docs/classic.md#using-the-npm-module) rather than accessing the Okta SIW assets [via CDN](https://github.com/okta/okta-signin-widget/blob/286611d539eaf987de7282416cd6328f837ac3af/docs/classic.md#using-the-okta-cdn), as we are here.
+📝 **Note**: You can read more about customizing the CSS from our [Custom Widget Guide](https://developer.okta.com/docs/guides/custom-widget/main/#modify-the-css). More advanced customization options are available through modifying the Sass source files and building the widget. This requires using the [NPM module](https://github.com/okta/okta-signin-widget/blob/286611d539eaf987de7282416cd6328f837ac3af/docs/classic.md#using-the-npm-module) rather than accessing the Okta SIW assets [via CDN](https://github.com/okta/okta-signin-widget/blob/286611d539eaf987de7282416cd6328f837ac3af/docs/classic.md#using-the-okta-cdn), as we are here.
 
 
-4.  Update the `oktaSignIn` variable to customize additional properties. This will add a logo and adjust the color of the Sign In button on the widget.
+4.  Update the `oktaSignIn` variable to customize additional properties. This will add a logo and adjust the color of the `Sign In` button on the widget.
 
 ```javascript
 var oktaSignIn = new OktaSignIn({
@@ -291,10 +291,9 @@ var oktaSignIn = new OktaSignIn({
    
 <img src="img/5-3-siw_branding.png" width=" 500px">
 
-### Customize the Sign-In Widget Settings
+### Customize the Sign-In Widget Configurations
 
-📝 **Note** This section focuses on how you can modify the variables passed to the OktaSignIn to change the sign-in widget settings. To know more
-about the JavaScript options available, check the [Sign-In Widget reference page](https://developer.okta.com/docs/guides/archive-embedded-siw/main/).
+📝 **Note** This section focuses on how you can change certain SIW configurations by defining properties passed to the OktaSignIn object. For more information, refer to the [Self-hosted SIW Customization Guide](https://developer.okta.com/docs/guides/custom-widget/main/#style-the-self-hosted-sign-in-widget).
 
 1.  Return to `login.html` in **Atom**.
 
