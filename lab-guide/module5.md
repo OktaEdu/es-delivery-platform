@@ -252,11 +252,11 @@ C:\ClassFiles\platform\osw\login_5-3_complete.html
     #okta-sign-in .okta-sign-in-header {
       background-color: #343633;
     }
-    #okta-sign-in .auth-content {
+    #okta-sign-in.auth-container.main-container {
       background-color: #B4EDD2;
     }
     #okta-sign-in.auth-container a.link:link {
-    color: #343633;
+      color: #343633;
     }
   </style>
 ```
@@ -265,8 +265,11 @@ C:\ClassFiles\platform\osw\login_5-3_complete.html
 
 |**CSS Selector** | **What it does**                                                     |
 |-----------------|----------------------------------------------------------------------|
-|body             | Defines a general background for the entire login page               |
-|#okta-sign-in .* | Overwrite CSS of elements styles inside the okta-sign-in container                 |
+|`body`             | Not specific to the SIW. Selects the body of the page. We use it here to define the page's background.             |
+|`#okta-sign-in *` | Selects all elements belonging to the okta-sign-in class. We use it here to set the font color within the SIW.   |    
+|`#okta-sign-in.auth-container.main-container` | Selects the main container of the SIW. We use it here to set the background color of the entire SIW.      |
+|`#okta-sign-in .okta-sign-in-header` | Selects the top portion of the SIW where the logo is located. We use it here to set it to a different background color than the one defined for the entire SIW to create some contrast.      |
+|`#okta-sign-in.auth-container a.link:link` | Selects the link text within the SIW. We use it here to override the default link text color.    |
 
 📝 **Note**: You can read more about customizing the CSS from our [Custom Widget Guide](https://developer.okta.com/docs/guides/custom-widget/main/#modify-the-css). More advanced customization options are available through modifying the Sass source files and building the widget. This requires using the [NPM module](https://github.com/okta/okta-signin-widget/blob/286611d539eaf987de7282416cd6328f837ac3af/docs/classic.md#using-the-npm-module) rather than accessing the Okta SIW assets [via CDN](https://github.com/okta/okta-signin-widget/blob/286611d539eaf987de7282416cd6328f837ac3af/docs/classic.md#using-the-okta-cdn), as we are here.
 
