@@ -536,7 +536,7 @@ In this lab, the user login is determined by concatenating the login with the us
 
 -   In this task, you implement the Auth JS by uncommenting lines within the `login_material.html` page.
 
--   For your convenience, the code snippet provided with the page is based on the [Auth JS documentation](https://developer.okta.com/code/javascript/okta_auth_sdk.html)
+-   For your convenience, the code snippet provided with the page is based on the [Auth JS fundamentals documentation](https://developer.okta.com/docs/guides/archive-auth-js/main/)
     
 1.  Return to **Atom** and open the `login_material.html` file.
 
