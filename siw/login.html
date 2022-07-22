@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Welcome to Okta Ice</title>
+	<!-- Okta Sign-In Widget: Core js and css -->
+  <!-- <script src="https://global.oktacdn.com/okta-signin-widget/6.5.0/js/okta-sign-in.min.js" type="text/javascript"></script> 
+  <link href="https://global.oktacdn.com/okta-signin-widget/6.5.0/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/> -->
+  <!--Insert Custom CSS under here-->
+</head>
+
+<body>
+  <div class="title">Welcome to Okta Ice</div>
+  <hr>
+  <div class="title">It would be awesome to have <br> a login form here</div>
+
+  <!-- <div id="okta-login-container"></div> -->
+
+  <div class="footer">
+    Copyright 2010-2022 Okta Ice. All rights reserved.
+  </div>
+<!--
+  <script type="text/javascript">
+		var orgUrl = 'https://oktaiceXXX.oktapreview.com';
+    var oktaSignIn = new OktaSignIn({baseUrl: orgUrl});
+    oktaSignIn.renderEl(
+      { el: '#okta-login-container' },
+      function (res) {
+        if (res.status === 'SUCCESS') {
+          res.session.setCookieAndRedirect(orgUrl);
+        }
+      }
+    );
+	</script> -->
+
+  <!-- Default page style -->
+  <style>
+    .title {
+      padding: 40px;
+      font: normal 34px/1 Verdana, Geneva, sans-serif;
+      color: black;
+      text-align: center;
+      letter-spacing: 7px;
+    }
+    .footer {
+      font: normal 14px/1 Verdana, Geneva, sans-serif;
+      padding: 10px;
+      color: black;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: #F0F0F0;
+    }
+  </style>
+  <!-- Default page style -->
+</body>
+</html>
