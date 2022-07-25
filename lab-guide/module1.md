@@ -320,7 +320,7 @@ to `/.well-known/openid-configuration`.
 2.  Install the Okta Auth JavaScript SDK:
 
 ```bash
-npm install \@okta/okta-auth-js@4.9.x \--save
+npm install @okta/okta-auth-js@4.9.x --save
 ```
 
 3.  Set the host name for your Okta org, for example, **oktaice###**.
