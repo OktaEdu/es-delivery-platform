@@ -202,7 +202,7 @@ Password: Tra!nme4321
   |**Field**                       | **Value**                            |
   |---------------------------------|-------------------------------------|
   | Name                            | Retailers                           |
-  |Group Description                | All retailers                       |
+  | Description                | All retailers                       |
 
 
 5.  Click `Save`.

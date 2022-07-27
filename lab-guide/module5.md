@@ -42,7 +42,7 @@ Copyright 2022 Okta, Inc. All Rights Reserved.
 3.  Copy the contents from the followinf file:
 
 ```bash
-C:\ClassFiles\platform\osw\ice-signon-html.txt
+C:\ClassFiles\platform\siw\ice-signon-html.txt
 ```
 
 4.  Paste the contents into the HTML section on the Sign In Page code editor, overwriting the default HTML markup.
@@ -91,7 +91,7 @@ You should be redirected to the Okta Home page under your custom domain.
 📝 **Note** The solution code for this lab is available on your VM at:
 
 ```bash
-C:\ClassFiles\platform\osw\login_5-2_complete.html
+C:\ClassFiles\platform\siw\login_5-2_complete.html
 ```
 
 ### Launch the HTTP Server
@@ -101,7 +101,7 @@ C:\ClassFiles\platform\osw\login_5-2_complete.html
 2.  Navigate to the directory holding the Okta Sign-in Widget:
 
 ```bash
-cd \classfiles\platform\osw
+cd \classfiles\platform\siw
 ```
 
 3.  Launch the `http-server` utility with the following command:
@@ -130,7 +130,7 @@ An HTML page is displayed.
 
 3.  Click `File` > `Open Folder`.
 
-4.  Navigate to `C:\ClassFiles\platform`, then select the `osw` folder.
+4.  Navigate to `C:\ClassFiles\platform`, then select the `siw` folder.
 
 5.  In the left pane, open the **login.html** file.
 
@@ -234,7 +234,7 @@ At this point, you installed, configured, and tested the SIW. In the next lab, y
 📝 **Note** The solution code for this lab is available on your VM at:
 
 ```bash
-C:\ClassFiles\platform\osw\login_5-3_complete.html
+C:\ClassFiles\platform\siw\login_5-3_complete.html
 ```
 
 ### Rebrand the Sign-In Widget Page and Login Container
@@ -302,7 +302,7 @@ var oktaSignIn = new OktaSignIn({
 📝 **Note** The solution code for this lab is available on your VM at:
 
 ```bash
-C:\ClassFiles\platform\osw\login_5-4_complete.html
+C:\ClassFiles\platform\siw\login_5-4_complete.html
 ```
 
 1.  Return to `login.html` in **Atom**.
@@ -385,7 +385,7 @@ At this point, you explored popular UI customizations in the Sign-In Widget. In 
 📝 **Note** The solution code for this lab is available on your VM at:
 
 ```bash
-C:\ClassFiles\platform\osw\login_5-4_complete.html
+C:\ClassFiles\platform\siw\login_5-4_complete.html
 ```
 
 ### Enable redirect to the Promos Green app.
@@ -454,7 +454,7 @@ if (res.status == 'SUCCESS') {
 📝 **Note** The solution code for this lab is available on your VM at:
 
 ```bash
-C:\ClassFiles\platform\osw\login_5-5_complete.html
+C:\ClassFiles\platform\siw\login_5-5_complete.html
 ```
 
 ### Obtain the App Embed Link
