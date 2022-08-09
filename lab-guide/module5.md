@@ -140,8 +140,8 @@ An HTML page is displayed.
 |-----------------------------|--------------|----------------------------------------------------------------------|
 |Uncomment                    | 9-10            | Access the Okta SIW JavaScript and CSS via CDN |
 |Comment                      | 15-17           | No longer needed as we are configuring the widget                    |
-|Uncomment                    | 19           | A div element that loads the sign-in widget in page                  |
-|Uncomment                    | 24-38        | JavaScript code in page that launches the Sign-In Widget in the page |
+|Uncomment                    | 19           | A div element where we will render the Sign-In Widget                  |
+|Uncomment                    | 24-36        | JavaScript that renders the Sign-In Widget in the page |
 
 
 7.  Replace the **orgUrl** value to match your unique Okta Ice org.
