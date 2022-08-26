@@ -57,23 +57,16 @@ Copyright 2022 Okta, Inc. All Rights Reserved.
 
 ### Configure the Postman Environment
 
-1.  In the VM, launch the **Postman** app (an orange circular icon).
-
-2.  Click the `Import` button on the top left of the application.
-
+1.	In the VM, launch the Postman app (an orange circular icon).
+2.	Click the `Import` button on the top left of the application.
 3.	Click `Upload Files`.
-
-4.  Navigate to `C:\ClassFiles\platform\rest\`.
-
-5.  Open the `postman_environment.json` file.
-
-6.  Click on the name of the environment, `example.oktapreview.com`.
-
-7.  Rename the environment from `example.oktapreview.com` to
-    `oktaice###.oktapreview.com`, replacing `###` with your unique
-    Okta org number.
-
-8.  Update the following environment variables (change both `Initial Value` and `Current Value`):
+4.	Navigate to `C:\ClassFiles\platform\rest\`.
+5.	Open the `postman_environment.json` file.
+6.	At the top of Postman, you will see a drop down that says No Environment. Click this drop down and select the environment you just imported: example.oktapreview.com.
+7.	Click the eyeball icon next to the environment name to open up a quick look at the environment variables in this environment.
+8.	Click Edit.
+9.	Rename the environment from `example.oktapreview.com` to `oktaice###.oktapreview.com`, replacing `###` with your unique Okta org number.
+10.	Update the **CURRENT VALUE**  (not INITIAL VALUE) of each environment variable specified below:
 
 |**VARIABLE**       | **INITIAL VALUE**                  | **CURRENT VALUE**                 |
 |-------------------|------------------------------------|-----------------------------------|
@@ -81,22 +74,17 @@ Copyright 2022 Okta, Inc. All Rights Reserved.
 | <ul><li>- [x] apikey</li></ul>| Your `API Token` saved in Wordpad  | Your `API Token` saved in Wordpad |
 | <ul><li>- [x] email-suffix</li></ul>| `oktaice.com`                |          `oktaice.com`            |
 
-
-9.  Click `Update`.
-
-10. Close the dialog box.
-
-11. On the top-right corner, change `No Environment` to your newly created one, `oktaice###.oktapreview.com`
-
-<img src="img/2-1-postman_new_env.png" width="400px">
+11.	Click `Persist All`.
+12.	Click `Save`.
+13.	You may now close the environment variable tab.
 
 ### Import Postman Collections
 
 📝 **Note** In this section, you import the same API collections provided by Okta at [developer.okta.com](https://developer.okta.com/). For your convenience, we already downloaded all collections to your disk.
 
-1.	Click the `Import` button on the top left of the application.
+1.	Click the Import button on the top left of the application.
 
-2.	Click `Upload Files`.
+2.	Click Upload Files.
 
 3.  Navigate to `C:\ClassFiles\platform\rest\collections\`
 
