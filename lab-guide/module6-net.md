@@ -28,6 +28,7 @@ Copyright 2022 Okta, Inc. All Rights Reserved.
 
 ⚠️ **Prerequisite**: Completion of [Lab 3-2](module3.md/#lab-3-2-create-a-registration-page-using-the-okta-management-sdk---net).
 
+📝 **Note:** This lab requires `OktaAPILab`, which you should have created during [Lab 3-2](module3.md/#lab-3-2-create-a-registration-page-using-the-okta-management-sdk---net).
 ---
 
 ### Open the OktaAPILab
