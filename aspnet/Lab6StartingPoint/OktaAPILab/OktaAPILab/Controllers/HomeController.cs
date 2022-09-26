@@ -58,7 +58,8 @@ namespace OktaAPILab.Controllers
              * and instantiate a new instance of the OktaClient with
              * these configurations
              */
-            OktaClientConfiguration oktaConfig = null;
+            // OktaClientConfiguration oktaConfig = null;
+            // OktaClient oktaClient = null;
 
 
             try
