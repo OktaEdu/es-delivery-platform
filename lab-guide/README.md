@@ -2,6 +2,10 @@
 
 Copyright 2022 Okta, Inc. All Rights Reserved.
 
+Release Version 2022.05.10
+
+Last Updated: September 26, 2022
+
 ## Labs
 
   - [Module 1: Describe Okta Identity Platform](module1.md)
