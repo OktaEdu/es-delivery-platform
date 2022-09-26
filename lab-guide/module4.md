@@ -339,9 +339,9 @@ The `Add Rule` dialog box is displayed.
 |IF User's IP is              | Anywhere                                  |
 |AND Authenticates via        | Any                                       |
 |THEN Access is               | Allowed                                   |
-|Prompt for factor            | (CHECKED)                                 |
-|Every time                   | (SELECTED)                                |
-|Session expires after        | 1 Hours                                   |
+|Multifactor authentication (MFA) is          | Required                                |
+|Users will be prompted for MFA       | At every sign in                             |
+|Expire session after user has been idle on Okta for    | 1 Hours                                    |
 
 8.  Click `Create Rule`.
 
