@@ -28,7 +28,6 @@ Copyright 2022 Okta, Inc. All Rights Reserved.
 
 ⚠️ **Prerequisite**: Completion of [Lab 3-2](module3.md/#lab-3-2-create-a-registration-page-using-the-okta-management-sdk---net).
 
-📝 **Note:** This lab requires `OktaAPILab`, which you should have created during [Lab 3-2](module3.md/#lab-3-2-create-a-registration-page-using-the-okta-management-sdk---net).
 ---
 
 ### Open the OktaAPILab
@@ -62,11 +61,9 @@ private readonly string _oktaApiToken = "abc123";
 
 1.	In the Solution Explorer pane, open the `Views` > `Account` > `Login.cshtml` file.
 
-2.	Below the “Use an Okta Account to Log In” `<h4>` tag, add more `<h4>` tags to display the Session Token from the controller:
+2.	Add an additional `<h4>` tag under the comment to display the Session Token from the controller:
 
 ```html
-<h4>Use an Okta Account to log in.</h4>
-<h4 style="color:green">@ViewBag.Status</h4>
  <!--
     👇 Lab 6-1: Add an additional h4 tag below to display the Session Token
  -->
