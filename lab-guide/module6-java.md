@@ -27,6 +27,8 @@ Copyright 2022 Okta, Inc. All Rights Reserved.
 
 ⏱️ **Duration:**   20 minutes
 
+⚠️ **Prerequisite**: Completion of [Lab 3-2](module3.md/#lab-3-2-create-a-registration-page-using-the-okta-management-sdk---java).
+
 ---
 
 ### Update the View for Authentication
