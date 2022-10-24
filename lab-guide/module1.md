@@ -217,7 +217,7 @@ Password: Tra!nme4321
 
 4.  In the search results to the right of Kay West’s name, click the `+` button to add them to the Retailers group.
 
-5.  Click `Save`.
+5.  Click `Done`.
 
 ## Lab 1-4: Launch and Configure the Promos OIDC App
 
