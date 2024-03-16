@@ -1,4 +1,8 @@
 # Okta Customer Identity For Developers (CI4D) Lab Codebase
+
+#### Disclaimer: For educational purposes only. Not for production.
+#### This is an older version of the course for learners who use Okta Classic.
+
 The CI4D course (formerly known as Platform) is a three-day course targeting the Developer persona. This repo maintains the codebase used in the hands-on labs portion of the course. Currently, learners have a choice of completing the coding portions of the labs in either Java or .NET.
 
 ## Table of Contents
